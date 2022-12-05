@@ -1,0 +1,28 @@
+{
+  "gimnasioApp": {
+    "inventario": {
+      "home": {
+        "title": "Inventarios",
+        "createLabel": "Créer un nouveau Inventario",
+        "createOrEditLabel": "Créer ou éditer un Inventario"
+      },
+      "created": "Un nouveau Inventario a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Inventario avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Inventario avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Inventario {{ id }} ?"
+      },
+      "detail": {
+        "title": "Inventario"
+      },
+      "ref": "Ref",
+      "nombre": "Nombre",
+      "descripcion": "Descripcion",
+      "cantidad": "Cantidad",
+      "estado": "Estado",
+      "ultRevision": "Ult Revision",
+      "periodoRevision": "Periodo Revision",
+      "proveedor": "Proveedor"
+    }
+  }
+}

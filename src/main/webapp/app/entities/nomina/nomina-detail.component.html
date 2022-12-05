@@ -1,0 +1,31 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="nomina">
+            <h2><span jhiTranslate="gimnasioApp.nomina.detail.title">Nomina</span> {{nomina.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gimnasioApp.nomina.iban">Iban</span></dt>
+                <dd>
+                    <span>{{nomina.iban}}</span>
+                </dd>
+                <dt><span jhiTranslate="gimnasioApp.nomina.tipoContrato">Tipo Contrato</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'gimnasioApp.TipoNomina.' + nomina.tipoContrato}}">{{nomina.tipoContrato}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/nomina', nomina.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

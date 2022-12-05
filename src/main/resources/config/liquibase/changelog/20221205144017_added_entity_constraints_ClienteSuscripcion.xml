@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity ClienteSuscripcion.
+    -->
+    <changeSet id="20221205144017-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="cliente_id"
+                                 baseTableName="cliente_suscripcion"
+                                 constraintName="fk_cliente_suscripcion_cliente_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cliente"/>
+
+        <addForeignKeyConstraint baseColumnNames="suscripcion_id"
+                                 baseTableName="cliente_suscripcion"
+                                 constraintName="fk_cliente_suscripcion_suscripcion_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="suscripcion"/>
+
+    </changeSet>
+</databaseChangeLog>

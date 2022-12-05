@@ -103,7 +103,6 @@ entity Proveedor {
 }
 
 relationship ManyToOne {
-    Empleado{especialidad} to Especialidad,
     ClaseCliente{cliente} to Cliente,
     ClaseCliente{clase} to Clase,
     ClienteSuscripcion{suscripcion} to Suscripcion,

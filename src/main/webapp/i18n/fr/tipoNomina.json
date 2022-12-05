@@ -1,0 +1,10 @@
+{
+  "gimnasioApp": {
+    "TipoNomina": {
+      "null": "",
+      "Temporal": "Temporal",
+      "Indefinido": "Indefinido",
+      "Practicas": "Practicas"
+    }
+  }
+}

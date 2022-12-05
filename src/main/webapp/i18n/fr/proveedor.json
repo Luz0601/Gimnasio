@@ -1,0 +1,23 @@
+{
+  "gimnasioApp": {
+    "proveedor": {
+      "home": {
+        "title": "Proveedors",
+        "createLabel": "Créer un nouveau Proveedor",
+        "createOrEditLabel": "Créer ou éditer un Proveedor"
+      },
+      "created": "Un nouveau Proveedor a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Proveedor avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Proveedor avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Proveedor {{ id }} ?"
+      },
+      "detail": {
+        "title": "Proveedor"
+      },
+      "nombre": "Nombre",
+      "telefono": "Telefono",
+      "email": "Email"
+    }
+  }
+}

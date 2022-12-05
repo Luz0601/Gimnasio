@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="proveedor">
+            <h2><span jhiTranslate="gimnasioApp.proveedor.detail.title">Proveedor</span> {{proveedor.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gimnasioApp.proveedor.nombre">Nombre</span></dt>
+                <dd>
+                    <span>{{proveedor.nombre}}</span>
+                </dd>
+                <dt><span jhiTranslate="gimnasioApp.proveedor.telefono">Telefono</span></dt>
+                <dd>
+                    <span>{{proveedor.telefono}}</span>
+                </dd>
+                <dt><span jhiTranslate="gimnasioApp.proveedor.email">Email</span></dt>
+                <dd>
+                    <span>{{proveedor.email}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/proveedor', proveedor.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

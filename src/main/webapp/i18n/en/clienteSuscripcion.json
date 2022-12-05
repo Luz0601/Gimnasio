@@ -1,0 +1,24 @@
+{
+  "gimnasioApp": {
+    "clienteSuscripcion": {
+      "home": {
+        "title": "Cliente Suscripcions",
+        "createLabel": "Create a new Cliente Suscripcion",
+        "createOrEditLabel": "Create or edit a Cliente Suscripcion"
+      },
+      "created": "A new Cliente Suscripcion is created with identifier {{ param }}",
+      "updated": "A Cliente Suscripcion is updated with identifier {{ param }}",
+      "deleted": "A Cliente Suscripcion is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Cliente Suscripcion {{ id }}?"
+      },
+      "detail": {
+        "title": "Cliente Suscripcion"
+      },
+      "ultimoPago": "Ultimo Pago",
+      "metodoPago": "Metodo Pago",
+      "cliente": "Cliente",
+      "suscripcion": "Suscripcion"
+    }
+  }
+}

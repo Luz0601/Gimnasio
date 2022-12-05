@@ -1,0 +1,22 @@
+{
+  "gimnasioApp": {
+    "suscripcion": {
+      "home": {
+        "title": "Suscripcions",
+        "createLabel": "Créer un nouveau Suscripcion",
+        "createOrEditLabel": "Créer ou éditer un Suscripcion"
+      },
+      "created": "Un nouveau Suscripcion a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Suscripcion avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Suscripcion avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Suscripcion {{ id }} ?"
+      },
+      "detail": {
+        "title": "Suscripcion"
+      },
+      "precio": "Precio",
+      "periodo": "Periodo"
+    }
+  }
+}

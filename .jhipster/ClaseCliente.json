@@ -1,0 +1,29 @@
+{
+    "name": "ClaseCliente",
+    "fields": [],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "cliente",
+            "otherEntityRelationshipName": "claseCliente",
+            "relationshipName": "cliente",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "clase",
+            "otherEntityRelationshipName": "claseCliente",
+            "relationshipName": "clase",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20221205144018",
+    "entityTableName": "clase_cliente",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

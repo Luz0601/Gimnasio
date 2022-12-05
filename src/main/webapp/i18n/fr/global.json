@@ -7,6 +7,18 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entités",
+        "clase": "Clase",
+        "suscripcion": "Suscripcion",
+        "empleado": "Empleado",
+        "cliente": "Cliente",
+        "incidencia": "Incidencia",
+        "puesto": "Puesto",
+        "nomina": "Nomina",
+        "vacaciones": "Vacaciones",
+        "clienteSuscripcion": "Cliente Suscripcion",
+        "claseCliente": "Clase Cliente",
+        "inventario": "Inventario",
+        "proveedor": "Proveedor",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

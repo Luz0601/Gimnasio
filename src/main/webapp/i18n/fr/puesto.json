@@ -1,0 +1,23 @@
+{
+  "gimnasioApp": {
+    "puesto": {
+      "home": {
+        "title": "Puestos",
+        "createLabel": "Créer un nouveau Puesto",
+        "createOrEditLabel": "Créer ou éditer un Puesto"
+      },
+      "created": "Un nouveau Puesto a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Puesto avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Puesto avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Puesto {{ id }} ?"
+      },
+      "detail": {
+        "title": "Puesto"
+      },
+      "nombre": "Nombre",
+      "horario": "Horario",
+      "salario": "Salario"
+    }
+  }
+}

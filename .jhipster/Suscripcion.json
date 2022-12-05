@@ -1,0 +1,24 @@
+{
+    "name": "Suscripcion",
+    "fields": [
+        {
+            "fieldName": "precio",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "periodo",
+            "fieldType": "PeriodoSuscripcion",
+            "fieldValues": "Mensual,Trimestral,Anual"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20221205144010",
+    "entityTableName": "suscripcion",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

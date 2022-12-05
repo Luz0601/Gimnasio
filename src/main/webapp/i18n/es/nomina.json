@@ -1,0 +1,22 @@
+{
+  "gimnasioApp": {
+    "nomina": {
+      "home": {
+        "title": "Nominas",
+        "createLabel": "Crear nuevo Nomina",
+        "createOrEditLabel": "Crear o editar Nomina"
+      },
+      "created": "Un nuevo Nomina ha sido creado con el identificador {{ param }}",
+      "updated": "Un Nomina ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Nomina ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Nomina {{ id }}?"
+      },
+      "detail": {
+        "title": "Nomina"
+      },
+      "iban": "Iban",
+      "tipoContrato": "Tipo Contrato"
+    }
+  }
+}

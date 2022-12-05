@@ -1,0 +1,71 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="empleado">
+            <h2><span jhiTranslate="gimnasioApp.empleado.detail.title">Empleado</span> {{empleado.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gimnasioApp.empleado.dni">Dni</span></dt>
+                <dd>
+                    <span>{{empleado.dni}}</span>
+                </dd>
+                <dt><span jhiTranslate="gimnasioApp.empleado.nombre">Nombre</span></dt>
+                <dd>
+                    <span>{{empleado.nombre}}</span>
+                </dd>
+                <dt><span jhiTranslate="gimnasioApp.empleado.apellido">Apellido</span></dt>
+                <dd>
+                    <span>{{empleado.apellido}}</span>
+                </dd>
+                <dt><span jhiTranslate="gimnasioApp.empleado.telefono">Telefono</span></dt>
+                <dd>
+                    <span>{{empleado.telefono}}</span>
+                </dd>
+                <dt><span jhiTranslate="gimnasioApp.empleado.fechaNacimiento">Fecha Nacimiento</span></dt>
+                <dd>
+                    <span>{{empleado.fechaNacimiento}}</span>
+                </dd>
+                <dt><span jhiTranslate="gimnasioApp.empleado.email">Email</span></dt>
+                <dd>
+                    <span>{{empleado.email}}</span>
+                </dd>
+                <dt><span jhiTranslate="gimnasioApp.empleado.direccion">Direccion</span></dt>
+                <dd>
+                    <span>{{empleado.direccion}}</span>
+                </dd>
+                <dt><span jhiTranslate="gimnasioApp.empleado.diasVacaciones">Dias Vacaciones</span></dt>
+                <dd>
+                    <span>{{empleado.diasVacaciones}}</span>
+                </dd>
+                <dt><span jhiTranslate="gimnasioApp.empleado.especialidad">Especialidad</span></dt>
+                <dd>
+                    <span>{{empleado.especialidad}}</span>
+                </dd>
+                <dt><span jhiTranslate="gimnasioApp.empleado.nomina">Nomina</span></dt>
+                <dd>
+                    <div *ngIf="empleado.nominaId">
+                        <a [routerLink]="['/nomina', empleado.nominaId, 'view']">{{empleado.nominaId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gimnasioApp.empleado.puesto">Puesto</span></dt>
+                <dd>
+                    <div *ngIf="empleado.puestoId">
+                        <a [routerLink]="['/puesto', empleado.puestoId, 'view']">{{empleado.puestoId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/empleado', empleado.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

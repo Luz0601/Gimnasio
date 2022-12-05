@@ -1,0 +1,27 @@
+{
+  "gimnasioApp": {
+    "clase": {
+      "home": {
+        "title": "Clases",
+        "createLabel": "Crear nuevo Clase",
+        "createOrEditLabel": "Crear o editar Clase"
+      },
+      "created": "Un nuevo Clase ha sido creado con el identificador {{ param }}",
+      "updated": "Un Clase ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Clase ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Clase {{ id }}?"
+      },
+      "detail": {
+        "title": "Clase"
+      },
+      "nombre": "Nombre",
+      "descripcion": "Descripcion",
+      "lugar": "Lugar",
+      "inicio": "Inicio",
+      "fin": "Fin",
+      "incidencias": "Incidencias",
+      "monitor": "Monitor"
+    }
+  }
+}

@@ -1,0 +1,78 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="gimnasioApp.clase.home.title">Clases</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-clase" [routerLink]="['/clase/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="gimnasioApp.clase.home.createLabel">
+            Create new Clase
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="clases">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nombre"><span jhiTranslate="gimnasioApp.clase.nombre">Nombre</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="descripcion"><span jhiTranslate="gimnasioApp.clase.descripcion">Descripcion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="lugar"><span jhiTranslate="gimnasioApp.clase.lugar">Lugar</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="inicio"><span jhiTranslate="gimnasioApp.clase.inicio">Inicio</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fin"><span jhiTranslate="gimnasioApp.clase.fin">Fin</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="incidencias"><span jhiTranslate="gimnasioApp.clase.incidencias">Incidencias</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="monitorId"><span jhiTranslate="gimnasioApp.clase.monitor">Monitor</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let clase of clases ;trackBy: trackId">
+                <td><a [routerLink]="['/clase', clase.id, 'view' ]">{{clase.id}}</a></td>
+                <td>{{clase.nombre}}</td>
+                <td>{{clase.descripcion}}</td>
+                <td>{{clase.lugar}}</td>
+                <td>{{clase.inicio | date:'mediumDate'}}</td>
+                <td>{{clase.fin | date:'mediumDate'}}</td>
+                <td>{{clase.incidencias}}</td>
+                <td>
+                    <div *ngIf="clase.monitorId">
+                        <a [routerLink]="['../empleado', clase.monitorId , 'view' ]" >{{clase.monitorId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/clase', clase.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/clase', clase.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'clase', { outlets: { popup: clase.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="clases && clases.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

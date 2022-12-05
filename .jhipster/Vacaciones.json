@@ -1,0 +1,32 @@
+{
+    "name": "Vacaciones",
+    "fields": [
+        {
+            "fieldName": "inicio",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "fin",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "empleado",
+            "otherEntityRelationshipName": "vacaciones",
+            "relationshipName": "empleado",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20221205144016",
+    "entityTableName": "vacaciones",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

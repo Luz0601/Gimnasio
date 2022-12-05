@@ -1,0 +1,42 @@
+{
+    "name": "ClienteSuscripcion",
+    "fields": [
+        {
+            "fieldName": "ultimoPago",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "metodoPago",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "cliente",
+            "otherEntityRelationshipName": "clienteSuscripcion",
+            "relationshipName": "cliente",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "suscripcion",
+            "otherEntityRelationshipName": "clienteSuscripcion",
+            "relationshipName": "suscripcion",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20221205144017",
+    "entityTableName": "cliente_suscripcion",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

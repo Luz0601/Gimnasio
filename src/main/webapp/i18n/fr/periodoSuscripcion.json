@@ -1,0 +1,10 @@
+{
+  "gimnasioApp": {
+    "PeriodoSuscripcion": {
+      "null": "",
+      "Mensual": "Mensual",
+      "Trimestral": "Trimestral",
+      "Anual": "Anual"
+    }
+  }
+}

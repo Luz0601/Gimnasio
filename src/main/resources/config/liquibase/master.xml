@@ -5,6 +5,25 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221205144009_added_entity_Clase.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221205144010_added_entity_Suscripcion.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221205144011_added_entity_Empleado.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221205144012_added_entity_Cliente.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221205144013_added_entity_Incidencia.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221205144014_added_entity_Puesto.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221205144015_added_entity_Nomina.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221205144016_added_entity_Vacaciones.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221205144017_added_entity_ClienteSuscripcion.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221205144018_added_entity_ClaseCliente.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221205144019_added_entity_Inventario.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221205144020_added_entity_Proveedor.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20221205144009_added_entity_constraints_Clase.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221205144011_added_entity_constraints_Empleado.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221205144013_added_entity_constraints_Incidencia.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221205144016_added_entity_constraints_Vacaciones.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221205144017_added_entity_constraints_ClienteSuscripcion.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221205144018_added_entity_constraints_ClaseCliente.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221205144019_added_entity_constraints_Inventario.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

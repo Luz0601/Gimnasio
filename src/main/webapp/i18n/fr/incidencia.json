@@ -1,0 +1,23 @@
+{
+  "gimnasioApp": {
+    "incidencia": {
+      "home": {
+        "title": "Incidencias",
+        "createLabel": "Créer un nouveau Incidencia",
+        "createOrEditLabel": "Créer ou éditer un Incidencia"
+      },
+      "created": "Un nouveau Incidencia a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Incidencia avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Incidencia avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Incidencia {{ id }} ?"
+      },
+      "detail": {
+        "title": "Incidencia"
+      },
+      "nombre": "Nombre",
+      "descripcion": "Descripcion",
+      "clase": "Clase"
+    }
+  }
+}

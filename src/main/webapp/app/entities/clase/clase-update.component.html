@@ -1,0 +1,87 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-clase-heading" jhiTranslate="gimnasioApp.clase.home.createOrEditLabel">Create or edit a Clase</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!clase.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gimnasioApp.clase.nombre" for="field_nombre">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" id="field_nombre"
+                           formControlName="nombre"/>
+                    <div *ngIf="editForm.get('nombre').invalid && (editForm.get('nombre').dirty || editForm.get('nombre').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nombre').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gimnasioApp.clase.descripcion" for="field_descripcion">Descripcion</label>
+                    <input type="text" class="form-control" name="descripcion" id="field_descripcion"
+                           formControlName="descripcion"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gimnasioApp.clase.lugar" for="field_lugar">Lugar</label>
+                    <input type="text" class="form-control" name="lugar" id="field_lugar"
+                           formControlName="lugar"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gimnasioApp.clase.inicio" for="field_inicio">Inicio</label>
+                    <div class="input-group">
+                        <input id="field_inicio" type="text" class="form-control" name="inicio" ngbDatepicker  #inicioDp="ngbDatepicker" formControlName="inicio"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="inicioDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('inicio').invalid && (editForm.get('inicio').dirty || editForm.get('inicio').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('inicio').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gimnasioApp.clase.fin" for="field_fin">Fin</label>
+                    <div class="input-group">
+                        <input id="field_fin" type="text" class="form-control" name="fin" ngbDatepicker  #finDp="ngbDatepicker" formControlName="fin"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="finDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('fin').invalid && (editForm.get('fin').dirty || editForm.get('fin').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('fin').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gimnasioApp.clase.incidencias" for="field_incidencias">Incidencias</label>
+                    <input type="checkbox" class="form-control" name="incidencias" id="field_incidencias"
+                           formControlName="incidencias"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gimnasioApp.clase.monitor" for="field_monitor">Monitor</label>
+                    <select class="form-control" id="field_monitor" name="monitor" formControlName="monitorId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="empleadoOption.id" *ngFor="let empleadoOption of monitors; trackBy: trackEmpleadoById">{{empleadoOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+{
+  "gimnasioApp": {
+    "vacaciones": {
+      "home": {
+        "title": "Vacaciones",
+        "createLabel": "Créer un nouveau Vacaciones",
+        "createOrEditLabel": "Créer ou éditer un Vacaciones"
+      },
+      "created": "Un nouveau Vacaciones a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Vacaciones avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Vacaciones avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Vacaciones {{ id }} ?"
+      },
+      "detail": {
+        "title": "Vacaciones"
+      },
+      "inicio": "Inicio",
+      "fin": "Fin",
+      "empleado": "Empleado"
+    }
+  }
+}

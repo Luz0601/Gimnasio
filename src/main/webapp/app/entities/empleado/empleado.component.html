@@ -1,0 +1,90 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="gimnasioApp.empleado.home.title">Empleados</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-empleado" [routerLink]="['/empleado/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="gimnasioApp.empleado.home.createLabel">
+            Create new Empleado
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="empleados">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dni"><span jhiTranslate="gimnasioApp.empleado.dni">Dni</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nombre"><span jhiTranslate="gimnasioApp.empleado.nombre">Nombre</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="apellido"><span jhiTranslate="gimnasioApp.empleado.apellido">Apellido</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="telefono"><span jhiTranslate="gimnasioApp.empleado.telefono">Telefono</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fechaNacimiento"><span jhiTranslate="gimnasioApp.empleado.fechaNacimiento">Fecha Nacimiento</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="email"><span jhiTranslate="gimnasioApp.empleado.email">Email</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="direccion"><span jhiTranslate="gimnasioApp.empleado.direccion">Direccion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="diasVacaciones"><span jhiTranslate="gimnasioApp.empleado.diasVacaciones">Dias Vacaciones</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="especialidad"><span jhiTranslate="gimnasioApp.empleado.especialidad">Especialidad</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nominaId"><span jhiTranslate="gimnasioApp.empleado.nomina">Nomina</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="puestoId"><span jhiTranslate="gimnasioApp.empleado.puesto">Puesto</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let empleado of empleados ;trackBy: trackId">
+                <td><a [routerLink]="['/empleado', empleado.id, 'view' ]">{{empleado.id}}</a></td>
+                <td>{{empleado.dni}}</td>
+                <td>{{empleado.nombre}}</td>
+                <td>{{empleado.apellido}}</td>
+                <td>{{empleado.telefono}}</td>
+                <td>{{empleado.fechaNacimiento | date:'mediumDate'}}</td>
+                <td>{{empleado.email}}</td>
+                <td>{{empleado.direccion}}</td>
+                <td>{{empleado.diasVacaciones}}</td>
+                <td>{{empleado.especialidad}}</td>
+                <td>
+                    <div *ngIf="empleado.nominaId">
+                        <a [routerLink]="['../nomina', empleado.nominaId , 'view' ]" >{{empleado.nominaId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="empleado.puestoId">
+                        <a [routerLink]="['../puesto', empleado.puestoId , 'view' ]" >{{empleado.puestoId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/empleado', empleado.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/empleado', empleado.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'empleado', { outlets: { popup: empleado.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="empleados && empleados.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

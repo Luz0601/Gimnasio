@@ -1,0 +1,80 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="gimnasioApp.inventario.home.title">Inventarios</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-inventario" [routerLink]="['/inventario/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="gimnasioApp.inventario.home.createLabel">
+            Create new Inventario
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="inventarios">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="ref"><span jhiTranslate="gimnasioApp.inventario.ref">Ref</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nombre"><span jhiTranslate="gimnasioApp.inventario.nombre">Nombre</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="descripcion"><span jhiTranslate="gimnasioApp.inventario.descripcion">Descripcion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="cantidad"><span jhiTranslate="gimnasioApp.inventario.cantidad">Cantidad</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="estado"><span jhiTranslate="gimnasioApp.inventario.estado">Estado</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="ultRevision"><span jhiTranslate="gimnasioApp.inventario.ultRevision">Ult Revision</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="periodoRevision"><span jhiTranslate="gimnasioApp.inventario.periodoRevision">Periodo Revision</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="proveedorId"><span jhiTranslate="gimnasioApp.inventario.proveedor">Proveedor</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let inventario of inventarios ;trackBy: trackId">
+                <td><a [routerLink]="['/inventario', inventario.id, 'view' ]">{{inventario.id}}</a></td>
+                <td>{{inventario.ref}}</td>
+                <td>{{inventario.nombre}}</td>
+                <td>{{inventario.descripcion}}</td>
+                <td>{{inventario.cantidad}}</td>
+                <td>{{inventario.estado}}</td>
+                <td>{{inventario.ultRevision | date:'mediumDate'}}</td>
+                <td>{{inventario.periodoRevision}}</td>
+                <td>
+                    <div *ngIf="inventario.proveedorId">
+                        <a [routerLink]="['../proveedor', inventario.proveedorId , 'view' ]" >{{inventario.proveedorId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/inventario', inventario.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/inventario', inventario.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'inventario', { outlets: { popup: inventario.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="inventarios && inventarios.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

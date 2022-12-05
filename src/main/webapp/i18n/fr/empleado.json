@@ -1,0 +1,31 @@
+{
+  "gimnasioApp": {
+    "empleado": {
+      "home": {
+        "title": "Empleados",
+        "createLabel": "Créer un nouveau Empleado",
+        "createOrEditLabel": "Créer ou éditer un Empleado"
+      },
+      "created": "Un nouveau Empleado a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Empleado avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Empleado avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Empleado {{ id }} ?"
+      },
+      "detail": {
+        "title": "Empleado"
+      },
+      "dni": "Dni",
+      "nombre": "Nombre",
+      "apellido": "Apellido",
+      "telefono": "Telefono",
+      "fechaNacimiento": "Fecha Nacimiento",
+      "email": "Email",
+      "direccion": "Direccion",
+      "diasVacaciones": "Dias Vacaciones",
+      "especialidad": "Especialidad",
+      "nomina": "Nomina",
+      "puesto": "Puesto"
+    }
+  }
+}

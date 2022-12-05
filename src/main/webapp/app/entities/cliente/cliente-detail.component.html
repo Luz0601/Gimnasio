@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="cliente">
+            <h2><span jhiTranslate="gimnasioApp.cliente.detail.title">Cliente</span> {{cliente.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gimnasioApp.cliente.dni">Dni</span></dt>
+                <dd>
+                    <span>{{cliente.dni}}</span>
+                </dd>
+                <dt><span jhiTranslate="gimnasioApp.cliente.nombre">Nombre</span></dt>
+                <dd>
+                    <span>{{cliente.nombre}}</span>
+                </dd>
+                <dt><span jhiTranslate="gimnasioApp.cliente.apellido">Apellido</span></dt>
+                <dd>
+                    <span>{{cliente.apellido}}</span>
+                </dd>
+                <dt><span jhiTranslate="gimnasioApp.cliente.telefono">Telefono</span></dt>
+                <dd>
+                    <span>{{cliente.telefono}}</span>
+                </dd>
+                <dt><span jhiTranslate="gimnasioApp.cliente.fechaNacimiento">Fecha Nacimiento</span></dt>
+                <dd>
+                    <span>{{cliente.fechaNacimiento}}</span>
+                </dd>
+                <dt><span jhiTranslate="gimnasioApp.cliente.email">Email</span></dt>
+                <dd>
+                    <span>{{cliente.email}}</span>
+                </dd>
+                <dt><span jhiTranslate="gimnasioApp.cliente.direccion">Direccion</span></dt>
+                <dd>
+                    <span>{{cliente.direccion}}</span>
+                </dd>
+                <dt><span jhiTranslate="gimnasioApp.cliente.ciclo">Ciclo</span></dt>
+                <dd>
+                    <span>{{cliente.ciclo}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/cliente', cliente.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

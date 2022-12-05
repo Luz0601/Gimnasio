@@ -1,0 +1,74 @@
+{
+    "name": "Empleado",
+    "fields": [
+        {
+            "fieldName": "dni",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "unique"
+            ]
+        },
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "apellido",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "telefono",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "fechaNacimiento",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "unique"
+            ]
+        },
+        {
+            "fieldName": "direccion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "diasVacaciones",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "especialidad",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "nomina",
+            "otherEntityRelationshipName": "empleado",
+            "relationshipName": "nomina",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "puesto",
+            "otherEntityRelationshipName": "empleado",
+            "relationshipName": "puesto",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20221205144011",
+    "entityTableName": "empleado",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

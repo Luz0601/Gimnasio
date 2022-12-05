@@ -1,0 +1,24 @@
+{
+    "name": "Nomina",
+    "fields": [
+        {
+            "fieldName": "iban",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tipoContrato",
+            "fieldType": "TipoNomina",
+            "fieldValues": "Temporal,Indefinido,Practicas"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20221205144015",
+    "entityTableName": "nomina",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

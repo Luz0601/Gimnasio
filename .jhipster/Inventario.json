@@ -1,0 +1,51 @@
+{
+    "name": "Inventario",
+    "fields": [
+        {
+            "fieldName": "ref",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "descripcion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cantidad",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "estado",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "ultRevision",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "periodoRevision",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "proveedor",
+            "otherEntityRelationshipName": "inventario",
+            "relationshipName": "proveedor",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20221205144019",
+    "entityTableName": "inventario",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

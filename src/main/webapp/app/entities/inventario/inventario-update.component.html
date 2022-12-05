@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-inventario-heading" jhiTranslate="gimnasioApp.inventario.home.createOrEditLabel">Create or edit a Inventario</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!inventario.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gimnasioApp.inventario.ref" for="field_ref">Ref</label>
+                    <input type="text" class="form-control" name="ref" id="field_ref"
+                           formControlName="ref"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gimnasioApp.inventario.nombre" for="field_nombre">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" id="field_nombre"
+                           formControlName="nombre"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gimnasioApp.inventario.descripcion" for="field_descripcion">Descripcion</label>
+                    <input type="text" class="form-control" name="descripcion" id="field_descripcion"
+                           formControlName="descripcion"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gimnasioApp.inventario.cantidad" for="field_cantidad">Cantidad</label>
+                    <input type="number" class="form-control" name="cantidad" id="field_cantidad"
+                           formControlName="cantidad"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gimnasioApp.inventario.estado" for="field_estado">Estado</label>
+                    <input type="checkbox" class="form-control" name="estado" id="field_estado"
+                           formControlName="estado"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gimnasioApp.inventario.ultRevision" for="field_ultRevision">Ult Revision</label>
+                    <div class="input-group">
+                        <input id="field_ultRevision" type="text" class="form-control" name="ultRevision" ngbDatepicker  #ultRevisionDp="ngbDatepicker" formControlName="ultRevision"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="ultRevisionDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gimnasioApp.inventario.periodoRevision" for="field_periodoRevision">Periodo Revision</label>
+                    <input type="number" class="form-control" name="periodoRevision" id="field_periodoRevision"
+                           formControlName="periodoRevision"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gimnasioApp.inventario.proveedor" for="field_proveedor">Proveedor</label>
+                    <select class="form-control" id="field_proveedor" name="proveedor" formControlName="proveedorId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="proveedorOption.id" *ngFor="let proveedorOption of proveedors; trackBy: trackProveedorById">{{proveedorOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+{
+  "gimnasioApp": {
+    "vacaciones": {
+      "home": {
+        "title": "Vacaciones",
+        "createLabel": "Create a new Vacaciones",
+        "createOrEditLabel": "Create or edit a Vacaciones"
+      },
+      "created": "A new Vacaciones is created with identifier {{ param }}",
+      "updated": "A Vacaciones is updated with identifier {{ param }}",
+      "deleted": "A Vacaciones is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Vacaciones {{ id }}?"
+      },
+      "detail": {
+        "title": "Vacaciones"
+      },
+      "inicio": "Inicio",
+      "fin": "Fin",
+      "empleado": "Empleado"
+    }
+  }
+}
