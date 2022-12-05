@@ -1,0 +1,125 @@
+
+
+// an ignored comment
+/** not an ignored comment */
+entity Clase {
+	nombre String required,
+    descripcion String,
+    lugar String,
+    inicio LocalDate required,
+    fin LocalDate required,
+    incidencias Boolean
+    
+}
+
+entity Suscripcion {
+	precio Double,
+    periodo PeriodoSuscripcion
+}
+
+entity Empleado {
+	dni String required unique,
+    nombre String,
+    apellido String,
+    telefono Integer,
+	fechaNacimiento LocalDate,
+    email String unique,
+    direccion String,
+    diasVacaciones Integer,
+    especialidad String
+
+}
+
+entity Cliente {
+	dni String required unique,
+    nombre String,
+    apellido String,
+    telefono Integer,
+	fechaNacimiento LocalDate,
+    email String unique,
+    direccion String,
+    ciclo Integer
+}
+
+entity Incidencia {
+	nombre String required,
+    descripcion String required
+}
+
+entity Puesto {
+	nombre String required,
+    horario String,
+    salario Double,
+    
+}
+
+entity Nomina {
+    iban String,
+    tipoContrato TipoNomina
+    
+}
+
+enum TipoNomina {
+	Temporal,
+    Indefinido,
+    Practicas
+    
+}
+
+entity Vacaciones {
+	inicio LocalDate,
+    fin LocalDate
+}
+
+enum PeriodoSuscripcion {
+	Mensual,
+    Trimestral,
+    Anual
+}
+
+entity ClienteSuscripcion {
+	ultimoPago LocalDate required
+    metodoPago String
+}
+
+entity ClaseCliente {
+	
+}
+
+entity Inventario {
+	ref String,
+	nombre String,
+    descripcion String,
+    cantidad Integer,
+    estado Boolean,
+    ultRevision LocalDate,
+    periodoRevision Integer
+}
+
+entity Proveedor {
+	nombre String,
+    telefono Integer,
+    email String
+}
+
+relationship ManyToOne {
+    Empleado{especialidad} to Especialidad,
+    ClaseCliente{cliente} to Cliente,
+    ClaseCliente{clase} to Clase,
+    ClienteSuscripcion{suscripcion} to Suscripcion,
+    Empleado{puesto} to Puesto,
+    Inventario{proveedor} to Proveedor
+}
+
+relationship OneToOne {
+	Empleado{nomina} to Nomina,
+	ClienteSuscripcion{cliente} to Cliente,
+    Clase{monitor} to Empleado,
+    Incidencia{clase} to Clase,
+	Vacaciones{empleado} to Empleado
+    
+}
+
+dto * with mapstruct
+paginate all with pagination
+service all with serviceImpl

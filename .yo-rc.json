@@ -1,0 +1,40 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.concesionario.app",
+      "nativeLanguage": "es"
+    },
+    "jhipsterVersion": "6.0.0",
+    "applicationType": "monolith",
+    "baseName": "Gimnasio",
+    "packageName": "com.concesionario.app",
+    "packageFolder": "com/concesionario/app",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "ODcxYzE4NWYyMjkyOTJhNzQ1YTMxOTEzZjQxYWU1YmQyNzkyOTdmNjA2MzA0YmU1YTdmYTc1OWUzMWIzZTNmNmM0MGQwYzQwNWViYjYzMDk5YmUwYTIyOTkzYzFjMjQyMDYyNzgzYmY1MmIzN2QwMzg3ZDFmY2U3YmQ2M2RlYzY=",
+    "clientFramework": "angularX",
+    "clientTheme": "pulse",
+    "clientThemeVariant": "primary",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "es",
+    "languages": ["es", "en", "fr"]
+  }
+}
