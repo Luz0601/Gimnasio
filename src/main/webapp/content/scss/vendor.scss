@@ -11,3 +11,7 @@ eg $input-color: red;
 @import '~bootswatch/dist/pulse/bootswatch';
 
 /* jhipster-needle-scss-add-vendor JHipster will add new css style */
+.container-fluid {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}

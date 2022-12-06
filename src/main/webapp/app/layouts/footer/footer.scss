@@ -1,0 +1,102 @@
+footer {
+  position: relative;
+  width: 100%;
+  height: auto;
+  padding: 43px 100px;
+  background: #111;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+footer .containerFooter {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+footer .containerFooter .ses {
+  margin-right: 30px;
+}
+footer .containerFooter .ses.contactFooter {
+  margin-right: 0;
+}
+footer .containerFooter .ses.aboutus {
+  width: 40%;
+}
+footer .containerFooter h2 {
+  position: relative;
+  color: #fff;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+footer .containerFooter h2::before {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: #f00;
+}
+footer p {
+  color: #999;
+}
+.quickLinks {
+  position: relative;
+  width: 25%;
+}
+.quickLinks ul li {
+  list-style: none;
+}
+.quickLinks ul li a {
+  color: #999;
+  text-decoration: none;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+.quickLinks ul li a:hover {
+  color: #fff;
+}
+.contactFooter {
+  width: calc(35% - 60px);
+}
+.contactFooter .info {
+  position: relative;
+}
+.contactFooter .info li {
+  display: flex;
+  margin-bottom: 16px;
+}
+.contactFooter .info li span:nth-child(1) {
+  color: #fff;
+  font-size: 20px;
+  margin-right: 10px;
+}
+.contactFooter .info li span {
+  color: #999;
+}
+.contactFooter .info li a {
+  color: #999;
+  text-decoration: none;
+}
+.contactFooter .info li a:hover {
+  color: #fff;
+}
+/* Footer Responsive */
+@media (max-width: 800px) {
+  footer {
+    padding: 40px;
+  }
+  footer .containerFooter {
+    flex-direction: column;
+  }
+  footer .containerFooter .ses {
+    margin-right: 0;
+    margin-bottom: 40px;
+  }
+  footer .containerFooter .ses.aboutus,
+  .quickLinks,
+  .contactFooter {
+    width: 100%;
+  }
+}
