@@ -1,3 +1,38 @@
 <div class="footer">
-    <p jhiTranslate="footer">This is your footer</p>
+    <footer id="contactFooter">
+        <div class="containerFooter">
+            <div class="ses aboutus">
+                <h2>Gimnasio</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae libero nihil eos aspernatur, placeat voluptatum non velit odio fugit veritatis quia, laboriosam obcaecati cum saepe facere aliquid quod tempore aut!</p>
+            </div>
+            <div class="ses quickLinks">
+                <h2>Enlaces rápidos</h2>
+                <ul>
+                    <li><a [routerLink]="['/nomina']">Nómina</a></li>
+                    <li><a [routerLink]="['/clase']">Clases</a></li>
+                    <li><a [routerLink]="['/empleado']">Empleados</a></li>
+                    <li><a [routerLink]="['/inventario']">Inventario</a></li>
+                    <li><a [routerLink]="['/proveedor']">Proveedores</a></li>
+                    <li><a [routerLink]="['/suscripcion']">Suscripción</a></li>
+                </ul>
+            </div>
+            <div class="ses contactFooter">
+                <h2>Info Contacto</h2>
+                <ul class="info">
+                    <li>
+                        <span><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                        <span>Calle Miguel Yuste 12, 28037 <br> Madrid, España</span>
+                    </li>
+                    <li>
+                        <span><i class="fa fa-phone" aria-hidden="true"></i></span>
+                        <p><a href="tel:+13666335500"> 666 33 55 00</a> <br><a href="tel:+13666335500"> 912 12 45 62</a></p>
+                    </li>
+                    <li>
+                        <span><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                        <p><a href="mailto:moonlight@moonlight.com">gimnasio@gimnasio.com</a> </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
 </div>
