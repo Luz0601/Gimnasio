@@ -4,11 +4,6 @@
             <h2 id="jhi-empleado-heading" jhiTranslate="gimnasioApp.empleado.home.createOrEditLabel">Create or edit a Empleado</h2>
             <div>
                 <jhi-alert-error></jhi-alert-error>
-                <div class="form-group" [hidden]="!empleado.id">
-                    <label for="id" jhiTranslate="global.field.id">ID</label>
-                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
-                        readonly />
-                </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gimnasioApp.empleado.dni" for="field_dni">Dni</label>
                     <input type="text" class="form-control" name="dni" id="field_dni"
@@ -71,14 +66,14 @@
                     <label class="form-control-label" jhiTranslate="gimnasioApp.empleado.nomina" for="field_nomina">Nomina</label>
                     <select class="form-control" id="field_nomina" name="nomina" formControlName="nominaId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="nominaOption.id" *ngFor="let nominaOption of nominas; trackBy: trackNominaById">{{nominaOption.id}}</option>
+                        <option [ngValue]="nominaOption.id" *ngFor="let nominaOption of nominas; trackBy: trackNominaById">{{nominaOption.iban}}</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gimnasioApp.empleado.puesto" for="field_puesto">Puesto</label>
                     <select class="form-control" id="field_puesto" name="puesto" formControlName="puestoId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="puestoOption.id" *ngFor="let puestoOption of puestos; trackBy: trackPuestoById">{{puestoOption.id}}</option>
+                        <option [ngValue]="puestoOption.id" *ngFor="let puestoOption of puestos; trackBy: trackPuestoById">{{puestoOption.nombre}}</option>
                     </select>
                 </div>
             </div>
