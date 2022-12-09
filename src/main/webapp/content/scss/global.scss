@@ -14,14 +14,19 @@ h3,
 h4 {
   font-weight: 300;
 }
+body,
+.card {
+  background: rgb(255, 255, 255);
+  background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(208, 208, 208, 1) 74%);
+}
 
 a {
-  color: #e2e2e2;
+  color: #593196;
   font-weight: bold;
 }
 
 a:hover {
-  color: #bababa;
+  color: #593196;
   font-weight: bold;
   /* make sure browsers use the pointer cursor for anchors, even with no href */
   cursor: pointer;
@@ -49,7 +54,6 @@ Generic styles
 
 .jh-card {
   padding: 1.5%;
-  margin-top: 20px;
   border: none;
 }
 
@@ -171,3 +175,6 @@ ui bootstrap tweaks
 }
 
 /* jhipster-needle-scss-add-main JHipster will add new css style */
+.navbar-expand-md .navbar-collapse {
+  flex: revert;
+}
