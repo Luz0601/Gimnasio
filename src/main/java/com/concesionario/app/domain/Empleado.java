@@ -42,7 +42,7 @@ public class Empleado implements Serializable {
     @Column(name = "fecha_nacimiento")
     private LocalDate fechaNacimiento;
 
-    
+
     @Column(name = "email", unique = true)
     private String email;
 
@@ -55,11 +55,11 @@ public class Empleado implements Serializable {
     @Column(name = "especialidad")
     private String especialidad;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(unique = true)
     private Nomina nomina;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.REMOVE)
     @JsonIgnoreProperties("empleados")
     private Puesto puesto;
 

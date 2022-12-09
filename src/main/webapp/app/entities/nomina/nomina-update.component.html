@@ -4,11 +4,6 @@
             <h2 id="jhi-nomina-heading" jhiTranslate="gimnasioApp.nomina.home.createOrEditLabel">Create or edit a Nomina</h2>
             <div>
                 <jhi-alert-error></jhi-alert-error>
-                <div class="form-group" [hidden]="!nomina.id">
-                    <label for="id" jhiTranslate="global.field.id">ID</label>
-                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
-                        readonly />
-                </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gimnasioApp.nomina.iban" for="field_iban">Iban</label>
                     <input type="text" class="form-control" name="iban" id="field_iban"
