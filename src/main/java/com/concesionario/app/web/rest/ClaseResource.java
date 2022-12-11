@@ -17,6 +17,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -54,6 +55,7 @@ public class ClaseResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/clases")
+    @PreAuthorize("hasAuthority('ROLE_MONITOR')")
     public ResponseEntity<ClaseDTO> createClase(@Valid @RequestBody ClaseDTO claseDTO) throws URISyntaxException {
         log.debug("REST request to save Clase : {}", claseDTO);
         if (claseDTO.getId() != null) {
