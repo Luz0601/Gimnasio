@@ -4,11 +4,6 @@
             <h2 id="jhi-cliente-suscripcion-heading" jhiTranslate="gimnasioApp.clienteSuscripcion.home.createOrEditLabel">Create or edit a Cliente Suscripcion</h2>
             <div>
                 <jhi-alert-error></jhi-alert-error>
-                <div class="form-group" [hidden]="!clienteSuscripcion.id">
-                    <label for="id" jhiTranslate="global.field.id">ID</label>
-                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
-                        readonly />
-                </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gimnasioApp.clienteSuscripcion.ultimoPago" for="field_ultimoPago">Ultimo Pago</label>
                     <div class="input-group">
@@ -34,14 +29,14 @@
                     <label class="form-control-label" jhiTranslate="gimnasioApp.clienteSuscripcion.cliente" for="field_cliente">Cliente</label>
                     <select class="form-control" id="field_cliente" name="cliente" formControlName="clienteId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="clienteOption.id" *ngFor="let clienteOption of clientes; trackBy: trackClienteById">{{clienteOption.id}}</option>
+                        <option [ngValue]="clienteOption.id" *ngFor="let clienteOption of clientes; trackBy: trackClienteById">{{clienteOption.nombre}}</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gimnasioApp.clienteSuscripcion.suscripcion" for="field_suscripcion">Suscripcion</label>
                     <select class="form-control" id="field_suscripcion" name="suscripcion" formControlName="suscripcionId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="suscripcionOption.id" *ngFor="let suscripcionOption of suscripcions; trackBy: trackSuscripcionById">{{suscripcionOption.id}}</option>
+                        <option [ngValue]="suscripcionOption.id" *ngFor="let suscripcionOption of suscripcions; trackBy: trackSuscripcionById">{{suscripcionOption.periodo}}</option>
                     </select>
                 </div>
             </div>

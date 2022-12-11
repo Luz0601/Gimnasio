@@ -4,11 +4,6 @@
             <h2 id="jhi-incidencia-heading" jhiTranslate="gimnasioApp.incidencia.home.createOrEditLabel">Create or edit a Incidencia</h2>
             <div>
                 <jhi-alert-error></jhi-alert-error>
-                <div class="form-group" [hidden]="!incidencia.id">
-                    <label for="id" jhiTranslate="global.field.id">ID</label>
-                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
-                        readonly />
-                </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gimnasioApp.incidencia.nombre" for="field_nombre">Nombre</label>
                     <input type="text" class="form-control" name="nombre" id="field_nombre"
@@ -36,7 +31,7 @@
                     <label class="form-control-label" jhiTranslate="gimnasioApp.incidencia.clase" for="field_clase">Clase</label>
                     <select class="form-control" id="field_clase" name="clase" formControlName="claseId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="claseOption.id" *ngFor="let claseOption of clases; trackBy: trackClaseById">{{claseOption.id}}</option>
+                        <option [ngValue]="claseOption.id" *ngFor="let claseOption of clases; trackBy: trackClaseById">{{claseOption.nombre}}</option>
                     </select>
                 </div>
             </div>

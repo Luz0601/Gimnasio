@@ -70,7 +70,7 @@
                     <label class="form-control-label" jhiTranslate="gimnasioApp.clase.monitor" for="field_monitor">Monitor</label>
                     <select class="form-control" id="field_monitor" name="monitor" formControlName="monitorId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="empleadoOption.id" *ngFor="let empleadoOption of monitors; trackBy: trackEmpleadoById">{{empleadoOption.id}}</option>
+                        <option [ngValue]="empleadoOption.id" *ngFor="let empleadoOption of monitors; trackBy: trackEmpleadoById">{{empleadoOption.nombre}}</option>
                     </select>
                 </div>
             </div>

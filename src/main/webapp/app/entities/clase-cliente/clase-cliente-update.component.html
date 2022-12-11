@@ -4,24 +4,19 @@
             <h2 id="jhi-clase-cliente-heading" jhiTranslate="gimnasioApp.claseCliente.home.createOrEditLabel">Create or edit a Clase Cliente</h2>
             <div>
                 <jhi-alert-error></jhi-alert-error>
-                <div class="form-group" [hidden]="!claseCliente.id">
-                    <label for="id" jhiTranslate="global.field.id">ID</label>
-                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
-                        readonly />
-                </div>
 
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gimnasioApp.claseCliente.cliente" for="field_cliente">Cliente</label>
                     <select class="form-control" id="field_cliente" name="cliente" formControlName="clienteId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="clienteOption.id" *ngFor="let clienteOption of clientes; trackBy: trackClienteById">{{clienteOption.id}}</option>
+                        <option [ngValue]="clienteOption.id" *ngFor="let clienteOption of clientes; trackBy: trackClienteById">{{clienteOption.nombre}}</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gimnasioApp.claseCliente.clase" for="field_clase">Clase</label>
                     <select class="form-control" id="field_clase" name="clase" formControlName="claseId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="claseOption.id" *ngFor="let claseOption of clases; trackBy: trackClaseById">{{claseOption.id}}</option>
+                        <option [ngValue]="claseOption.id" *ngFor="let claseOption of clases; trackBy: trackClaseById">{{claseOption.nombre}}</option>
                     </select>
                 </div>
             </div>

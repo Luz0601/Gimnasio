@@ -4,11 +4,6 @@
             <h2 id="jhi-suscripcion-heading" jhiTranslate="gimnasioApp.suscripcion.home.createOrEditLabel">Create or edit a Suscripcion</h2>
             <div>
                 <jhi-alert-error></jhi-alert-error>
-                <div class="form-group" [hidden]="!suscripcion.id">
-                    <label for="id" jhiTranslate="global.field.id">ID</label>
-                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
-                        readonly />
-                </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gimnasioApp.suscripcion.precio" for="field_precio">Precio</label>
                     <input type="number" class="form-control" name="precio" id="field_precio"

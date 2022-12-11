@@ -4,11 +4,6 @@
             <h2 id="jhi-proveedor-heading" jhiTranslate="gimnasioApp.proveedor.home.createOrEditLabel">Create or edit a Proveedor</h2>
             <div>
                 <jhi-alert-error></jhi-alert-error>
-                <div class="form-group" [hidden]="!proveedor.id">
-                    <label for="id" jhiTranslate="global.field.id">ID</label>
-                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
-                        readonly />
-                </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gimnasioApp.proveedor.nombre" for="field_nombre">Nombre</label>
                     <input type="text" class="form-control" name="nombre" id="field_nombre"
