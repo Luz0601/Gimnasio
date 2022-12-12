@@ -9,6 +9,7 @@ export interface IClase {
   fin?: Moment;
   incidencias?: boolean;
   monitorId?: number;
+  incidenciaId?: number;
 }
 
 export class Clase implements IClase {

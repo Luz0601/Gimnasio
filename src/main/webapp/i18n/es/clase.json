@@ -21,7 +21,9 @@
       "inicio": "Inicio",
       "fin": "Fin",
       "incidencias": "Incidencias",
-      "monitor": "Monitor"
+      "monitor": "Monitor",
+      "incidenciasTrue": "Incidencia",
+      "incidenciasFalse": "Sin incidencias"
     }
   }
 }

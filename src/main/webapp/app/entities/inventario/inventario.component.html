@@ -33,7 +33,12 @@
                 <td>{{inventario.nombre}}</td>
                 <td>{{inventario.descripcion}}</td>
                 <td>{{inventario.cantidad}}</td>
-                <td>{{inventario.estado}}</td>
+                <td>
+                    <div *ngIf="inventario.estado; else elseBlock">
+                        <span jhiTranslate="gimnasioApp.inventario.estadoTrue">Disponible</span>
+                    </div>
+                    <ng-template #elseBlock jhiTranslate="gimnasioApp.inventario.estadoFalse">Fuera de servicio</ng-template>
+                </td>
                 <td>{{inventario.ultRevision | date:'mediumDate'}}</td>
                 <td>{{inventario.periodoRevision}}</td>
                 <td>

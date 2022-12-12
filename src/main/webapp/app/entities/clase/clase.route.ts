@@ -37,7 +37,7 @@ export const claseRoute: Routes = [
       pagingParams: JhiResolvePagingParams
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_USER']['ROLE_MONITOR'],
       defaultSort: 'id,asc',
       pageTitle: 'gimnasioApp.clase.home.title'
     },

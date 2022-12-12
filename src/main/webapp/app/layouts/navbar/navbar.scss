@@ -18,20 +18,38 @@ Navbar
 
 .navbar {
   padding: 0.2rem 1rem;
+  margin-left: 5%;
+  line-height: 50px;
+  text-transform: uppercase;
   .dropdown-item.active,
   .dropdown-item.active:focus,
   .dropdown-item.active:hover {
-    background-color: $dark;
+    background-color: #301558;
+    border-radius: 20px;
   }
-
+  .dropdown-item {
+    font-weight: 500;
+  }
+  .dropdown-item:hover {
+    border-radius: 20px;
+  }
+  .dropdown-menu {
+    border: none;
+    border-radius: 20px;
+  }
+  .navbar-title {
+    margin-left: 10px;
+    color: #000000;
+  }
   ul.navbar-nav {
+    line-height: 20px;
     .nav-item {
       margin-left: 0.5em;
     }
   }
 
   a.nav-link {
-    font-weight: 400;
+    font-weight: bold;
   }
 
   .navbar-toggler {
@@ -49,6 +67,6 @@ Logo styles
   width: 45px;
   display: inline-block;
   vertical-align: middle;
-  background: url('../../../content/images/logo-jhipster.png') no-repeat center center;
+  background: url('../../../content/images/logo.png') no-repeat center center;
   background-size: contain;
 }
