@@ -1,7 +1,10 @@
 package com.concesionario.app.repository;
 
 import com.concesionario.app.domain.Clase;
+import com.concesionario.app.domain.Incidencia;
+
 import org.springframework.data.jpa.repository.*;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 
@@ -11,5 +14,8 @@ import org.springframework.stereotype.Repository;
 @SuppressWarnings("unused")
 @Repository
 public interface ClaseRepository extends JpaRepository<Clase, Long> {
+
+    @Query("SELECT c FROM Incidencia c WHERE c.clase IS :clase")
+    Incidencia getIncidencia(@Param("clase") Clase clase);
 
 }

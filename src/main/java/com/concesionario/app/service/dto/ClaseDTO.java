@@ -31,6 +31,10 @@ public class ClaseDTO implements Serializable {
 
     private Long monitorId;
 
+
+    private Long incidenciaId;
+
+
     public Long getId() {
         return id;
     }
@@ -93,6 +97,14 @@ public class ClaseDTO implements Serializable {
 
     public void setMonitorId(Long empleadoId) {
         this.monitorId = empleadoId;
+    }
+
+    public Long getIncidenciaId() {
+        return incidenciaId;
+    }
+
+    public void setIncidenciaId(Long incidenciaId) {
+        this.incidenciaId = incidenciaId;
     }
 
     @Override

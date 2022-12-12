@@ -2,6 +2,7 @@ package com.concesionario.app.service.impl;
 
 import com.concesionario.app.service.ClaseService;
 import com.concesionario.app.domain.Clase;
+import com.concesionario.app.domain.Incidencia;
 import com.concesionario.app.repository.ClaseRepository;
 import com.concesionario.app.service.dto.ClaseDTO;
 import com.concesionario.app.service.mapper.ClaseMapper;
@@ -58,7 +59,7 @@ public class ClaseServiceImpl implements ClaseService {
     public Page<ClaseDTO> findAll(Pageable pageable) {
         log.debug("Request to get all Clases");
         return claseRepository.findAll(pageable)
-            .map(claseMapper::toDto);
+            .map(claseMapper::toDto).map(this::getIncidenciaId);
     }
 
 
@@ -85,5 +86,13 @@ public class ClaseServiceImpl implements ClaseService {
     public void delete(Long id) {
         log.debug("Request to delete Clase : {}", id);
         claseRepository.deleteById(id);
+    }
+
+    private ClaseDTO getIncidenciaId(ClaseDTO claseDTO) {
+        Incidencia incidencia = claseRepository.getIncidencia(claseMapper.toEntity(claseDTO));
+        if (incidencia != null)
+            claseDTO.setIncidenciaId(incidencia.getId());
+
+        return claseDTO;
     }
 }

@@ -22,7 +22,9 @@
       "estado": "Estado",
       "ultRevision": "Ult Revision",
       "periodoRevision": "Periodo Revision",
-      "proveedor": "Proveedor"
+      "proveedor": "Proveedor",
+      "estadoTrue": "Available",
+      "estadoFalse": "Out of service"
     }
   }
 }
