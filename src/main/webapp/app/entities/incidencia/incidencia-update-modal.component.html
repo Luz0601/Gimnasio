@@ -1,0 +1,48 @@
+<form name="updateForm" (ngSubmit)="save()">
+    <div class="modal-header">
+        <h4 class="modal-title" jhiTranslate="gimnasioApp.incidencia.home.createOrEditLabel">Create or edit a Incidencia</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="gimnasioApp.incidencia.nombre" for="field_nombre">Nombre</label>
+            <input type="text" class="form-control" name="nombre" id="field_nombre"
+                   formControlName="nombre"/>
+            <div *ngIf="editForm.get('nombre').invalid && (editForm.get('nombre').dirty || editForm.get('nombre').touched)">
+                <small class="form-text text-danger"
+                       *ngIf="editForm.get('nombre').errors.required" jhiTranslate="entity.validation.required">
+                This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="gimnasioApp.incidencia.descripcion" for="field_descripcion">Descripcion</label>
+            <input type="text" class="form-control" name="descripcion" id="field_descripcion"
+                   formControlName="descripcion"/>
+            <div *ngIf="editForm.get('descripcion').invalid && (editForm.get('descripcion').dirty || editForm.get('descripcion').touched)">
+                <small class="form-text text-danger"
+                       *ngIf="editForm.get('descripcion').errors.required" jhiTranslate="entity.validation.required">
+                This field is required.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="gimnasioApp.incidencia.clase" for="field_clase">Clase</label>
+            <select class="form-control" id="field_clase" name="clase" formControlName="claseId">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="claseOption.id" *ngFor="let claseOption of clases; trackBy: trackClaseById">{{claseOption.nombre}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button id="jhi-confirm-save-incidencia" type="submit" class="btn btn-primary">
+            <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>
