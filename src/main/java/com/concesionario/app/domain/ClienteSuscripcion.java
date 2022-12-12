@@ -33,7 +33,7 @@ public class ClienteSuscripcion implements Serializable {
     @Column(name = "metodo_pago")
     private String metodoPago;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(unique = true)
     private Cliente cliente;
 

@@ -58,6 +58,10 @@ public class Cliente implements Serializable {
     @JsonIgnoreProperties("cliente")
     private Set<ClaseCliente> claseCliente;
 
+    @OneToMany(mappedBy = "cliente", orphanRemoval = true, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnoreProperties("cliente")
+    private Set<ClienteSuscripcion> clienteSuscripcions;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
