@@ -4,12 +4,15 @@ package com.concesionario.app.domain;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import javax.validation.constraints.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  * A Cliente.
@@ -41,7 +44,7 @@ public class Cliente implements Serializable {
     @Column(name = "fecha_nacimiento")
     private LocalDate fechaNacimiento;
 
-    
+
     @Column(name = "email", unique = true)
     private String email;
 
@@ -50,6 +53,10 @@ public class Cliente implements Serializable {
 
     @Column(name = "ciclo")
     private Integer ciclo;
+
+    @OneToMany(mappedBy = "cliente", orphanRemoval = true, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnoreProperties("cliente")
+    private Set<ClaseCliente> claseCliente;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {

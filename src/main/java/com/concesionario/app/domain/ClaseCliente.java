@@ -24,7 +24,7 @@ public class ClaseCliente implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties("claseClientes")
     private Cliente cliente;
 
