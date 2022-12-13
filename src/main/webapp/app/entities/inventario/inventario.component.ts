@@ -10,6 +10,8 @@ import { AccountService } from 'app/core';
 
 import { ITEMS_PER_PAGE } from 'app/shared';
 import { InventarioService } from './inventario.service';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { InventarioDetailComponent } from './inventario-detail.component';
 
 @Component({
   selector: 'jhi-inventario',
@@ -37,7 +39,8 @@ export class InventarioComponent implements OnInit, OnDestroy {
     protected accountService: AccountService,
     protected activatedRoute: ActivatedRoute,
     protected router: Router,
-    protected eventManager: JhiEventManager
+    protected eventManager: JhiEventManager,
+    private modalService: NgbModal
   ) {
     this.itemsPerPage = ITEMS_PER_PAGE;
     this.routeData = this.activatedRoute.data.subscribe(data => {
@@ -60,7 +63,10 @@ export class InventarioComponent implements OnInit, OnDestroy {
         (res: HttpErrorResponse) => this.onError(res.message)
       );
   }
-
+  open(content) {
+    const modalRef = this.modalService.open(InventarioDetailComponent, { ariaLabelledBy: 'modal-basic-title' });
+    modalRef.componentInstance.inventario = content;
+  }
   loadPage(page: number) {
     if (page !== this.previousPage) {
       this.previousPage = page;

@@ -4,12 +4,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { JhiEventManager, JhiParseLinks, JhiAlertService } from 'ng-jhipster';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 import { IClase } from 'app/shared/model/clase.model';
 import { AccountService } from 'app/core';
 
 import { ITEMS_PER_PAGE } from 'app/shared';
 import { ClaseService } from './clase.service';
+import { ClaseDetailComponent } from './clase-detail.component';
 
 @Component({
   selector: 'jhi-clase',
@@ -37,7 +39,8 @@ export class ClaseComponent implements OnInit, OnDestroy {
     protected accountService: AccountService,
     protected activatedRoute: ActivatedRoute,
     protected router: Router,
-    protected eventManager: JhiEventManager
+    protected eventManager: JhiEventManager,
+    private modalService: NgbModal
   ) {
     this.itemsPerPage = ITEMS_PER_PAGE;
     this.routeData = this.activatedRoute.data.subscribe(data => {
@@ -59,6 +62,11 @@ export class ClaseComponent implements OnInit, OnDestroy {
         (res: HttpResponse<IClase[]>) => this.paginateClases(res.body, res.headers),
         (res: HttpErrorResponse) => this.onError(res.message)
       );
+  }
+
+  open(content) {
+    const modalRef = this.modalService.open(ClaseDetailComponent, { ariaLabelledBy: 'modal-basic-title' });
+    modalRef.componentInstance.clase = content;
   }
 
   loadPage(page: number) {

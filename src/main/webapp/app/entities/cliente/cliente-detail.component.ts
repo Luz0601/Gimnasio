@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { ICliente } from 'app/shared/model/cliente.model';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'jhi-cliente-detail',
@@ -10,13 +11,9 @@ import { ICliente } from 'app/shared/model/cliente.model';
 export class ClienteDetailComponent implements OnInit {
   cliente: ICliente;
 
-  constructor(protected activatedRoute: ActivatedRoute) {}
+  constructor(protected activatedRoute: ActivatedRoute, protected modal: NgbActiveModal) {}
 
-  ngOnInit() {
-    this.activatedRoute.data.subscribe(({ cliente }) => {
-      this.cliente = cliente;
-    });
-  }
+  ngOnInit() {}
 
   previousState() {
     window.history.back();

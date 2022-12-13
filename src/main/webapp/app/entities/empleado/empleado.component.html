@@ -1,4 +1,4 @@
-<div>
+    <div>
     <h2 id="page-heading">
         <span jhiTranslate="gimnasioApp.empleado.home.title">Empleados</span>
         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-empleado" [routerLink]="['/empleado/new']">
@@ -53,8 +53,8 @@
                 </td>
                 <td class="text-right">
                     <div class="btn-group">
-                        <button type="submit"
-                                [routerLink]="['/empleado', empleado.id, 'view' ]"
+                        <button
+                                (click)="open(empleado)"
                                 class="btn btn-info btn-sm">
                             <fa-icon [icon]="'eye'"></fa-icon>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { IEmpleado } from 'app/shared/model/empleado.model';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'jhi-empleado-detail',
@@ -10,13 +11,9 @@ import { IEmpleado } from 'app/shared/model/empleado.model';
 export class EmpleadoDetailComponent implements OnInit {
   empleado: IEmpleado;
 
-  constructor(protected activatedRoute: ActivatedRoute) {}
+  constructor(protected activatedRoute: ActivatedRoute, protected modal: NgbActiveModal) {}
 
-  ngOnInit() {
-    this.activatedRoute.data.subscribe(({ empleado }) => {
-      this.empleado = empleado;
-    });
-  }
+  ngOnInit() {}
 
   previousState() {
     window.history.back();
