@@ -37,7 +37,7 @@ export const proveedorRoute: Routes = [
       pagingParams: JhiResolvePagingParams
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_USER', 'ROLE_MONITOR'],
       defaultSort: 'id,asc',
       pageTitle: 'gimnasioApp.proveedor.home.title'
     },
@@ -50,7 +50,7 @@ export const proveedorRoute: Routes = [
       proveedor: ProveedorResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_USER', 'ROLE_MONITOR'],
       pageTitle: 'gimnasioApp.proveedor.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -62,7 +62,7 @@ export const proveedorRoute: Routes = [
       proveedor: ProveedorResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_USER', 'ROLE_MONITOR'],
       pageTitle: 'gimnasioApp.proveedor.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -74,7 +74,7 @@ export const proveedorRoute: Routes = [
       proveedor: ProveedorResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_USER', 'ROLE_MONITOR'],
       pageTitle: 'gimnasioApp.proveedor.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -89,7 +89,7 @@ export const proveedorPopupRoute: Routes = [
       proveedor: ProveedorResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_USER', 'ROLE_MONITOR'],
       pageTitle: 'gimnasioApp.proveedor.home.title'
     },
     canActivate: [UserRouteAccessService],

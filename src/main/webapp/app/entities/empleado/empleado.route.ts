@@ -37,7 +37,7 @@ export const empleadoRoute: Routes = [
       pagingParams: JhiResolvePagingParams
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_USER', 'ROLE_MONITOR'],
       defaultSort: 'id,asc',
       pageTitle: 'gimnasioApp.empleado.home.title'
     },
@@ -50,7 +50,7 @@ export const empleadoRoute: Routes = [
       empleado: EmpleadoResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_USER', 'ROLE_MONITOR'],
       pageTitle: 'gimnasioApp.empleado.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -62,7 +62,7 @@ export const empleadoRoute: Routes = [
       empleado: EmpleadoResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_USER', 'ROLE_MONITOR'],
       pageTitle: 'gimnasioApp.empleado.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -74,7 +74,7 @@ export const empleadoRoute: Routes = [
       empleado: EmpleadoResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_USER', 'ROLE_MONITOR'],
       pageTitle: 'gimnasioApp.empleado.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -89,7 +89,7 @@ export const empleadoPopupRoute: Routes = [
       empleado: EmpleadoResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_USER', 'ROLE_MONITOR'],
       pageTitle: 'gimnasioApp.empleado.home.title'
     },
     canActivate: [UserRouteAccessService],
