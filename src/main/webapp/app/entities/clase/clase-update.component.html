@@ -26,9 +26,13 @@
                            formControlName="descripcion"/>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="gimnasioApp.clase.lugar" for="field_lugar">Lugar</label>
-                    <input type="text" class="form-control" name="lugar" id="field_lugar"
-                           formControlName="lugar"/>
+                        <label class="form-control-label" jhiTranslate="gimnasioApp.clase.lugar" for="field_lugar">Lugar</label>
+                        <select class="form-control" id="field_lugar" name="lugar" formControlName="lugar">
+                            <option [ngValue]="null"></option>
+                            <option [ngValue]="sala1">Sala 1</option>
+                            <option [ngValue]="sala2">Sala 2</option>
+                            <option [ngValue]="sala3">Sala 3</option>
+                        </select>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gimnasioApp.clase.inicio" for="field_inicio">Inicio</label>
