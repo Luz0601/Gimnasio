@@ -37,7 +37,7 @@ export const inventarioRoute: Routes = [
       pagingParams: JhiResolvePagingParams
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_USER', 'ROLE_MONITOR'],
       defaultSort: 'id,asc',
       pageTitle: 'gimnasioApp.inventario.home.title'
     },
@@ -50,7 +50,7 @@ export const inventarioRoute: Routes = [
       inventario: InventarioResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_USER', 'ROLE_MONITOR'],
       pageTitle: 'gimnasioApp.inventario.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -62,7 +62,7 @@ export const inventarioRoute: Routes = [
       inventario: InventarioResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_USER', 'ROLE_MONITOR'],
       pageTitle: 'gimnasioApp.inventario.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -74,7 +74,7 @@ export const inventarioRoute: Routes = [
       inventario: InventarioResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_USER', 'ROLE_MONITOR'],
       pageTitle: 'gimnasioApp.inventario.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -89,7 +89,7 @@ export const inventarioPopupRoute: Routes = [
       inventario: InventarioResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_USER', 'ROLE_MONITOR'],
       pageTitle: 'gimnasioApp.inventario.home.title'
     },
     canActivate: [UserRouteAccessService],

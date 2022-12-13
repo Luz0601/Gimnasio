@@ -37,7 +37,7 @@ export const clienteRoute: Routes = [
       pagingParams: JhiResolvePagingParams
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_USER', 'ROLE_MONITOR'],
       defaultSort: 'id,asc',
       pageTitle: 'gimnasioApp.cliente.home.title'
     },
@@ -50,7 +50,7 @@ export const clienteRoute: Routes = [
       cliente: ClienteResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_USER', 'ROLE_MONITOR'],
       pageTitle: 'gimnasioApp.cliente.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -62,7 +62,7 @@ export const clienteRoute: Routes = [
       cliente: ClienteResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_USER', 'ROLE_MONITOR'],
       pageTitle: 'gimnasioApp.cliente.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -74,7 +74,7 @@ export const clienteRoute: Routes = [
       cliente: ClienteResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_USER', 'ROLE_MONITOR'],
       pageTitle: 'gimnasioApp.cliente.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -89,7 +89,7 @@ export const clientePopupRoute: Routes = [
       cliente: ClienteResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_USER', 'ROLE_MONITOR'],
       pageTitle: 'gimnasioApp.cliente.home.title'
     },
     canActivate: [UserRouteAccessService],

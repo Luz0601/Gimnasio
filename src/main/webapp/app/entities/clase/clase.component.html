@@ -35,7 +35,7 @@
                 <td>{{clase.fin | date:'mediumDate'}}</td>
                 <td>
                     <div *ngIf="clase.incidencias; else elseBlock">
-                        <a jhiTranslate="gimnasioApp.clase.incidenciasTrue" [routerLink]="['../incidencia', clase.incidenciaId , 'view' ]" >Incidencia</a>
+                        <a jhiTranslate="gimnasioApp.clase.incidenciasTrue" [routerLink]="['/', 'incidencia']" >Incidencia</a>
                         <!-- <span jhiTranslate="gimnasioApp.clase.incidenciasTrue">Incidencia -{{clase.incidenciaId}}</span> -->
                     </div>
                     <ng-template #elseBlock jhiTranslate="gimnasioApp.clase.incidenciasFalse">Sin Incidencias</ng-template>

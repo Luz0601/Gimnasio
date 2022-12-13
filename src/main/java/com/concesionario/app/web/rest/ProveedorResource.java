@@ -7,6 +7,7 @@ import com.concesionario.app.service.dto.ProveedorDTO;
 import io.github.jhipster.web.util.HeaderUtil;
 import io.github.jhipster.web.util.PaginationUtil;
 import io.github.jhipster.web.util.ResponseUtil;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,6 +18,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
@@ -53,6 +55,7 @@ public class ProveedorResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/proveedors")
+    @PreAuthorize("hasAuthority('ROLE_MONITOR')")
     public ResponseEntity<ProveedorDTO> createProveedor(@RequestBody ProveedorDTO proveedorDTO) throws URISyntaxException {
         log.debug("REST request to save Proveedor : {}", proveedorDTO);
         if (proveedorDTO.getId() != null) {

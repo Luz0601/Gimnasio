@@ -37,7 +37,7 @@ export const suscripcionRoute: Routes = [
       pagingParams: JhiResolvePagingParams
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_MONITOR'],
       defaultSort: 'id,asc',
       pageTitle: 'gimnasioApp.suscripcion.home.title'
     },
@@ -50,7 +50,7 @@ export const suscripcionRoute: Routes = [
       suscripcion: SuscripcionResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_MONITOR'],
       pageTitle: 'gimnasioApp.suscripcion.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -62,7 +62,7 @@ export const suscripcionRoute: Routes = [
       suscripcion: SuscripcionResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_MONITOR'],
       pageTitle: 'gimnasioApp.suscripcion.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -74,7 +74,7 @@ export const suscripcionRoute: Routes = [
       suscripcion: SuscripcionResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_MONITOR'],
       pageTitle: 'gimnasioApp.suscripcion.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -89,7 +89,7 @@ export const suscripcionPopupRoute: Routes = [
       suscripcion: SuscripcionResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_MONITOR'],
       pageTitle: 'gimnasioApp.suscripcion.home.title'
     },
     canActivate: [UserRouteAccessService],
