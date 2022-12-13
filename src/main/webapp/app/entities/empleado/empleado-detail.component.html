@@ -1,10 +1,11 @@
-<div class="row justify-content-center">
-    <div class="col-8">
-        <div *ngIf="empleado">
-            <h2><span jhiTranslate="gimnasioApp.empleado.detail.title">Empleado</span> {{empleado.id}}</h2>
-            <hr>
-            <jhi-alert-error></jhi-alert-error>
-            <dl class="row-md jh-entity-details">
+<div class="modal-header">
+    <h2><span jhiTranslate="gimnasioApp.empleado.detail.title">Empleado</span></h2>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.close('Cross click')"><fa-icon [icon]="'times'"></fa-icon></button>
+</div>
+<jhi-alert-error></jhi-alert-error>
+    <div class="modal-body">
+
+        <dl class="row-md jh-entity-details">
                 <dt><span jhiTranslate="gimnasioApp.empleado.dni">Dni</span></dt>
                 <dd>
                     <span>{{empleado.dni}}</span>
@@ -54,18 +55,16 @@
                     </div>
                 </dd>
             </dl>
+            <div class="modal-footer">
 
-            <button type="submit"
-                    (click)="previousState()"
-                    class="btn btn-info">
-                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+                <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Atrás</button>
+
             </button>
 
             <button type="button"
-                    [routerLink]="['/empleado', empleado.id, 'edit']"
-                    class="btn btn-primary">
-                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
-            </button>
-        </div>
+            [routerLink]="['/empleado', empleado.id, 'edit']"
+            class="btn btn-primary">
+            <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+        </button>
     </div>
-</div>
+        </div>

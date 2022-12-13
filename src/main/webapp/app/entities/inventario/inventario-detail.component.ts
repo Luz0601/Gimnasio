@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { IInventario } from 'app/shared/model/inventario.model';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'jhi-inventario-detail',
@@ -10,13 +11,9 @@ import { IInventario } from 'app/shared/model/inventario.model';
 export class InventarioDetailComponent implements OnInit {
   inventario: IInventario;
 
-  constructor(protected activatedRoute: ActivatedRoute) {}
+  constructor(protected activatedRoute: ActivatedRoute, protected modal: NgbActiveModal) {}
 
-  ngOnInit() {
-    this.activatedRoute.data.subscribe(({ inventario }) => {
-      this.inventario = inventario;
-    });
-  }
+  ngOnInit() {}
 
   previousState() {
     window.history.back();

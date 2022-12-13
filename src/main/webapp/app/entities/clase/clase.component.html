@@ -34,8 +34,8 @@
                 <td>{{clase.inicio | date:'mediumDate'}}</td>
                 <td>{{clase.fin | date:'mediumDate'}}</td>
                 <td>
-                    <div *ngIf="clase.incidencias; else elseBlock">
-                        <a jhiTranslate="gimnasioApp.clase.incidenciasTrue" [routerLink]="['/', 'incidencia']" >Incidencia</a>
+                    <div *ngIf="clase.incidenciaId; else elseBlock">
+                        <a jhiTranslate="gimnasioApp.clase.incidenciasTrue" [routerLink]="['../incidencia', clase.incidenciaId , 'view' ]" >Incidencia</a>
                         <!-- <span jhiTranslate="gimnasioApp.clase.incidenciasTrue">Incidencia -{{clase.incidenciaId}}</span> -->
                     </div>
                     <ng-template #elseBlock jhiTranslate="gimnasioApp.clase.incidenciasFalse">Sin Incidencias</ng-template>
@@ -47,8 +47,8 @@
                 </td>
                 <td class="text-right">
                     <div class="btn-group">
-                        <button type="submit"
-                                [routerLink]="['/clase', clase.id, 'view' ]"
+                        <button
+                                (click)="open(clase)"
                                 class="btn btn-info btn-sm">
                             <fa-icon [icon]="'eye'"></fa-icon>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>

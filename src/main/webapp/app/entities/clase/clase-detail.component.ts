@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { IClase } from 'app/shared/model/clase.model';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'jhi-clase-detail',
@@ -10,13 +11,9 @@ import { IClase } from 'app/shared/model/clase.model';
 export class ClaseDetailComponent implements OnInit {
   clase: IClase;
 
-  constructor(protected activatedRoute: ActivatedRoute) {}
+  constructor(protected activatedRoute: ActivatedRoute, protected modal: NgbActiveModal) {}
 
-  ngOnInit() {
-    this.activatedRoute.data.subscribe(({ clase }) => {
-      this.clase = clase;
-    });
-  }
+  ngOnInit() {}
 
   previousState() {
     window.history.back();
