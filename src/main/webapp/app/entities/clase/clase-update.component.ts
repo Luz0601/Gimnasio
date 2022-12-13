@@ -10,6 +10,7 @@ import { IClase, Clase } from 'app/shared/model/clase.model';
 import { ClaseService } from './clase.service';
 import { IEmpleado } from 'app/shared/model/empleado.model';
 import { EmpleadoService } from 'app/entities/empleado';
+import { IIncidencia } from 'app/shared/model/incidencia.model';
 
 @Component({
   selector: 'jhi-clase-update',
@@ -19,6 +20,7 @@ export class ClaseUpdateComponent implements OnInit {
   clase: IClase;
   isSaving: boolean;
 
+  incidencia: IIncidencia;
   monitors: IEmpleado[];
   inicioDp: any;
   finDp: any;
@@ -32,6 +34,11 @@ export class ClaseUpdateComponent implements OnInit {
     fin: [null, [Validators.required]],
     incidencias: [],
     monitorId: []
+  });
+
+  incidenciaForm = this.fb.group({
+    nombre: [null, [Validators.required]],
+    descripcion: [null, [Validators.required]]
   });
 
   constructor(
@@ -123,6 +130,8 @@ export class ClaseUpdateComponent implements OnInit {
 
   protected onSaveSuccess() {
     this.isSaving = false;
+    // if (this.clase.incidencias)
+
     this.previousState();
   }
 
@@ -135,5 +144,9 @@ export class ClaseUpdateComponent implements OnInit {
 
   trackEmpleadoById(index: number, item: IEmpleado) {
     return item.id;
+  }
+
+  onCheck(ob: any) {
+    this.clase.incidencias = ob.target.checked;
   }
 }
