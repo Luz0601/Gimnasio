@@ -10,6 +10,7 @@ import { IClase, Clase } from 'app/shared/model/clase.model';
 import { ClaseService } from './clase.service';
 import { IEmpleado } from 'app/shared/model/empleado.model';
 import { EmpleadoService } from 'app/entities/empleado';
+import { IIncidencia, Incidencia } from 'app/shared/model/incidencia.model';
 
 @Component({
   selector: 'jhi-clase-update',
@@ -31,7 +32,13 @@ export class ClaseUpdateComponent implements OnInit {
     inicio: [null, [Validators.required]],
     fin: [null, [Validators.required]],
     incidencias: [],
-    monitorId: []
+    monitorId: [],
+    incidencia: []
+  });
+
+  incidenciaForm = this.fb.group({
+    nombre: [null, [Validators.required]],
+    descripcion: [null, [Validators.required]]
   });
 
   constructor(
@@ -48,6 +55,12 @@ export class ClaseUpdateComponent implements OnInit {
       this.updateForm(clase);
       this.clase = clase;
     });
+    if (!this.clase) {
+      this.clase = new Clase();
+      if (!this.clase.incidencias) {
+        this.clase.incidencias = false;
+      }
+    }
     this.empleadoService
       .query({ filter: 'clase-is-null' })
       .pipe(
@@ -84,8 +97,15 @@ export class ClaseUpdateComponent implements OnInit {
       inicio: clase.inicio,
       fin: clase.fin,
       incidencias: clase.incidencias,
-      monitorId: clase.monitorId
+      monitorId: clase.monitorId,
+      incidencia: clase.incidencia
     });
+    if (clase.incidencia) {
+      this.incidenciaForm.patchValue({
+        nombre: clase.incidencia.nombre,
+        descripcion: clase.incidencia.descripcion
+      });
+    }
   }
 
   previousState() {
@@ -112,9 +132,23 @@ export class ClaseUpdateComponent implements OnInit {
       inicio: this.editForm.get(['inicio']).value,
       fin: this.editForm.get(['fin']).value,
       incidencias: this.editForm.get(['incidencias']).value,
-      monitorId: this.editForm.get(['monitorId']).value
+      monitorId: this.editForm.get(['monitorId']).value,
+      incidencia: this.createIncidenciaFromForm()
     };
     return entity;
+  }
+
+  private createIncidenciaFromForm(): IIncidencia {
+    let incidencia = {
+      ...new Incidencia(),
+      nombre: this.incidenciaForm.get(['nombre']).value,
+      descripcion: this.incidenciaForm.get(['descripcion']).value
+    };
+    if (this.clase.incidencia) {
+      incidencia.id = this.clase.incidencia.id;
+      incidencia.claseId = this.clase.incidencia.claseId;
+    }
+    return incidencia;
   }
 
   protected subscribeToSaveResponse(result: Observable<HttpResponse<IClase>>) {
@@ -135,5 +169,10 @@ export class ClaseUpdateComponent implements OnInit {
 
   trackEmpleadoById(index: number, item: IEmpleado) {
     return item.id;
+  }
+
+  onCheck(ob: any) {
+    this.clase.incidencias = ob.target.checked;
+    if (this.clase.incidencias && !this.clase.incidencia) this.clase.incidencia = new Incidencia();
   }
 }

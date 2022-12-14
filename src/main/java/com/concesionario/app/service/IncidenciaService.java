@@ -43,4 +43,6 @@ public interface IncidenciaService {
      * @param id the id of the entity.
      */
     void delete(Long id);
+
+    Optional<IncidenciaDTO> findByClaseId(Long claseId);
 }

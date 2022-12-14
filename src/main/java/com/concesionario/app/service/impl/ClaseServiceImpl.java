@@ -1,11 +1,13 @@
 package com.concesionario.app.service.impl;
 
 import com.concesionario.app.service.ClaseService;
+import com.concesionario.app.service.IncidenciaService;
 import com.concesionario.app.domain.Clase;
-import com.concesionario.app.domain.Incidencia;
 import com.concesionario.app.repository.ClaseRepository;
 import com.concesionario.app.service.dto.ClaseDTO;
+import com.concesionario.app.service.dto.IncidenciaDTO;
 import com.concesionario.app.service.mapper.ClaseMapper;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -29,9 +31,12 @@ public class ClaseServiceImpl implements ClaseService {
 
     private final ClaseMapper claseMapper;
 
-    public ClaseServiceImpl(ClaseRepository claseRepository, ClaseMapper claseMapper) {
+    private final IncidenciaService incidenciaService;
+
+    public ClaseServiceImpl(ClaseRepository claseRepository, ClaseMapper claseMapper, IncidenciaService incidenciaService) {
         this.claseRepository = claseRepository;
         this.claseMapper = claseMapper;
+        this.incidenciaService = incidenciaService;
     }
 
     /**
@@ -45,7 +50,20 @@ public class ClaseServiceImpl implements ClaseService {
         log.debug("Request to save Clase : {}", claseDTO);
         Clase clase = claseMapper.toEntity(claseDTO);
         clase = claseRepository.save(clase);
-        return claseMapper.toDto(clase);
+
+        IncidenciaDTO incidenciaDTO = claseDTO.getIncidencia();
+        if (clase.isIncidencias()) {
+            if(incidenciaDTO.getId() != null) { // Update Incidencia
+                incidenciaService.save(incidenciaDTO);
+            } else if (clase.getId() != null){ // Save Incidencia
+                incidenciaDTO.setClaseId(clase.getId());
+                incidenciaService.save(incidenciaDTO);
+            }
+        } else if(incidenciaDTO.getId() != null) { // Delete Incidencia
+            incidenciaService.delete(incidenciaDTO.getId());
+        }
+
+        return this.getIncidencia(claseMapper.toDto(clase));
     }
 
     /**
@@ -59,7 +77,7 @@ public class ClaseServiceImpl implements ClaseService {
     public Page<ClaseDTO> findAll(Pageable pageable) {
         log.debug("Request to get all Clases");
         return claseRepository.findAll(pageable)
-            .map(claseMapper::toDto).map(this::getIncidenciaId);
+            .map(claseMapper::toDto).map(this::getIncidencia);
     }
 
 
@@ -74,7 +92,7 @@ public class ClaseServiceImpl implements ClaseService {
     public Optional<ClaseDTO> findOne(Long id) {
         log.debug("Request to get Clase : {}", id);
         return claseRepository.findById(id)
-            .map(claseMapper::toDto);
+            .map(claseMapper::toDto).map(this::getIncidencia);
     }
 
     /**
@@ -85,14 +103,18 @@ public class ClaseServiceImpl implements ClaseService {
     @Override
     public void delete(Long id) {
         log.debug("Request to delete Clase : {}", id);
+        IncidenciaDTO incidenciaDTO = this.findOne(id).get().getIncidencia();
+        if (incidenciaDTO != null) {
+            incidenciaService.delete(incidenciaDTO.getId());
+        }
         claseRepository.deleteById(id);
     }
 
-    private ClaseDTO getIncidenciaId(ClaseDTO claseDTO) {
-        Incidencia incidencia = claseRepository.getIncidencia(claseMapper.toEntity(claseDTO));
-        if (incidencia != null)
-            claseDTO.setIncidenciaId(incidencia.getId());
-
+    private ClaseDTO getIncidencia(ClaseDTO claseDTO) {
+         IncidenciaDTO incidenciaDTO = incidenciaService.findByClaseId(claseDTO.getId()).get();
+        if (incidenciaDTO!= null){
+            claseDTO.setIncidencia(incidenciaDTO);
+        }
         return claseDTO;
     }
 }

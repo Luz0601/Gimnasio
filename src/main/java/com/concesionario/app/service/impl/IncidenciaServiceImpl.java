@@ -86,4 +86,15 @@ public class IncidenciaServiceImpl implements IncidenciaService {
         log.debug("Request to delete Incidencia : {}", id);
         incidenciaRepository.deleteById(id);
     }
+
+    @Override
+    public Optional<IncidenciaDTO> findByClaseId(Long claseId) {
+        log.debug("Request to get Incidencia by claseId : {}", claseId);
+        Optional<Incidencia> incidencia = incidenciaRepository.findByClaseId(claseId);
+        IncidenciaDTO incidenciaDTO = new IncidenciaDTO();
+        if (incidencia.isPresent())
+            incidenciaDTO = incidencia.map(incidenciaMapper::toDto).get();
+
+        return Optional.of(incidenciaDTO);
+    }
 }

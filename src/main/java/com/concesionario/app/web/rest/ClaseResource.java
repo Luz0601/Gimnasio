@@ -55,6 +55,10 @@ public class ClaseResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/clases")
+<<<<<<< HEAD
+=======
+    @PreAuthorize("hasAuthority('ROLE_MONITOR') or hasAuthority('ROLE_ADMIN')")
+>>>>>>> Clase-Incidencia
     public ResponseEntity<ClaseDTO> createClase(@Valid @RequestBody ClaseDTO claseDTO) throws URISyntaxException {
         log.debug("REST request to save Clase : {}", claseDTO);
         if (claseDTO.getId() != null) {

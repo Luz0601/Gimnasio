@@ -3,7 +3,7 @@
     "incidencia": {
       "home": {
         "title": "Incidencias",
-        "createLabel": "Crear nuevo Incidencia",
+        "createLabel": "Crear nueva Incidencia",
         "createOrEditLabel": "Crear o editar Incidencia"
       },
       "created": "Un nuevo Incidencia ha sido creado con el identificador {{ param }}",
