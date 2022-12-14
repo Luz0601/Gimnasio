@@ -173,6 +173,6 @@ export class ClaseUpdateComponent implements OnInit {
 
   onCheck(ob: any) {
     this.clase.incidencias = ob.target.checked;
-    if (this.clase.incidencias) this.clase.incidencia = new Incidencia();
+    if (this.clase.incidencias && !this.clase.incidencia) this.clase.incidencia = new Incidencia();
   }
 }

@@ -3,12 +3,10 @@ package com.concesionario.app.service.impl;
 import com.concesionario.app.service.ClaseService;
 import com.concesionario.app.service.IncidenciaService;
 import com.concesionario.app.domain.Clase;
-import com.concesionario.app.domain.Incidencia;
 import com.concesionario.app.repository.ClaseRepository;
 import com.concesionario.app.service.dto.ClaseDTO;
 import com.concesionario.app.service.dto.IncidenciaDTO;
 import com.concesionario.app.service.mapper.ClaseMapper;
-import com.concesionario.app.service.mapper.IncidenciaMapper;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,14 +31,11 @@ public class ClaseServiceImpl implements ClaseService {
 
     private final ClaseMapper claseMapper;
 
-    private final IncidenciaMapper incidenciaMapper;
-
     private final IncidenciaService incidenciaService;
 
-    public ClaseServiceImpl(ClaseRepository claseRepository, ClaseMapper claseMapper, IncidenciaMapper incidenciaMapper, IncidenciaService incidenciaService) {
+    public ClaseServiceImpl(ClaseRepository claseRepository, ClaseMapper claseMapper, IncidenciaService incidenciaService) {
         this.claseRepository = claseRepository;
         this.claseMapper = claseMapper;
-        this.incidenciaMapper = incidenciaMapper;
         this.incidenciaService = incidenciaService;
     }
 
