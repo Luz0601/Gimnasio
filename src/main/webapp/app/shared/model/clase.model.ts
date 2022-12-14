@@ -1,4 +1,5 @@
 import { Moment } from 'moment';
+import { IIncidencia } from './incidencia.model';
 
 export interface IClase {
   id?: number;
@@ -9,7 +10,7 @@ export interface IClase {
   fin?: Moment;
   incidencias?: boolean;
   monitorId?: number;
-  incidenciaId?: number;
+  incidencia?: IIncidencia;
 }
 
 export class Clase implements IClase {
@@ -21,7 +22,8 @@ export class Clase implements IClase {
     public inicio?: Moment,
     public fin?: Moment,
     public incidencias?: boolean,
-    public monitorId?: number
+    public monitorId?: number,
+    public incidencia?: IIncidencia
   ) {
     this.incidencias = this.incidencias || false;
   }
