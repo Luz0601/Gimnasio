@@ -1,5 +1,6 @@
 package com.concesionario.app.repository;
 
+import com.concesionario.app.domain.Clase;
 import com.concesionario.app.domain.Incidencia;
 import com.concesionario.app.service.dto.IncidenciaDTO;
 
@@ -20,5 +21,9 @@ public interface IncidenciaRepository extends JpaRepository<Incidencia, Long> {
 
     @Query("SELECT c FROM Incidencia c WHERE c.clase.id IS :claseId")
     Optional<Incidencia> findByClaseId(@Param("claseId") Long claseId);
+
+        @Modifying
+    @Query("UPDATE Clase c SET c.incidencias=:inBool WHERE c.id IS :claseId")
+    int updateClaseIncidenciaBoolean(@Param("claseId") Long claseId, @Param("inBool") Boolean incidencias);
 
 }
