@@ -9,7 +9,10 @@ import { IPuesto } from 'app/shared/model/puesto.model';
 import { AccountService } from 'app/core';
 
 import { ITEMS_PER_PAGE } from 'app/shared';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { PuestoService } from './puesto.service';
+import { PuestoDetailComponent } from './puesto-detail.component';
+import { PuestoUpdateComponent } from './puesto-update.component';
 
 @Component({
   selector: 'jhi-puesto',
@@ -37,7 +40,8 @@ export class PuestoComponent implements OnInit, OnDestroy {
     protected accountService: AccountService,
     protected activatedRoute: ActivatedRoute,
     protected router: Router,
-    protected eventManager: JhiEventManager
+    protected eventManager: JhiEventManager,
+    private modalService: NgbModal
   ) {
     this.itemsPerPage = ITEMS_PER_PAGE;
     this.routeData = this.activatedRoute.data.subscribe(data => {
@@ -46,6 +50,15 @@ export class PuestoComponent implements OnInit, OnDestroy {
       this.reverse = data.pagingParams.ascending;
       this.predicate = data.pagingParams.predicate;
     });
+  }
+
+  open(content) {
+    const modalRef = this.modalService.open(PuestoDetailComponent, { ariaLabelledBy: 'modal-basic-title' });
+    modalRef.componentInstance.puesto = content;
+  }
+  editar(content) {
+    const modalRef = this.modalService.open(PuestoUpdateComponent, { ariaLabelledBy: 'modal-basic-title' });
+    modalRef.componentInstance.puesto = content;
   }
 
   loadAll() {

@@ -12,11 +12,7 @@ export class PuestoDetailComponent implements OnInit {
 
   constructor(protected activatedRoute: ActivatedRoute) {}
 
-  ngOnInit() {
-    this.activatedRoute.data.subscribe(({ puesto }) => {
-      this.puesto = puesto;
-    });
-  }
+  ngOnInit() {}
 
   previousState() {
     window.history.back();

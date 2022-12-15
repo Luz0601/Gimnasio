@@ -1,7 +1,7 @@
 <div>
     <h2 id="page-heading">
         <span jhiTranslate="gimnasioApp.vacaciones.home.title">Vacaciones</span>
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-vacaciones" [routerLink]="['/vacaciones/new']">
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-vacaciones" (click)="editar(vacaciones)">
             <fa-icon [icon]="'plus'"></fa-icon>
             <span  jhiTranslate="gimnasioApp.vacaciones.home.createLabel">
             Create new Vacaciones
@@ -33,14 +33,12 @@
                 </td>
                 <td class="text-right">
                     <div class="btn-group">
-                        <button type="submit"
-                                [routerLink]="['/vacaciones', vacaciones.id, 'view' ]"
+                        <button (click)="open(vacaciones)"
                                 class="btn btn-info btn-sm">
                             <fa-icon [icon]="'eye'"></fa-icon>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
                         </button>
-                        <button type="submit"
-                                [routerLink]="['/vacaciones', vacaciones.id, 'edit']"
+                        <button (click)="editar(vacaciones)"
                                 class="btn btn-primary btn-sm">
                             <fa-icon [icon]="'pencil-alt'"></fa-icon>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>

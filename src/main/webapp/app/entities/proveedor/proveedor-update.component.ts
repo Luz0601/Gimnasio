@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { IProveedor, Proveedor } from 'app/shared/model/proveedor.model';
 import { ProveedorService } from './proveedor.service';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'jhi-proveedor-update',
@@ -21,12 +22,17 @@ export class ProveedorUpdateComponent implements OnInit {
     email: [null, [Validators.required]]
   });
 
-  constructor(protected proveedorService: ProveedorService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
+  constructor(
+    protected proveedorService: ProveedorService,
+    protected activatedRoute: ActivatedRoute,
+    private fb: FormBuilder,
+    protected modal: NgbActiveModal
+  ) {}
 
   ngOnInit() {
     this.isSaving = false;
     this.activatedRoute.data.subscribe(({ proveedor }) => {
-      this.updateForm(proveedor);
+      this.updateForm(this.proveedor);
       this.proveedor = proveedor;
     });
   }
@@ -47,7 +53,7 @@ export class ProveedorUpdateComponent implements OnInit {
   save() {
     this.isSaving = true;
     const proveedor = this.createFromForm();
-    if (proveedor.id !== undefined) {
+    if (proveedor.id !== null) {
       this.subscribeToSaveResponse(this.proveedorService.update(proveedor));
     } else {
       this.subscribeToSaveResponse(this.proveedorService.create(proveedor));
@@ -71,7 +77,7 @@ export class ProveedorUpdateComponent implements OnInit {
 
   protected onSaveSuccess() {
     this.isSaving = false;
-    this.previousState();
+    window.location.reload();
   }
 
   protected onSaveError() {

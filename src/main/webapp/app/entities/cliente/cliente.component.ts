@@ -12,6 +12,7 @@ import { ITEMS_PER_PAGE } from 'app/shared';
 import { ClienteService } from './cliente.service';
 import { ClienteDetailComponent } from './cliente-detail.component';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { ClienteUpdateComponent } from './cliente-update.component';
 
 @Component({
   selector: 'jhi-cliente',
@@ -56,6 +57,10 @@ export class ClienteComponent implements OnInit, OnDestroy {
     modalRef.componentInstance.cliente = content;
   }
 
+  editar(content) {
+    const modalRef = this.modalService.open(ClienteUpdateComponent, { ariaLabelledBy: 'modal-basic-title' });
+    modalRef.componentInstance.cliente = content;
+  }
   loadAll() {
     this.clienteService
       .query({
