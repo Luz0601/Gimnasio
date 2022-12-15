@@ -15,7 +15,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ClaseRepository extends JpaRepository<Clase, Long> {
 
-    @Query("SELECT c FROM Incidencia c WHERE c.clase IS :clase")
-    Incidencia getIncidencia(@Param("clase") Clase clase);
-
 }

@@ -112,9 +112,13 @@ public class ClaseServiceImpl implements ClaseService {
 
     private ClaseDTO getIncidencia(ClaseDTO claseDTO) {
          IncidenciaDTO incidenciaDTO = incidenciaService.findByClaseId(claseDTO.getId()).get();
-        if (incidenciaDTO!= null){
+        if (incidenciaDTO != null && claseDTO.isIncidencias()){
             claseDTO.setIncidencia(incidenciaDTO);
         }
+        if (incidenciaDTO == null && !claseDTO.isIncidencias()){
+            claseDTO.setIncidencias(false);
+        }
+
         return claseDTO;
     }
 }

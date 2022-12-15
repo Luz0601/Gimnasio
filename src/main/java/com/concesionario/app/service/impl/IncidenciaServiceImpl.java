@@ -1,8 +1,10 @@
 package com.concesionario.app.service.impl;
 
+import com.concesionario.app.service.ClaseService;
 import com.concesionario.app.service.IncidenciaService;
 import com.concesionario.app.domain.Incidencia;
 import com.concesionario.app.repository.IncidenciaRepository;
+import com.concesionario.app.service.dto.ClaseDTO;
 import com.concesionario.app.service.dto.IncidenciaDTO;
 import com.concesionario.app.service.mapper.IncidenciaMapper;
 import org.slf4j.Logger;
@@ -84,6 +86,7 @@ public class IncidenciaServiceImpl implements IncidenciaService {
     @Override
     public void delete(Long id) {
         log.debug("Request to delete Incidencia : {}", id);
+        int i = incidenciaRepository.updateClaseIncidenciaBoolean(this.findOne(id).get().getClaseId(), false);
         incidenciaRepository.deleteById(id);
     }
 
