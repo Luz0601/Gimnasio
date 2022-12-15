@@ -32,7 +32,7 @@ export class ClaseUpdateComponent implements OnInit {
     inicio: [null, [Validators.required]],
     fin: [null, [Validators.required]],
     incidencias: [],
-    monitorId: [],
+    monitorId: [null, [Validators.required]],
     incidencia: []
   });
 

@@ -16,8 +16,8 @@ export class NominaUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    iban: [],
-    tipoContrato: []
+    iban: [null, [Validators.required]],
+    tipoContrato: [null, [Validators.required]]
   });
 
   constructor(protected nominaService: NominaService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}

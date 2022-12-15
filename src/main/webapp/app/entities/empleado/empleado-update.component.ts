@@ -29,14 +29,14 @@ export class EmpleadoUpdateComponent implements OnInit {
   editForm = this.fb.group({
     id: [],
     dni: [null, [Validators.required]],
-    nombre: [],
+    nombre: [null, [Validators.required]],
     apellido: [],
-    telefono: [],
-    fechaNacimiento: [],
+    telefono: [null, [Validators.required]],
+    fechaNacimiento: [null, [Validators.required]],
     email: [null, []],
-    direccion: [],
+    direccion: [null, [Validators.required]],
     diasVacaciones: [],
-    especialidad: [],
+    especialidad: [null, [Validators.required]],
     nominaId: [],
     puestoId: []
   });

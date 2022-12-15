@@ -25,9 +25,9 @@ export class VacacionesUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    inicio: [],
-    fin: [],
-    empleadoId: []
+    inicio: [null, [Validators.required]],
+    fin: [null, [Validators.required]],
+    empleadoId: [null, [Validators.required]]
   });
 
   constructor(

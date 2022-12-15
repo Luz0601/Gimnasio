@@ -24,13 +24,13 @@ export class InventarioUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    ref: [],
-    nombre: [],
+    ref: [null, [Validators.required]],
+    nombre: [null, [Validators.required]],
     descripcion: [],
-    cantidad: [],
+    cantidad: [null, [Validators.required]],
     estado: [],
-    ultRevision: [],
-    periodoRevision: [],
+    ultRevision: [null, [Validators.required]],
+    periodoRevision: [null, [Validators.required]],
     proveedorId: []
   });
 

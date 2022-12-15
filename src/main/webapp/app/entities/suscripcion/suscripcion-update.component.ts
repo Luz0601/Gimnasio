@@ -16,8 +16,8 @@ export class SuscripcionUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    precio: [],
-    periodo: []
+    precio: [null, [Validators.required]],
+    periodo: [null, [Validators.required]]
   });
 
   constructor(protected suscripcionService: SuscripcionService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}

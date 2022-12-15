@@ -37,7 +37,7 @@ export const clienteSuscripcionRoute: Routes = [
       pagingParams: JhiResolvePagingParams
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_USER', 'ROLE_MONITOR'],
       defaultSort: 'id,asc',
       pageTitle: 'gimnasioApp.clienteSuscripcion.home.title'
     },
@@ -50,7 +50,7 @@ export const clienteSuscripcionRoute: Routes = [
       clienteSuscripcion: ClienteSuscripcionResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_USER', 'ROLE_MONITOR'],
       pageTitle: 'gimnasioApp.clienteSuscripcion.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -62,7 +62,7 @@ export const clienteSuscripcionRoute: Routes = [
       clienteSuscripcion: ClienteSuscripcionResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_USER', 'ROLE_MONITOR'],
       pageTitle: 'gimnasioApp.clienteSuscripcion.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -74,7 +74,7 @@ export const clienteSuscripcionRoute: Routes = [
       clienteSuscripcion: ClienteSuscripcionResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_USER', 'ROLE_MONITOR'],
       pageTitle: 'gimnasioApp.clienteSuscripcion.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -89,7 +89,7 @@ export const clienteSuscripcionPopupRoute: Routes = [
       clienteSuscripcion: ClienteSuscripcionResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_USER', 'ROLE_MONITOR'],
       pageTitle: 'gimnasioApp.clienteSuscripcion.home.title'
     },
     canActivate: [UserRouteAccessService],

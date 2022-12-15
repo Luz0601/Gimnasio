@@ -18,7 +18,7 @@ export class PuestoUpdateComponent implements OnInit {
     id: [],
     nombre: [null, [Validators.required]],
     horario: [],
-    salario: []
+    salario: [null, [Validators.required]]
   });
 
   constructor(protected puestoService: PuestoService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}

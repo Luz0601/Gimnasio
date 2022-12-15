@@ -16,9 +16,9 @@ export class ProveedorUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    nombre: [],
-    telefono: [],
-    email: []
+    nombre: [null, [Validators.required]],
+    telefono: [null, [Validators.required]],
+    email: [null, [Validators.required]]
   });
 
   constructor(protected proveedorService: ProveedorService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
