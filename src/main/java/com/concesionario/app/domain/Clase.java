@@ -8,7 +8,7 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.time.Instant;
 import java.util.Objects;
 
 /**
@@ -37,11 +37,11 @@ public class Clase implements Serializable {
 
     @NotNull
     @Column(name = "inicio", nullable = false)
-    private LocalDate inicio;
+    private Instant inicio;
 
     @NotNull
     @Column(name = "fin", nullable = false)
-    private LocalDate fin;
+    private Instant fin;
 
     @Column(name = "incidencias")
     private Boolean incidencias;
@@ -98,29 +98,29 @@ public class Clase implements Serializable {
         this.lugar = lugar;
     }
 
-    public LocalDate getInicio() {
+    public Instant getInicio() {
         return inicio;
     }
 
-    public Clase inicio(LocalDate inicio) {
+    public Clase inicio(Instant inicio) {
         this.inicio = inicio;
         return this;
     }
 
-    public void setInicio(LocalDate inicio) {
+    public void setInicio(Instant inicio) {
         this.inicio = inicio;
     }
 
-    public LocalDate getFin() {
+    public Instant getFin() {
         return fin;
     }
 
-    public Clase fin(LocalDate fin) {
+    public Clase fin(Instant fin) {
         this.fin = fin;
         return this;
     }
 
-    public void setFin(LocalDate fin) {
+    public void setFin(Instant fin) {
         this.fin = fin;
     }
 

@@ -1,6 +1,7 @@
 package com.concesionario.app.service.dto;
 import io.swagger.annotations.ApiModel;
-import java.time.LocalDate;
+
+import java.time.Instant;
 import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Objects;
@@ -21,10 +22,10 @@ public class ClaseDTO implements Serializable {
     private String lugar;
 
     @NotNull
-    private LocalDate inicio;
+    private Instant inicio;
 
     @NotNull
-    private LocalDate fin;
+    private Instant fin;
 
     private Boolean incidencias;
 
@@ -67,19 +68,19 @@ public class ClaseDTO implements Serializable {
         this.lugar = lugar;
     }
 
-    public LocalDate getInicio() {
+    public Instant getInicio() {
         return inicio;
     }
 
-    public void setInicio(LocalDate inicio) {
+    public void setInicio(Instant inicio) {
         this.inicio = inicio;
     }
 
-    public LocalDate getFin() {
+    public Instant getFin() {
         return fin;
     }
 
-    public void setFin(LocalDate fin) {
+    public void setFin(Instant fin) {
         this.fin = fin;
     }
 
