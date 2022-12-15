@@ -9,7 +9,10 @@ import { IVacaciones } from 'app/shared/model/vacaciones.model';
 import { AccountService } from 'app/core';
 
 import { ITEMS_PER_PAGE } from 'app/shared';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { VacacionesService } from './vacaciones.service';
+import { VacacionesDetailComponent } from './vacaciones-detail.component';
+import { VacacionesUpdateComponent } from './vacaciones-update.component';
 
 @Component({
   selector: 'jhi-vacaciones',
@@ -37,7 +40,8 @@ export class VacacionesComponent implements OnInit, OnDestroy {
     protected accountService: AccountService,
     protected activatedRoute: ActivatedRoute,
     protected router: Router,
-    protected eventManager: JhiEventManager
+    protected eventManager: JhiEventManager,
+    private modalService: NgbModal
   ) {
     this.itemsPerPage = ITEMS_PER_PAGE;
     this.routeData = this.activatedRoute.data.subscribe(data => {
@@ -46,6 +50,15 @@ export class VacacionesComponent implements OnInit, OnDestroy {
       this.reverse = data.pagingParams.ascending;
       this.predicate = data.pagingParams.predicate;
     });
+  }
+
+  open(content) {
+    const modalRef = this.modalService.open(VacacionesDetailComponent, { ariaLabelledBy: 'modal-basic-title' });
+    modalRef.componentInstance.vacaciones = content;
+  }
+  editar(content) {
+    const modalRef = this.modalService.open(VacacionesUpdateComponent, { ariaLabelledBy: 'modal-basic-title' });
+    modalRef.componentInstance.vacaciones = content;
   }
 
   loadAll() {

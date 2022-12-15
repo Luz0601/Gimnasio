@@ -1,7 +1,7 @@
 <div>
     <h2 id="page-heading">
         <span jhiTranslate="gimnasioApp.inventario.home.title">Inventarios</span>
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-inventario" [routerLink]="['/inventario/new']">
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-inventario" (click)="editar(inventario)">
             <fa-icon [icon]="'plus'"></fa-icon>
             <span  jhiTranslate="gimnasioApp.inventario.home.createLabel">
             Create new Inventario
@@ -53,8 +53,7 @@
                             <fa-icon [icon]="'eye'"></fa-icon>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
                         </button>
-                        <button type="submit"
-                                [routerLink]="['/inventario', inventario.id, 'edit']"
+                        <button (click)="editar(inventario)"
                                 class="btn btn-primary btn-sm">
                             <fa-icon [icon]="'pencil-alt'"></fa-icon>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>

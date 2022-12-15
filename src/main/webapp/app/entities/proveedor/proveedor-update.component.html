@@ -1,8 +1,11 @@
-<div class="row justify-content-center">
-    <div class="col-8">
-        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
-            <h2 id="jhi-proveedor-heading" jhiTranslate="gimnasioApp.proveedor.home.createOrEditLabel">Create or edit a Proveedor</h2>
-            <div>
+<div class="modal-header">
+    <h2 id="jhi-proveedor-heading" jhiTranslate="gimnasioApp.proveedor.home.createOrEditLabel">Create or edit a Proveedor</h2>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.close('Cross click')"><fa-icon [icon]="'times'"></fa-icon></button>
+</div>
+<div class="modal-body">
+
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+        <div>
                 <jhi-alert-error></jhi-alert-error>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gimnasioApp.proveedor.nombre" for="field_nombre">Nombre</label>
@@ -19,16 +22,18 @@
                     <input type="text" class="form-control" name="email" id="field_email"
                            formControlName="email"/>
                 </div>
+            </div>
+<div class="modal-footer">
 
-            </div>
-            <div>
-                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
-                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
-                </button>
-                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
-                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
-                </button>
-            </div>
-        </form>
+    <div>
+        <button button="button" (click)="modal.close('Close')" class="btn btn-info">
+            <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+          </button>
+        <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+            <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
     </div>
+</form>
 </div>
+
+1</div>

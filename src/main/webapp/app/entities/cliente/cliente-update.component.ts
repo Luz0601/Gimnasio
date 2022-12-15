@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import * as moment from 'moment';
 import { ICliente, Cliente } from 'app/shared/model/cliente.model';
 import { ClienteService } from './cliente.service';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'jhi-cliente-update',
@@ -28,12 +29,17 @@ export class ClienteUpdateComponent implements OnInit {
     ciclo: []
   });
 
-  constructor(protected clienteService: ClienteService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
+  constructor(
+    protected clienteService: ClienteService,
+    protected activatedRoute: ActivatedRoute,
+    private fb: FormBuilder,
+    protected modal: NgbActiveModal
+  ) {}
 
   ngOnInit() {
     this.isSaving = false;
     this.activatedRoute.data.subscribe(({ cliente }) => {
-      this.updateForm(cliente);
+      this.updateForm(this.cliente);
       this.cliente = cliente;
     });
   }
@@ -59,7 +65,7 @@ export class ClienteUpdateComponent implements OnInit {
   save() {
     this.isSaving = true;
     const cliente = this.createFromForm();
-    if (cliente.id !== undefined) {
+    if (cliente.id !== null) {
       this.subscribeToSaveResponse(this.clienteService.update(cliente));
     } else {
       this.subscribeToSaveResponse(this.clienteService.create(cliente));
@@ -88,7 +94,6 @@ export class ClienteUpdateComponent implements OnInit {
 
   protected onSaveSuccess() {
     this.isSaving = false;
-    this.previousState();
   }
 
   protected onSaveError() {

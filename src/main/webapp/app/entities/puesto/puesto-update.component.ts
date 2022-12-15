@@ -26,7 +26,7 @@ export class PuestoUpdateComponent implements OnInit {
   ngOnInit() {
     this.isSaving = false;
     this.activatedRoute.data.subscribe(({ puesto }) => {
-      this.updateForm(puesto);
+      this.updateForm(this.puesto);
       this.puesto = puesto;
     });
   }
@@ -47,7 +47,7 @@ export class PuestoUpdateComponent implements OnInit {
   save() {
     this.isSaving = true;
     const puesto = this.createFromForm();
-    if (puesto.id !== undefined) {
+    if (puesto.id !== null) {
       this.subscribeToSaveResponse(this.puestoService.update(puesto));
     } else {
       this.subscribeToSaveResponse(this.puestoService.create(puesto));
@@ -71,7 +71,6 @@ export class PuestoUpdateComponent implements OnInit {
 
   protected onSaveSuccess() {
     this.isSaving = false;
-    this.previousState();
   }
 
   protected onSaveError() {

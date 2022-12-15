@@ -12,6 +12,7 @@ import { ITEMS_PER_PAGE } from 'app/shared';
 import { InventarioService } from './inventario.service';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { InventarioDetailComponent } from './inventario-detail.component';
+import { InventarioUpdateComponent } from './inventario-update.component';
 
 @Component({
   selector: 'jhi-inventario',
@@ -65,6 +66,10 @@ export class InventarioComponent implements OnInit, OnDestroy {
   }
   open(content) {
     const modalRef = this.modalService.open(InventarioDetailComponent, { ariaLabelledBy: 'modal-basic-title' });
+    modalRef.componentInstance.inventario = content;
+  }
+  editar(content) {
+    const modalRef = this.modalService.open(InventarioUpdateComponent, { ariaLabelledBy: 'modal-basic-title' });
     modalRef.componentInstance.inventario = content;
   }
   loadPage(page: number) {
