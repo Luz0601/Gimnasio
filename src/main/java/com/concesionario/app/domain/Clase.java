@@ -8,6 +8,7 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.Objects;
 
@@ -37,11 +38,11 @@ public class Clase implements Serializable {
 
     @NotNull
     @Column(name = "inicio", nullable = false)
-    private Instant inicio;
+    private Timestamp inicio;
 
     @NotNull
     @Column(name = "fin", nullable = false)
-    private Instant fin;
+    private Timestamp fin;
 
     @Column(name = "incidencias")
     private Boolean incidencias;
@@ -98,29 +99,29 @@ public class Clase implements Serializable {
         this.lugar = lugar;
     }
 
-    public Instant getInicio() {
+    public Timestamp getInicio() {
         return inicio;
     }
 
-    public Clase inicio(Instant inicio) {
+    public Clase inicio(Timestamp inicio) {
         this.inicio = inicio;
         return this;
     }
 
-    public void setInicio(Instant inicio) {
+    public void setInicio(Timestamp inicio) {
         this.inicio = inicio;
     }
 
-    public Instant getFin() {
+    public Timestamp getFin() {
         return fin;
     }
 
-    public Clase fin(Instant fin) {
+    public Clase fin(Timestamp fin) {
         this.fin = fin;
         return this;
     }
 
-    public void setFin(Instant fin) {
+    public void setFin(Timestamp fin) {
         this.fin = fin;
     }
 

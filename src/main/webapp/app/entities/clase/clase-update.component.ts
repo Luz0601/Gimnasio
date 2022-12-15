@@ -22,6 +22,7 @@ export class ClaseUpdateComponent implements OnInit {
 
   monitors: IEmpleado[];
   inicioDp: any;
+  inicioTp: any;
   finDp: any;
 
   editForm = this.fb.group({

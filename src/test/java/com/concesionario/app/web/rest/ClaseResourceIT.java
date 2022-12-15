@@ -22,6 +22,9 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.Validator;
 
 import javax.persistence.EntityManager;
+
+import java.sql.Timestamp;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.List;
@@ -47,11 +50,11 @@ public class ClaseResourceIT {
     private static final String DEFAULT_LUGAR = "AAAAAAAAAA";
     private static final String UPDATED_LUGAR = "BBBBBBBBBB";
 
-    private static final LocalDate DEFAULT_INICIO = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_INICIO = LocalDate.now(ZoneId.systemDefault());
+    private static final Timestamp DEFAULT_INICIO = Timestamp.from(Instant.EPOCH);
+    private static final Timestamp UPDATED_INICIO = Timestamp.from(Instant.now());
 
-    private static final LocalDate DEFAULT_FIN = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_FIN = LocalDate.now(ZoneId.systemDefault());
+    private static final Timestamp DEFAULT_FIN = Timestamp.from(Instant.EPOCH);
+    private static final Timestamp UPDATED_FIN = Timestamp.from(Instant.now());
 
     private static final Boolean DEFAULT_INCIDENCIAS = false;
     private static final Boolean UPDATED_INCIDENCIAS = true;
@@ -238,7 +241,7 @@ public class ClaseResourceIT {
             .andExpect(jsonPath("$.[*].fin").value(hasItem(DEFAULT_FIN.toString())))
             .andExpect(jsonPath("$.[*].incidencias").value(hasItem(DEFAULT_INCIDENCIAS.booleanValue())));
     }
-    
+
     @Test
     @Transactional
     public void getClase() throws Exception {

@@ -36,6 +36,16 @@
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gimnasioApp.clase.inicio" for="field_inicio">Inicio</label>
+                    <!-- <div class="input-group">
+                        <ejs-datetimepicker id='field_inicio' class="form-control" name="inicio" formControlName="inicio" format ='yyyy.MM.dd HH:mm'></ejs-datetimepicker>
+                    </div> -->
+                    <div class="input-group">
+                        <input id="field_inicio" type="text" class="form-control" name="inicio" ngbTimepicker formControlName="inicio"/>
+                        <span class="input-group-append">
+
+                        </span>
+                    </div>
+
                     <div class="input-group">
                         <input id="field_inicio" type="text" class="form-control" name="inicio" ngbDatepicker  #inicioDp="ngbDatepicker" formControlName="inicio"/>
                         <span class="input-group-append">
@@ -49,6 +59,7 @@
                         </small>
                     </div>
                 </div>
+
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gimnasioApp.clase.fin" for="field_fin">Fin</label>
                     <div class="input-group">

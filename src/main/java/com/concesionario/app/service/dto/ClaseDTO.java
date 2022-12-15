@@ -4,6 +4,7 @@ import io.swagger.annotations.ApiModel;
 import java.time.Instant;
 import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.util.Objects;
 
 /**
@@ -22,10 +23,10 @@ public class ClaseDTO implements Serializable {
     private String lugar;
 
     @NotNull
-    private Instant inicio;
+    private Timestamp inicio;
 
     @NotNull
-    private Instant fin;
+    private Timestamp fin;
 
     private Boolean incidencias;
 
@@ -68,19 +69,19 @@ public class ClaseDTO implements Serializable {
         this.lugar = lugar;
     }
 
-    public Instant getInicio() {
+    public Timestamp getInicio() {
         return inicio;
     }
 
-    public void setInicio(Instant inicio) {
+    public void setInicio(Timestamp inicio) {
         this.inicio = inicio;
     }
 
-    public Instant getFin() {
+    public Timestamp getFin() {
         return fin;
     }
 
-    public void setFin(Instant fin) {
+    public void setFin(Timestamp fin) {
         this.fin = fin;
     }
 
