@@ -12,6 +12,7 @@ import { AccountService } from 'app/core';
 import { ITEMS_PER_PAGE } from 'app/shared';
 import { EmpleadoService } from './empleado.service';
 import { EmpleadoDetailComponent } from './empleado-detail.component';
+import { EmpleadoUpdateComponent } from './empleado-update.component';
 
 @Component({
   selector: 'jhi-empleado',
@@ -72,6 +73,10 @@ export class EmpleadoComponent implements OnInit, OnDestroy {
   }
   open(content) {
     const modalRef = this.modalService.open(EmpleadoDetailComponent, { ariaLabelledBy: 'modal-basic-title' });
+    modalRef.componentInstance.empleado = content;
+  }
+  editar(content) {
+    const modalRef = this.modalService.open(EmpleadoUpdateComponent, { ariaLabelledBy: 'modal-basic-title' });
     modalRef.componentInstance.empleado = content;
   }
 
