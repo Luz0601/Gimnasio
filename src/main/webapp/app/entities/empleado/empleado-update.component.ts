@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import * as moment from 'moment';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { JhiAlertService } from 'ng-jhipster';
 import { IEmpleado, Empleado } from 'app/shared/model/empleado.model';
 import { EmpleadoService } from './empleado.service';
@@ -28,8 +29,8 @@ export class EmpleadoUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    dni: [null, [Validators.required]],
-    nombre: [null, [Validators.required]],
+    dni: [],
+    nombre: [],
     apellido: [],
     telefono: [null, [Validators.required]],
     fechaNacimiento: [null, [Validators.required]],
@@ -47,40 +48,23 @@ export class EmpleadoUpdateComponent implements OnInit {
     protected nominaService: NominaService,
     protected puestoService: PuestoService,
     protected activatedRoute: ActivatedRoute,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    protected modal: NgbActiveModal
   ) {}
 
   ngOnInit() {
     this.isSaving = false;
     this.activatedRoute.data.subscribe(({ empleado }) => {
-      this.updateForm(empleado);
+      this.updateForm(this.empleado);
       this.empleado = empleado;
     });
     this.nominaService
-      .query({ filter: 'empleado-is-null' })
+      .query()
       .pipe(
         filter((mayBeOk: HttpResponse<INomina[]>) => mayBeOk.ok),
         map((response: HttpResponse<INomina[]>) => response.body)
       )
-      .subscribe(
-        (res: INomina[]) => {
-          if (!this.empleado.nominaId) {
-            this.nominas = res;
-          } else {
-            this.nominaService
-              .find(this.empleado.nominaId)
-              .pipe(
-                filter((subResMayBeOk: HttpResponse<INomina>) => subResMayBeOk.ok),
-                map((subResponse: HttpResponse<INomina>) => subResponse.body)
-              )
-              .subscribe(
-                (subRes: INomina) => (this.nominas = [subRes].concat(res)),
-                (subRes: HttpErrorResponse) => this.onError(subRes.message)
-              );
-          }
-        },
-        (res: HttpErrorResponse) => this.onError(res.message)
-      );
+      .subscribe((res: INomina[]) => (this.nominas = res), (res: HttpErrorResponse) => this.onError(res.message));
     this.puestoService
       .query()
       .pipe(
@@ -114,7 +98,7 @@ export class EmpleadoUpdateComponent implements OnInit {
   save() {
     this.isSaving = true;
     const empleado = this.createFromForm();
-    if (empleado.id !== undefined) {
+    if (empleado.id !== null) {
       this.subscribeToSaveResponse(this.empleadoService.update(empleado));
     } else {
       this.subscribeToSaveResponse(this.empleadoService.create(empleado));
@@ -146,7 +130,7 @@ export class EmpleadoUpdateComponent implements OnInit {
 
   protected onSaveSuccess() {
     this.isSaving = false;
-    this.previousState();
+    window.location.reload();
   }
 
   protected onSaveError() {

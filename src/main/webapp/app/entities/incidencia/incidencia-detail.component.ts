@@ -12,11 +12,7 @@ export class IncidenciaDetailComponent implements OnInit {
 
   constructor(protected activatedRoute: ActivatedRoute) {}
 
-  ngOnInit() {
-    this.activatedRoute.data.subscribe(({ incidencia }) => {
-      this.incidencia = incidencia;
-    });
-  }
+  ngOnInit() {}
 
   previousState() {
     window.history.back();

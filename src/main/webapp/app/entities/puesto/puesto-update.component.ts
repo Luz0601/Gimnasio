@@ -71,6 +71,7 @@ export class PuestoUpdateComponent implements OnInit {
 
   protected onSaveSuccess() {
     this.isSaving = false;
+    window.location.reload();
   }
 
   protected onSaveError() {
