@@ -8,28 +8,41 @@
     </a>
     <div class="navbar-collapse collapse" id="navbarResponsive" [ngbCollapse]="isNavbarCollapsed" [ngSwitch]="isAuthenticated()">
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <li *jhiHasAnyAuthority="['ROLE_MONITOR', 'ROLE_ADMIN']" class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                 <a class="nav-link" routerLink="/" (click)="collapseNavbar()">
                     <span>
                         <span jhiTranslate="global.menu.home">Home</span>
                     </span>
                 </a>
             </li>
+            <!-- Navbar nuevo -->
+            <li *jhiHasAnyAuthority="['ROLE_MONITOR', 'ROLE_ADMIN']">
+                <a class="nav-link" routerLink="clase" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                    <span jhiTranslate="global.menu.entities.clase">Clase</span>
+                </a>
+            </li>
+            <li *jhiHasAnyAuthority="['ROLE_MONITOR', 'ROLE_ADMIN']">
+                <a class="nav-link" routerLink="inventario" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                    <span jhiTranslate="global.menu.entities.inventario">Inventario</span>
+                </a>
+            </li>
+
+            <li *jhiHasAnyAuthority="['ROLE_MONITOR', 'ROLE_ADMIN']">
+                <a class="nav-link" routerLink="proveedor" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                    <span jhiTranslate="global.menu.entities.proveedor">Proveedor</span>
+                </a>
+            </li>
             <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
             <li *ngSwitchCase="true" ngbDropdown class="nav-item dropdown pointer" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                 <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="entity-menu">
                     <span>
-                        <span jhiTranslate="global.menu.entities.main">
-                            Entities
+                        <span >
+                            Paginas
                         </span>
                     </span>
                 </a>
                 <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="entity-menu">
-                    <li *jhiHasAnyAuthority="['ROLE_MONITOR', 'ROLE_ADMIN']">
-                        <a class="dropdown-item" routerLink="clase" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <span jhiTranslate="global.menu.entities.clase">Clase</span>
-                        </a>
-                    </li>
+
                     <li *jhiHasAnyAuthority="['ROLE_MONITOR', 'ROLE_ADMIN']">
                         <a class="dropdown-item" routerLink="suscripcion" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <span jhiTranslate="global.menu.entities.suscripcion">Suscripcion</span>
@@ -75,16 +88,7 @@
                             <span jhiTranslate="global.menu.entities.claseCliente">Clase Cliente</span>
                         </a>
                     </li>
-                    <li *jhiHasAnyAuthority="['ROLE_MONITOR', 'ROLE_ADMIN']">
-                        <a class="dropdown-item" routerLink="inventario" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <span jhiTranslate="global.menu.entities.inventario">Inventario</span>
-                        </a>
-                    </li>
-                    <li *jhiHasAnyAuthority="['ROLE_MONITOR', 'ROLE_ADMIN']">
-                        <a class="dropdown-item" routerLink="proveedor" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <span jhiTranslate="global.menu.entities.proveedor">Proveedor</span>
-                        </a>
-                    </li>
+
                     <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                 </ul>
             </li>
@@ -133,7 +137,7 @@
                     <!-- jhipster-needle-add-element-to-admin-menu - JHipster will add entities to the admin menu here -->
                 </ul>
             </li>
-            <li ngbDropdown class="nav-item dropdown pointer" *ngIf="languages && languages.length > 1">
+            <li ngbDropdown class="nav-item dropdown pointer menu__navbar lang" *ngIf="languages && languages.length > 1">
                 <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="languagesnavBarDropdown">
                     <span>
                         <span jhiTranslate="global.menu.language">Language</span>
@@ -145,9 +149,10 @@
                     </li>
                 </ul>
             </li>
-            <li ngbDropdown class="nav-item dropdown pointer" placement="bottom-right" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <li ngbDropdown class="nav-item dropdown pointer menu__navbar" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                 <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="account-menu">
                   <span *ngIf="!getImageUrl()">
+                    <fa-icon icon="user"></fa-icon>
                     <span jhiTranslate="global.menu.account.main">
                       Account
                     </span>
