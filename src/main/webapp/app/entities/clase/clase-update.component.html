@@ -34,34 +34,50 @@
                             <option [ngValue]="sala3">Sala 3</option>
                         </select>
                 </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="gimnasioApp.clase.inicio" for="field_inicio">Inicio</label>
-                    <div class="input-group">
-                        <input id="field_inicio" type="text" class="form-control" name="inicio" ngbDatepicker  #inicioDp="ngbDatepicker" formControlName="inicio"/>
-                        <span class="input-group-append">
-                            <button type="button" class="btn btn-secondary" (click)="inicioDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
-                        </span>
+                <div class="d-flex">
+                    <div class="form-group">
+                        <label class="form-control-label" jhiTranslate="gimnasioApp.clase.inicio" for="field_inicio">Inicio</label>
+
+                        <div class="input-group">
+                            <span class="input-group">
+                                <ngb-timepicker formControlName="horaInicio" [(ngModel)]="horaInicio"></ngb-timepicker>
+                            </span>
+                            <input id="field_inicio" type="text"  name="inicio" ngbDatepicker  #inicioDp="ngbDatepicker" formControlName="inicio"/>
+                            <span class="input-group-append">
+                                <button type="button" class="btn btn-secondary" (click)="inicioDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                            </span>
+                        </div>
+                        <div *ngIf="editForm.get('inicio').invalid && (editForm.get('inicio').dirty || editForm.get('inicio').touched)">
+                            <small class="form-text text-danger"
+                                *ngIf="editForm.get('inicio').errors.required" jhiTranslate="entity.validation.required">
+                            This field is required.
+                            </small>
+                        </div>
                     </div>
-                    <div *ngIf="editForm.get('inicio').invalid && (editForm.get('inicio').dirty || editForm.get('inicio').touched)">
-                        <small class="form-text text-danger"
-                               *ngIf="editForm.get('inicio').errors.required" jhiTranslate="entity.validation.required">
-                        This field is required.
-                        </small>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="gimnasioApp.clase.fin" for="field_fin">Fin</label>
-                    <div class="input-group">
-                        <input id="field_fin" type="text" class="form-control" name="fin" ngbDatepicker  #finDp="ngbDatepicker" formControlName="fin"/>
-                        <span class="input-group-append">
-                            <button type="button" class="btn btn-secondary" (click)="finDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
-                        </span>
-                    </div>
-                    <div *ngIf="editForm.get('fin').invalid && (editForm.get('fin').dirty || editForm.get('fin').touched)">
-                        <small class="form-text text-danger"
-                               *ngIf="editForm.get('fin').errors.required" jhiTranslate="entity.validation.required">
-                        This field is required.
-                        </small>
+
+                    <div class="form-group">
+                        <label class="form-control-label" jhiTranslate="gimnasioApp.clase.fin" for="field_fin">Fin</label>
+                        <div class="input-group">
+                            <span class="input-group">
+                                <ngb-timepicker formControlName="horaFin" [(ngModel)]="horaFin"></ngb-timepicker>
+                                <div *ngIf="editForm.get('horaFin').invalid && (editForm.get('horaFin').dirty || editForm.get('horaFin').touched)">
+                                    <small class="form-text text-danger"
+                                        *ngIf="editForm.get('horaFin').errors.required" jhiTranslate="entity.validation.required">
+                                    This field is required.
+                                    </small>
+                                </div>
+                            </span>
+                            <input id="field_fin" type="text" name="fin" ngbDatepicker  #finDp="ngbDatepicker" formControlName="fin"/>
+                            <span class="input-group-append">
+                                <button type="button" class="btn btn-secondary" (click)="finDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                            </span>
+                        </div>
+                        <div *ngIf="editForm.get('fin').invalid && (editForm.get('fin').dirty || editForm.get('fin').touched)">
+                            <small class="form-text text-danger"
+                                *ngIf="editForm.get('fin').errors.required" jhiTranslate="entity.validation.required">
+                            This field is required.
+                            </small>
+                        </div>
                     </div>
                 </div>
 

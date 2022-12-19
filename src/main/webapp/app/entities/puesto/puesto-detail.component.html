@@ -1,35 +1,30 @@
-<div class="row justify-content-center">
-    <div class="col-8">
-        <div *ngIf="puesto">
-            <h2><span jhiTranslate="gimnasioApp.puesto.detail.title">Puesto</span> {{puesto.id}}</h2>
-            <hr>
-            <jhi-alert-error></jhi-alert-error>
-            <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="gimnasioApp.puesto.nombre">Nombre</span></dt>
-                <dd>
-                    <span>{{puesto.nombre}}</span>
-                </dd>
-                <dt><span jhiTranslate="gimnasioApp.puesto.horario">Horario</span></dt>
-                <dd>
-                    <span>{{puesto.horario}}</span>
-                </dd>
-                <dt><span jhiTranslate="gimnasioApp.puesto.salario">Salario</span></dt>
-                <dd>
-                    <span>{{puesto.salario}}</span>
-                </dd>
-            </dl>
+<div class="modal-header justify-content-center">
+  <h2><span jhiTranslate="gimnasioApp.puesto.detail.title" class="title-pages">Puesto</span> {{ puesto.id }}</h2>
+  <button type="button" class="btn-close" aria-label="Close" (click)="modal.close('Cross click')"><fa-icon [icon]="'times'"></fa-icon></button>
+</div>
+<div class="modal-body">
+  <jhi-alert-error></jhi-alert-error>
+  <dl class="row-md jh-entity-details">
+    <dt><span jhiTranslate="gimnasioApp.puesto.nombre">Nombre</span></dt>
+    <dd>
+      <span>{{ puesto.nombre }}</span>
+    </dd>
+    <dt><span jhiTranslate="gimnasioApp.puesto.horario">Horario</span></dt>
+    <dd>
+      <span>{{ puesto.horario }}</span>
+    </dd>
+    <dt><span jhiTranslate="gimnasioApp.puesto.salario">Salario</span></dt>
+    <dd>
+      <span>{{ puesto.salario }}</span>
+    </dd>
+  </dl>
+  <div class="modal-footer justify-content-center">
+    <button (click)="modal.close('Close')" class="btn btn-info">
+      <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
 
-            <button type="submit"
-                    (click)="previousState()"
-                    class="btn btn-info">
-                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
-            </button>
-
-            <button type="button"
-                    [routerLink]="['/puesto', puesto.id, 'edit']"
-                    class="btn btn-primary">
-                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
-            </button>
-        </div>
-    </div>
+    <button type="button" [routerLink]="['/puesto', puesto.id, 'edit']" class="btn btn-primary">
+      <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+  </div>
 </div>

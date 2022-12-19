@@ -1,7 +1,7 @@
 <div>
     <h2 id="page-heading">
-        <span jhiTranslate="gimnasioApp.inventario.home.title">Inventarios</span>
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-inventario" [routerLink]="['/inventario/new']">
+        <span jhiTranslate="gimnasioApp.inventario.home.title" class="title-pages">Inventarios</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-inventario" (click)="editar(inventario)">
             <fa-icon [icon]="'plus'"></fa-icon>
             <span  jhiTranslate="gimnasioApp.inventario.home.createLabel">
             Create new Inventario
@@ -14,15 +14,15 @@
         <table class="table table-hover">
             <thead class="thead-dark">
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
-            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="id"><span>#</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="ref"><span jhiTranslate="gimnasioApp.inventario.ref">Ref</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="nombre"><span jhiTranslate="gimnasioApp.inventario.nombre">Nombre</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="descripcion"><span jhiTranslate="gimnasioApp.inventario.descripcion">Descripcion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="cantidad"><span jhiTranslate="gimnasioApp.inventario.cantidad">Cantidad</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="estado"><span jhiTranslate="gimnasioApp.inventario.estado">Estado</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="ultRevision"><span jhiTranslate="gimnasioApp.inventario.ultRevision">Ult Revision</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="periodoRevision"><span jhiTranslate="gimnasioApp.inventario.periodoRevision">Periodo Revision</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="proveedorId"><span jhiTranslate="gimnasioApp.inventario.proveedor">Proveedor</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="periodoRevision"><span jhiTranslate="gimnasioApp.inventario.periodoRevision" >Periodo Rev</span> <fa-icon [icon]="'info-circle'" class="hovertext" data-hover="Cuantos meses para la revisión"></fa-icon></th>
+            <th jhiSortBy="proveedorId"><span jhiTranslate="gimnasioApp.inventario.proveedor">Proveedor</span> <fa-icon [icon]="'info-circle'" class="hovertext" data-hover="El qué nos provee la maquinaria"></fa-icon></th>
             <th></th>
             </tr>
             </thead>
@@ -35,9 +35,9 @@
                 <td>{{inventario.cantidad}}</td>
                 <td>
                     <div *ngIf="inventario.estado; else elseBlock">
-                        <span jhiTranslate="gimnasioApp.inventario.estadoTrue">Disponible</span>
+                        <span jhiTranslate="gimnasioApp.inventario.estadoTrue" class="green">Disponible</span>
                     </div>
-                    <ng-template #elseBlock jhiTranslate="gimnasioApp.inventario.estadoFalse">Fuera de servicio</ng-template>
+                    <ng-template #elseBlock jhiTranslate="gimnasioApp.inventario.estadoFalse"> <span class="red">Fuera de servicio</span></ng-template>
                 </td>
                 <td>{{inventario.ultRevision | date:'mediumDate'}}</td>
                 <td>{{inventario.periodoRevision}}</td>
@@ -46,27 +46,31 @@
                         <a [routerLink]="['../proveedor', inventario.proveedorId , 'view' ]" >{{inventario.proveedorId}}</a>
                     </div>
                 </td>
-                <td class="text-right">
-                    <div class="btn-group">
-                        <button (click)="open(inventario)"
-                                class="btn btn-info btn-sm">
-                            <fa-icon [icon]="'eye'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
-                        </button>
-                        <button type="submit"
-                                [routerLink]="['/inventario', inventario.id, 'edit']"
-                                class="btn btn-primary btn-sm">
-                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
-                        </button>
-                        <button type="submit"
-                                [routerLink]="['/', 'inventario', { outlets: { popup: inventario.id + '/delete'} }]"
-                                replaceUrl="true"
-                                queryParamsHandling="merge"
-                                class="btn btn-danger btn-sm">
-                            <fa-icon [icon]="'times'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
-                        </button>
+                <td>
+                    <div class="btn-group" ngbDropdown>
+                            <button type="button" class="btn btn-info dropdown-toggle btn-info" data-toggle="dropdown"  aria-expanded="false" ngbDropdownToggle>
+                                <fa-icon [icon]="'ellipsis-v'"></fa-icon>
+                            </button>
+                            <div class="dropdown-menu" ngbDropdownMenu>
+                                <button (click)="open(inventario)"
+                                        class="dropdown-item">
+                                    <fa-icon [icon]="'eye'"></fa-icon>
+                                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                                </button>
+                                <button (click)="editar(inventario)"
+                                        class="dropdown-item">
+                                    <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                                </button>
+                                <button type="submit"
+                                        [routerLink]="['/', 'inventario', { outlets: { popup: inventario.id + '/delete'} }]"
+                                        replaceUrl="true"
+                                        queryParamsHandling="merge"
+                                        class="dropdown-item">
+                                    <fa-icon [icon]="'times'"></fa-icon>
+                                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                                </button>
+                            </div>
                     </div>
                 </td>
             </tr>

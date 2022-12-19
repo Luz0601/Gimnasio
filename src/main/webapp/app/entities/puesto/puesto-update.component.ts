@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { IPuesto, Puesto } from 'app/shared/model/puesto.model';
 import { PuestoService } from './puesto.service';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'jhi-puesto-update',
@@ -21,12 +22,17 @@ export class PuestoUpdateComponent implements OnInit {
     salario: [null, [Validators.required]]
   });
 
-  constructor(protected puestoService: PuestoService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
+  constructor(
+    protected puestoService: PuestoService,
+    protected activatedRoute: ActivatedRoute,
+    private fb: FormBuilder,
+    protected modal: NgbActiveModal
+  ) {}
 
   ngOnInit() {
     this.isSaving = false;
     this.activatedRoute.data.subscribe(({ puesto }) => {
-      this.updateForm(puesto);
+      this.updateForm(this.puesto);
       this.puesto = puesto;
     });
   }
@@ -47,7 +53,7 @@ export class PuestoUpdateComponent implements OnInit {
   save() {
     this.isSaving = true;
     const puesto = this.createFromForm();
-    if (puesto.id !== undefined) {
+    if (puesto.id !== null) {
       this.subscribeToSaveResponse(this.puestoService.update(puesto));
     } else {
       this.subscribeToSaveResponse(this.puestoService.create(puesto));
@@ -71,7 +77,7 @@ export class PuestoUpdateComponent implements OnInit {
 
   protected onSaveSuccess() {
     this.isSaving = false;
-    this.previousState();
+    window.location.reload();
   }
 
   protected onSaveError() {

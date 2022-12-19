@@ -10,6 +10,7 @@ import { IVacaciones, Vacaciones } from 'app/shared/model/vacaciones.model';
 import { VacacionesService } from './vacaciones.service';
 import { IEmpleado } from 'app/shared/model/empleado.model';
 import { EmpleadoService } from 'app/entities/empleado';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'jhi-vacaciones-update',
@@ -35,40 +36,23 @@ export class VacacionesUpdateComponent implements OnInit {
     protected vacacionesService: VacacionesService,
     protected empleadoService: EmpleadoService,
     protected activatedRoute: ActivatedRoute,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    protected modal: NgbActiveModal
   ) {}
 
   ngOnInit() {
     this.isSaving = false;
     this.activatedRoute.data.subscribe(({ vacaciones }) => {
-      this.updateForm(vacaciones);
+      this.updateForm(this.vacaciones);
       this.vacaciones = vacaciones;
     });
     this.empleadoService
-      .query({ filter: 'vacaciones-is-null' })
+      .query()
       .pipe(
         filter((mayBeOk: HttpResponse<IEmpleado[]>) => mayBeOk.ok),
         map((response: HttpResponse<IEmpleado[]>) => response.body)
       )
-      .subscribe(
-        (res: IEmpleado[]) => {
-          if (!this.vacaciones.empleadoId) {
-            this.empleados = res;
-          } else {
-            this.empleadoService
-              .find(this.vacaciones.empleadoId)
-              .pipe(
-                filter((subResMayBeOk: HttpResponse<IEmpleado>) => subResMayBeOk.ok),
-                map((subResponse: HttpResponse<IEmpleado>) => subResponse.body)
-              )
-              .subscribe(
-                (subRes: IEmpleado) => (this.empleados = [subRes].concat(res)),
-                (subRes: HttpErrorResponse) => this.onError(subRes.message)
-              );
-          }
-        },
-        (res: HttpErrorResponse) => this.onError(res.message)
-      );
+      .subscribe((res: IEmpleado[]) => (this.empleados = res), (res: HttpErrorResponse) => this.onError(res.message));
   }
 
   updateForm(vacaciones: IVacaciones) {
@@ -111,7 +95,7 @@ export class VacacionesUpdateComponent implements OnInit {
 
   protected onSaveSuccess() {
     this.isSaving = false;
-    this.previousState();
+    window.location.reload();
   }
 
   protected onSaveError() {

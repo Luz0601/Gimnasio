@@ -10,6 +10,7 @@ import { IInventario, Inventario } from 'app/shared/model/inventario.model';
 import { InventarioService } from './inventario.service';
 import { IProveedor } from 'app/shared/model/proveedor.model';
 import { ProveedorService } from 'app/entities/proveedor';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'jhi-inventario-update',
@@ -39,13 +40,14 @@ export class InventarioUpdateComponent implements OnInit {
     protected inventarioService: InventarioService,
     protected proveedorService: ProveedorService,
     protected activatedRoute: ActivatedRoute,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    protected modal: NgbActiveModal
   ) {}
 
   ngOnInit() {
     this.isSaving = false;
     this.activatedRoute.data.subscribe(({ inventario }) => {
-      this.updateForm(inventario);
+      this.updateForm(this.inventario);
       this.inventario = inventario;
     });
     this.proveedorService
@@ -78,7 +80,7 @@ export class InventarioUpdateComponent implements OnInit {
   save() {
     this.isSaving = true;
     const inventario = this.createFromForm();
-    if (inventario.id !== undefined) {
+    if (inventario.id !== null) {
       this.subscribeToSaveResponse(this.inventarioService.update(inventario));
     } else {
       this.subscribeToSaveResponse(this.inventarioService.create(inventario));
@@ -106,8 +108,8 @@ export class InventarioUpdateComponent implements OnInit {
   }
 
   protected onSaveSuccess() {
+    window.location.reload();
     this.isSaving = false;
-    this.previousState();
   }
 
   protected onSaveError() {

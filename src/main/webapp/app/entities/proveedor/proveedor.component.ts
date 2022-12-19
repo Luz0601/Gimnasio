@@ -10,6 +10,9 @@ import { AccountService } from 'app/core';
 
 import { ITEMS_PER_PAGE } from 'app/shared';
 import { ProveedorService } from './proveedor.service';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { ProveedorDetailComponent } from './proveedor-detail.component';
+import { ProveedorUpdateComponent } from './proveedor-update.component';
 
 @Component({
   selector: 'jhi-proveedor',
@@ -37,7 +40,8 @@ export class ProveedorComponent implements OnInit, OnDestroy {
     protected accountService: AccountService,
     protected activatedRoute: ActivatedRoute,
     protected router: Router,
-    protected eventManager: JhiEventManager
+    protected eventManager: JhiEventManager,
+    private modalService: NgbModal
   ) {
     this.itemsPerPage = ITEMS_PER_PAGE;
     this.routeData = this.activatedRoute.data.subscribe(data => {
@@ -119,6 +123,14 @@ export class ProveedorComponent implements OnInit, OnDestroy {
     return result;
   }
 
+  open(content) {
+    const modalRef = this.modalService.open(ProveedorDetailComponent, { ariaLabelledBy: 'modal-basic-title' });
+    modalRef.componentInstance.proveedor = content;
+  }
+  editar(content) {
+    const modalRef = this.modalService.open(ProveedorUpdateComponent, { ariaLabelledBy: 'modal-basic-title' });
+    modalRef.componentInstance.proveedor = content;
+  }
   protected paginateProveedors(data: IProveedor[], headers: HttpHeaders) {
     this.links = this.parseLinks.parse(headers.get('link'));
     this.totalItems = parseInt(headers.get('X-Total-Count'), 10);

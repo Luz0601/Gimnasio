@@ -31,8 +31,8 @@
                 <td>{{clase.nombre}}</td>
                 <td>{{clase.descripcion}}</td>
                 <td>{{clase.lugar}}</td>
-                <td>{{clase.inicio | date:'mediumDate'}}</td>
-                <td>{{clase.fin | date:'mediumDate'}}</td>
+                <td class="text-center">{{clase.inicio | date:'mediumDate'}}<br>{{clase.inicio | date:'shortTime'}}</td>
+                <td>{{clase.fin | date:'mediumDate'}}<br>{{clase.fin | date:'shortTime'}}</td>
                 <td>
                     <div *ngIf="clase.incidencias; else elseBlock">
                         <a jhiTranslate="gimnasioApp.clase.incidenciasTrue" [routerLink]="['../incidencia', clase.incidencia.id , 'view' ]" >Incidencia</a>

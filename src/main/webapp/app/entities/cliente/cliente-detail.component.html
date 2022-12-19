@@ -1,8 +1,8 @@
-<div class="modal-header">
-    <h2><span jhiTranslate="gimnasioApp.cliente.detail.title">Cliente</span> {{cliente.id}}</h2>
+<div class="modal-header justify-content-center">
+    <h2><span jhiTranslate="gimnasioApp.cliente.detail.title" class="title-pages">Cliente</span> {{cliente.id}}</h2>
     <button type="button" class="btn-close" aria-label="Close" (click)="modal.close('Cross click')"><fa-icon [icon]="'times'"></fa-icon></button>
 </div>
-<div class="modal-body">
+<div class="modal-body justify-content-center">
 
     <dl class="row-md jh-entity-details">
         <dt><span jhiTranslate="gimnasioApp.cliente.dni">Dni</span></dt>
@@ -38,7 +38,7 @@
                     <span>{{cliente.ciclo}}</span>
                 </dd>
             </dl>
-            <div class="modal-footer">
+            <div class="modal-footer justify-content-center">
 
 
                 <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Atrás</button>

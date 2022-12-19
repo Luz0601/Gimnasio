@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { IProveedor } from 'app/shared/model/proveedor.model';
 
@@ -10,13 +11,9 @@ import { IProveedor } from 'app/shared/model/proveedor.model';
 export class ProveedorDetailComponent implements OnInit {
   proveedor: IProveedor;
 
-  constructor(protected activatedRoute: ActivatedRoute) {}
+  constructor(protected activatedRoute: ActivatedRoute, protected modal: NgbActiveModal) {}
 
-  ngOnInit() {
-    this.activatedRoute.data.subscribe(({ proveedor }) => {
-      this.proveedor = proveedor;
-    });
-  }
+  ngOnInit() {}
 
   previousState() {
     window.history.back();

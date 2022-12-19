@@ -1,8 +1,11 @@
-<div class="row justify-content-center">
-    <div class="col-8">
-        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
-            <h2 id="jhi-inventario-heading" jhiTranslate="gimnasioApp.inventario.home.createOrEditLabel">Create or edit a Inventario</h2>
-            <div>
+<div class="modal-header justify-content-center">
+<h2 id="jhi-inventario-heading" jhiTranslate="gimnasioApp.inventario.home.createOrEditLabel" class="title-pages">Create or edit a Inventario</h2>
+<button type="button" class="btn-close" aria-label="Close" (click)="modal.close('Cross click')"><fa-icon [icon]="'times'"></fa-icon></button>
+</div>
+<div class="modal-body">
+
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+        <div>
                 <jhi-alert-error></jhi-alert-error>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gimnasioApp.inventario.ref" for="field_ref">Ref</label>
@@ -26,9 +29,12 @@
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gimnasioApp.inventario.estado" for="field_estado">Estado</label>
-                    <input type="checkbox" class="form-control" name="estado" id="field_estado"
+                    <br>
+                    <input type="checkbox" name="estado" id="field_estado"
                            formControlName="estado"/>
+                           <span class="checkboxes">¿Disponible?</span>
                 </div>
+                <h4>Revisión:</h4>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gimnasioApp.inventario.ultRevision" for="field_ultRevision">Ult Revision</label>
                     <div class="input-group">
@@ -41,9 +47,9 @@
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gimnasioApp.inventario.periodoRevision" for="field_periodoRevision">Periodo Revision</label>
                     <input type="number" class="form-control" name="periodoRevision" id="field_periodoRevision"
-                           formControlName="periodoRevision"/>
+                    formControlName="periodoRevision"/>
                 </div>
-
+                <h4>Información de Contacto:</h4>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gimnasioApp.inventario.proveedor" for="field_proveedor">Proveedor</label>
                     <select class="form-control" id="field_proveedor" name="proveedor" formControlName="proveedorId">
@@ -52,14 +58,15 @@
                     </select>
                 </div>
             </div>
-            <div>
-                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
-                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
-                </button>
-                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
-                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
-                </button>
+            <div class="modal-footer justify-content-center">
+                <div>
+                    <button button="button" (click)="modal.close('Close')" class="btn btn-info">
+                        <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+                      </button>
+                    <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                        <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                    </button>
+                </div>
+                </form>
             </div>
-        </form>
     </div>
-</div>

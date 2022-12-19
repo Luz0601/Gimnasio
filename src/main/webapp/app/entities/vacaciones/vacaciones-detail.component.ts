@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { IVacaciones } from 'app/shared/model/vacaciones.model';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'jhi-vacaciones-detail',
@@ -10,13 +11,9 @@ import { IVacaciones } from 'app/shared/model/vacaciones.model';
 export class VacacionesDetailComponent implements OnInit {
   vacaciones: IVacaciones;
 
-  constructor(protected activatedRoute: ActivatedRoute) {}
+  constructor(protected activatedRoute: ActivatedRoute, protected modal: NgbActiveModal) {}
 
-  ngOnInit() {
-    this.activatedRoute.data.subscribe(({ vacaciones }) => {
-      this.vacaciones = vacaciones;
-    });
-  }
+  ngOnInit() {}
 
   previousState() {
     window.history.back();

@@ -19,11 +19,11 @@
       "nombre": "Nombre",
       "apellido": "Apellido",
       "telefono": "Telefono",
-      "fechaNacimiento": "Fecha Nacimiento",
+      "fechaNacimiento": "Nacimiento",
       "email": "Email",
       "direccion": "Direccion",
-      "diasVacaciones": "Dias Vacaciones",
-      "especialidad": "Especialidad",
+      "diasVacaciones": "Vacac.",
+      "especialidad": "Posición",
       "nomina": "Nomina",
       "puesto": "Puesto"
     }

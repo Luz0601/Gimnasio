@@ -5,11 +5,14 @@ import { Subscription } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { JhiEventManager, JhiParseLinks, JhiAlertService } from 'ng-jhipster';
 
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+
 import { IIncidencia } from 'app/shared/model/incidencia.model';
 import { AccountService } from 'app/core';
 
 import { ITEMS_PER_PAGE } from 'app/shared';
 import { IncidenciaService } from './incidencia.service';
+import { IncidenciaUpdateComponent } from './incidencia-update.component';
 
 @Component({
   selector: 'jhi-incidencia',
@@ -37,7 +40,8 @@ export class IncidenciaComponent implements OnInit, OnDestroy {
     protected accountService: AccountService,
     protected activatedRoute: ActivatedRoute,
     protected router: Router,
-    protected eventManager: JhiEventManager
+    protected eventManager: JhiEventManager,
+    private modalService: NgbModal
   ) {
     this.itemsPerPage = ITEMS_PER_PAGE;
     this.routeData = this.activatedRoute.data.subscribe(data => {
@@ -67,7 +71,10 @@ export class IncidenciaComponent implements OnInit, OnDestroy {
       this.transition();
     }
   }
-
+  editar(content) {
+    const modalRef = this.modalService.open(IncidenciaUpdateComponent, { ariaLabelledBy: 'modal-basic-title' });
+    modalRef.componentInstance.incidencia = content;
+  }
   transition() {
     this.router.navigate(['/incidencia'], {
       queryParams: {

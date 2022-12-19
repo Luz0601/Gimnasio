@@ -1,7 +1,7 @@
     <div>
     <h2 id="page-heading">
-        <span jhiTranslate="gimnasioApp.empleado.home.title">Empleados</span>
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-empleado" [routerLink]="['/empleado/new']">
+        <span jhiTranslate="gimnasioApp.empleado.home.title" class="title-pages">Empleados</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-empleado" (click)="editar(empleado)">
             <fa-icon [icon]="'plus'"></fa-icon>
             <span  jhiTranslate="gimnasioApp.empleado.home.createLabel">
             Create new Empleado
@@ -14,24 +14,22 @@
         <table class="table table-hover">
             <thead class="thead-dark">
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
-            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="dni"><span jhiTranslate="gimnasioApp.empleado.dni">Dni</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="nombre"><span jhiTranslate="gimnasioApp.empleado.nombre">Nombre</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="apellido"><span jhiTranslate="gimnasioApp.empleado.apellido">Apellido</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="telefono"><span jhiTranslate="gimnasioApp.empleado.telefono">Telefono</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="fechaNacimiento"><span jhiTranslate="gimnasioApp.empleado.fechaNacimiento">Fecha Nacimiento</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="email"><span jhiTranslate="gimnasioApp.empleado.email">Email</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="direccion"><span jhiTranslate="gimnasioApp.empleado.direccion">Direccion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="diasVacaciones"><span jhiTranslate="gimnasioApp.empleado.diasVacaciones">Dias Vacaciones</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="especialidad"><span jhiTranslate="gimnasioApp.empleado.especialidad">Especialidad</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="nominaId"><span jhiTranslate="gimnasioApp.empleado.nomina">Nomina</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="puestoId"><span jhiTranslate="gimnasioApp.empleado.puesto">Puesto</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="apellido"><span jhiTranslate="gimnasioApp.empleado.apellido">Apellido</span> </th>
+            <th jhiSortBy="telefono"><span jhiTranslate="gimnasioApp.empleado.telefono">Telefono</span> </th>
+            <th jhiSortBy="fechaNacimiento"><span jhiTranslate="gimnasioApp.empleado.fechaNacimiento">Nacimiento</span></th>
+            <th jhiSortBy="email"><span jhiTranslate="gimnasioApp.empleado.email">Email</span></th>
+            <th jhiSortBy="direccion"><span jhiTranslate="gimnasioApp.empleado.direccion">Direccion</span></th>
+            <th jhiSortBy="diasVacaciones"><span jhiTranslate="gimnasioApp.empleado.diasVacaciones">Dias Vacaciones</span> <fa-icon [icon]="'info-circle'" class="hovertext" data-hover="Dias de vacaciones del empleado"></th>
+            <th jhiSortBy="especialidad"><span jhiTranslate="gimnasioApp.empleado.especialidad">Especialidad</span> <fa-icon [icon]="'info-circle'" class="hovertext" data-hover="Tipo de estudios del empleado"></fa-icon></th>
+            <th jhiSortBy="nominaId"><span jhiTranslate="gimnasioApp.empleado.nomina">Nomina</span> <fa-icon [icon]="'info-circle'" class="hovertext" data-hover="Id de la nomina del empleado"></fa-icon></th>
+            <th jhiSortBy="puestoId"><span jhiTranslate="gimnasioApp.empleado.puesto">Puesto</span> <fa-icon [icon]="'info-circle'" class="hovertext" data-hover="Id del puesto"></fa-icon></th>
             <th></th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let empleado of empleados ;trackBy: trackId">
-                <td><a [routerLink]="['/empleado', empleado.id, 'view' ]">{{empleado.id}}</a></td>
                 <td>{{empleado.dni}}</td>
                 <td>{{empleado.nombre}}</td>
                 <td>{{empleado.apellido}}</td>
@@ -51,28 +49,31 @@
                         <a [routerLink]="['../puesto', empleado.puestoId , 'view' ]" >{{empleado.puestoId}}</a>
                     </div>
                 </td>
-                <td class="text-right">
-                    <div class="btn-group">
-                        <button
-                                (click)="open(empleado)"
-                                class="btn btn-info btn-sm">
-                            <fa-icon [icon]="'eye'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
-                        </button>
-                        <button type="submit"
-                                [routerLink]="['/empleado', empleado.id, 'edit']"
-                                class="btn btn-primary btn-sm">
-                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
-                        </button>
-                        <button type="submit"
-                                [routerLink]="['/', 'empleado', { outlets: { popup: empleado.id + '/delete'} }]"
-                                replaceUrl="true"
-                                queryParamsHandling="merge"
-                                class="btn btn-danger btn-sm">
-                            <fa-icon [icon]="'times'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
-                        </button>
+                <td>
+                    <div class="btn-group" ngbDropdown>
+                            <button type="button" class="btn btn-info dropdown-toggle btn-info" data-toggle="dropdown"  aria-expanded="false" ngbDropdownToggle>
+                                <fa-icon [icon]="'ellipsis-v'"></fa-icon>
+                            </button>
+                            <div class="dropdown-menu" ngbDropdownMenu>
+                                <button (click)="open(empleado)"
+                                        class="dropdown-item">
+                                    <fa-icon [icon]="'eye'"></fa-icon>
+                                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                                </button>
+                                <button (click)="editar(empleado)"
+                                        class="dropdown-item">
+                                    <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                                </button>
+                                <button type="submit"
+                                        [routerLink]="['/', 'empleado', { outlets: { popup: empleado.id + '/delete'} }]"
+                                        replaceUrl="true"
+                                        queryParamsHandling="merge"
+                                        class="dropdown-item">
+                                    <fa-icon [icon]="'times'"></fa-icon>
+                                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                                </button>
+                            </div>
                     </div>
                 </td>
             </tr>

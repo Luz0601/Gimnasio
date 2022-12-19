@@ -9,6 +9,7 @@ import { IIncidencia, Incidencia } from 'app/shared/model/incidencia.model';
 import { IncidenciaService } from './incidencia.service';
 import { IClase } from 'app/shared/model/clase.model';
 import { ClaseService } from 'app/entities/clase';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'jhi-incidencia-update',
@@ -32,13 +33,14 @@ export class IncidenciaUpdateComponent implements OnInit {
     protected incidenciaService: IncidenciaService,
     protected claseService: ClaseService,
     protected activatedRoute: ActivatedRoute,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    protected modal: NgbActiveModal
   ) {}
 
   ngOnInit() {
     this.isSaving = false;
     this.activatedRoute.data.subscribe(({ incidencia }) => {
-      this.updateForm(incidencia);
+      this.updateForm(this.incidencia);
       this.incidencia = incidencia;
     });
     this.claseService
@@ -47,25 +49,7 @@ export class IncidenciaUpdateComponent implements OnInit {
         filter((mayBeOk: HttpResponse<IClase[]>) => mayBeOk.ok),
         map((response: HttpResponse<IClase[]>) => response.body)
       )
-      .subscribe(
-        (res: IClase[]) => {
-          if (!this.incidencia.claseId) {
-            this.clases = res;
-          } else {
-            this.claseService
-              .find(this.incidencia.claseId)
-              .pipe(
-                filter((subResMayBeOk: HttpResponse<IClase>) => subResMayBeOk.ok),
-                map((subResponse: HttpResponse<IClase>) => subResponse.body)
-              )
-              .subscribe(
-                (subRes: IClase) => (this.clases = [subRes].concat(res)),
-                (subRes: HttpErrorResponse) => this.onError(subRes.message)
-              );
-          }
-        },
-        (res: HttpErrorResponse) => this.onError(res.message)
-      );
+      .subscribe((res: IClase[]) => (this.clases = res), (res: HttpErrorResponse) => this.onError(res.message));
   }
 
   updateForm(incidencia: IIncidencia) {

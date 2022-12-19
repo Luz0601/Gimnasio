@@ -1,9 +1,8 @@
-<div class="row justify-content-center">
-    <div class="col-8">
-        <div *ngIf="vacaciones">
-            <h2><span jhiTranslate="gimnasioApp.vacaciones.detail.title">Vacaciones</span> {{vacaciones.id}}</h2>
-            <hr>
-            <jhi-alert-error></jhi-alert-error>
+<div class="modal-header justify-content-center">
+    <h2><span jhiTranslate="gimnasioApp.vacaciones.detail.title" class="title-pages">Vacaciones</span> {{vacaciones.empleadoId}}</h2>
+</div>
+<div class="modal-body">
+    <jhi-alert-error></jhi-alert-error>
             <dl class="row-md jh-entity-details">
                 <dt><span jhiTranslate="gimnasioApp.vacaciones.inicio">Inicio</span></dt>
                 <dd>
@@ -20,18 +19,18 @@
                     </div>
                 </dd>
             </dl>
+        <div class="modal-footer justify-content-center">
 
-            <button type="submit"
-                    (click)="previousState()"
-                    class="btn btn-info">
-                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
-            </button>
+            <button
+            (click)="modal.close('Close')"
+            class="btn btn-info">
+            <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+        </button>
 
-            <button type="button"
-                    [routerLink]="['/vacaciones', vacaciones.id, 'edit']"
-                    class="btn btn-primary">
-                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
-            </button>
-        </div>
-    </div>
+        <button type="button"
+        [routerLink]="['/vacaciones', vacaciones.id, 'edit']"
+        class="btn btn-primary">
+        <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>
 </div>
