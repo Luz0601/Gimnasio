@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
@@ -22,7 +22,8 @@ export class ClaseUpdateComponent implements OnInit {
 
   monitors: IEmpleado[];
   inicioDp: any;
-  inicioTp: any;
+  horaInicio: any;
+  horaFin: any;
   finDp: any;
 
   editForm = this.fb.group({
@@ -34,7 +35,9 @@ export class ClaseUpdateComponent implements OnInit {
     fin: [null, [Validators.required]],
     incidencias: [],
     monitorId: [null, [Validators.required]],
-    incidencia: []
+    incidencia: [],
+    horaInicio: [null, [Validators.required]],
+    horaFin: [null, [Validators.required]]
   });
 
   incidenciaForm = this.fb.group({
@@ -90,13 +93,17 @@ export class ClaseUpdateComponent implements OnInit {
   }
 
   updateForm(clase: IClase) {
+    if (clase.inicio) this.horaInicio = { hour: clase.inicio.hours(), minute: clase.inicio.minutes() };
+    if (clase.fin) this.horaFin = { hour: clase.fin.hours(), minute: clase.fin.minutes() };
     this.editForm.patchValue({
       id: clase.id,
       nombre: clase.nombre,
       descripcion: clase.descripcion,
       lugar: clase.lugar,
       inicio: clase.inicio,
+      horaInicio: new FormControl(),
       fin: clase.fin,
+      horaFin: new FormControl(),
       incidencias: clase.incidencias,
       monitorId: clase.monitorId,
       incidencia: clase.incidencia
@@ -130,12 +137,19 @@ export class ClaseUpdateComponent implements OnInit {
       nombre: this.editForm.get(['nombre']).value,
       descripcion: this.editForm.get(['descripcion']).value,
       lugar: this.editForm.get(['lugar']).value,
-      inicio: this.editForm.get(['inicio']).value,
-      fin: this.editForm.get(['fin']).value,
+      inicio: this.editForm
+        .get(['inicio'])
+        .value.add(this.horaInicio.hour, 'hours')
+        .add(this.horaInicio.minute, 'minutes'),
+      fin: this.editForm
+        .get(['fin'])
+        .value.add(this.horaFin.hour, 'hours')
+        .add(this.horaFin.minute, 'minutes'),
       incidencias: this.editForm.get(['incidencias']).value,
       monitorId: this.editForm.get(['monitorId']).value,
       incidencia: this.createIncidenciaFromForm()
     };
+
     return entity;
   }
 
