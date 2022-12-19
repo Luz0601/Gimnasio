@@ -139,12 +139,12 @@ export class ClaseUpdateComponent implements OnInit {
       lugar: this.editForm.get(['lugar']).value,
       inicio: this.editForm
         .get(['inicio'])
-        .value.add(this.horaInicio.hour, 'hours')
-        .add(this.horaInicio.minute, 'minutes'),
+        .value.hours(this.horaInicio.hour)
+        .minutes(this.horaInicio.minute),
       fin: this.editForm
         .get(['fin'])
-        .value.add(this.horaFin.hour, 'hours')
-        .add(this.horaFin.minute, 'minutes'),
+        .value.hours(this.horaFin.hour)
+        .minutes(this.horaFin.minute),
       incidencias: this.editForm.get(['incidencias']).value,
       monitorId: this.editForm.get(['monitorId']).value,
       incidencia: this.createIncidenciaFromForm()
