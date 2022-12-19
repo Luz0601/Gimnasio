@@ -1,5 +1,5 @@
-<div class="modal-header">
-    <h2><span jhiTranslate="gimnasioApp.proveedor.detail.title">Proveedor</span> {{proveedor.id}}</h2>
+<div class="modal-header justify-content-center">
+    <h2><span jhiTranslate="gimnasioApp.proveedor.detail.title" class="title-pages">Proveedor</span> {{proveedor.id}}</h2>
   <button type="button" class="btn-close" aria-label="Close" (click)="modal.close('Cross click')"><fa-icon [icon]="'times'"></fa-icon></button>
 </div>
             <jhi-alert-error></jhi-alert-error>
@@ -19,7 +19,7 @@
                     <span>{{proveedor.email}}</span>
                 </dd>
             </dl>
-    <div class="modal-footer">
+    <div class="modal-footer justify-content-center">
 
         <button button="button" (click)="modal.close('Close')" class="btn btn-info">
             <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>

@@ -1,5 +1,5 @@
-<div class="modal-header">
-  <h2><span jhiTranslate="gimnasioApp.puesto.detail.title">Puesto</span> {{ puesto.id }}</h2>
+<div class="modal-header justify-content-center">
+  <h2><span jhiTranslate="gimnasioApp.puesto.detail.title" class="title-pages">Puesto</span> {{ puesto.id }}</h2>
   <button type="button" class="btn-close" aria-label="Close" (click)="modal.close('Cross click')"><fa-icon [icon]="'times'"></fa-icon></button>
 </div>
 <div class="modal-body">
@@ -18,7 +18,7 @@
       <span>{{ puesto.salario }}</span>
     </dd>
   </dl>
-  <div class="modal-footer">
+  <div class="modal-footer justify-content-center">
     <button (click)="modal.close('Close')" class="btn btn-info">
       <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
     </button>

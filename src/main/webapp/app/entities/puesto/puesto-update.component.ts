@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { IPuesto, Puesto } from 'app/shared/model/puesto.model';
 import { PuestoService } from './puesto.service';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'jhi-puesto-update',
@@ -21,7 +22,12 @@ export class PuestoUpdateComponent implements OnInit {
     salario: [null, [Validators.required]]
   });
 
-  constructor(protected puestoService: PuestoService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
+  constructor(
+    protected puestoService: PuestoService,
+    protected activatedRoute: ActivatedRoute,
+    private fb: FormBuilder,
+    protected modal: NgbActiveModal
+  ) {}
 
   ngOnInit() {
     this.isSaving = false;

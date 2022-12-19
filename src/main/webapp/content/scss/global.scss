@@ -16,8 +16,7 @@ h4 {
 }
 body,
 .card {
-  background: rgb(255, 255, 255);
-  background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(208, 208, 208, 1) 74%);
+  background: linear-gradient(rgb(248, 250, 253) 0%, rgba(248, 250, 253, 0) 413px);
 }
 
 a {
@@ -31,7 +30,14 @@ a:hover {
   /* make sure browsers use the pointer cursor for anchors, even with no href */
   cursor: pointer;
 }
-
+.title-pages {
+  font-weight: 800;
+}
+#page-heading {
+  width: 80%;
+  position: relative;
+  left: 10%;
+}
 .dropdown-item:hover {
   color: $dropdown-link-hover-color;
 }
@@ -51,7 +57,11 @@ Generic styles
 ========================================================================== */
 
 /* other generic styles */
-
+.btn-close {
+  transform: translateX(50px) translateY(-5px);
+  background-color: transparent;
+  border-radius: 35%;
+}
 .jh-card {
   padding: 1.5%;
   border: none;
@@ -92,7 +102,57 @@ Generic styles
 [jhisortby] {
   cursor: pointer;
 }
-
+label {
+  font-weight: 700;
+  margin-left: 5px;
+}
+.form-control {
+  border-radius: 10px;
+}
+input[type='checkbox'] {
+  position: relative;
+  cursor: pointer;
+  left: 2%;
+}
+input[type='checkbox']:before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 0;
+  left: 0;
+  background-color: #e9e9e9;
+}
+input[type='checkbox']:checked:before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 0;
+  left: 0;
+  background-color: #1e80ef;
+}
+input[type='checkbox']:checked:after {
+  content: '';
+  display: block;
+  width: 8px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  position: absolute;
+  top: 2px;
+  left: 6px;
+}
+.checkboxes {
+  position: relative;
+  font-weight: 500;
+  left: 5%;
+}
 /* ==========================================================================
 Custom alerts for notification
 ========================================================================== */

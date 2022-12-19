@@ -7,7 +7,7 @@
         <fa-icon icon="bars"></fa-icon>
     </a>
     <div class="navbar-collapse collapse" id="navbarResponsive" [ngbCollapse]="isNavbarCollapsed" [ngSwitch]="isAuthenticated()">
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav ml-4">
             <li *jhiHasAnyAuthority="['ROLE_MONITOR', 'ROLE_ADMIN']" class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                 <a class="nav-link" routerLink="/" (click)="collapseNavbar()">
                     <span>
@@ -17,24 +17,24 @@
             </li>
             <!-- Navbar nuevo -->
             <li *jhiHasAnyAuthority="['ROLE_MONITOR', 'ROLE_ADMIN']">
-                <a class="nav-link" routerLink="clase" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                <a class="nav-link ml-4" routerLink="clase" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                     <span jhiTranslate="global.menu.entities.clase">Clase</span>
                 </a>
             </li>
             <li *jhiHasAnyAuthority="['ROLE_MONITOR', 'ROLE_ADMIN']">
-                <a class="nav-link" routerLink="inventario" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                <a class="nav-link ml-4" routerLink="inventario" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                     <span jhiTranslate="global.menu.entities.inventario">Inventario</span>
                 </a>
             </li>
 
             <li *jhiHasAnyAuthority="['ROLE_MONITOR', 'ROLE_ADMIN']">
-                <a class="nav-link" routerLink="proveedor" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                <a class="nav-link ml-4" routerLink="proveedor" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                     <span jhiTranslate="global.menu.entities.proveedor">Proveedor</span>
                 </a>
             </li>
             <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
             <li *ngSwitchCase="true" ngbDropdown class="nav-item dropdown pointer" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="entity-menu">
+                <a class="nav-link dropdown-toggle ml-4" ngbDropdownToggle href="javascript:void(0);" id="entity-menu">
                     <span>
                         <span >
                             Paginas
@@ -153,9 +153,13 @@
                 <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="account-menu">
                   <span *ngIf="!getImageUrl()">
                     <fa-icon icon="user"></fa-icon>
-                    <span jhiTranslate="global.menu.account.main">
-                      Account
+                    <span *ngIf="isAuthenticated(); else elseBlock" >
+                        <span class="p-1" style="text-transform:capitalize">
+                            {{account.login}}
+                        </span>
                     </span>
+                    <ng-template #elseBlock  jhiTranslate="global.menu.account.main" >Usuario</ng-template>
+
                   </span>
                   <span *ngIf="getImageUrl()">
                       <img [src]="getImageUrl()" class="profile-image rounded-circle" alt="Avatar">

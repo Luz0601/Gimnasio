@@ -1,10 +1,8 @@
-<form name="updateForm" (ngSubmit)="save()">
-    <div class="modal-header">
-        <h4 class="modal-title" jhiTranslate="gimnasioApp.incidencia.home.createOrEditLabel">Create or edit a Incidencia</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
-                (click)="clear()">&times;</button>
-    </div>
-    <div class="modal-body">
+<div class="modal-header justify-content-center">
+    <h4 class="modal-title" jhiTranslate="gimnasioApp.incidencia.home.createOrEditLabel" class="title-pages">Create or edit a Incidencia</h4>
+</div>
+<div class="modal-body">
+        <form name="updateForm" (ngSubmit)="save()">
         <jhi-alert-error></jhi-alert-error>
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="gimnasioApp.incidencia.nombre" for="field_nombre">Nombre</label>
@@ -36,13 +34,13 @@
                 <option [ngValue]="claseOption.id" *ngFor="let claseOption of clases; trackBy: trackClaseById">{{claseOption.nombre}}</option>
             </select>
         </div>
+        <div class="modal-footer justify-content-center">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+                <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+            </button>
+            <button id="jhi-confirm-save-incidencia" type="submit" class="btn btn-primary">
+                <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+            </button>
+        </form>
     </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
-            <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
-        </button>
-        <button id="jhi-confirm-save-incidencia" type="submit" class="btn btn-primary">
-            <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
-        </button>
-    </div>
-</form>
+</div>

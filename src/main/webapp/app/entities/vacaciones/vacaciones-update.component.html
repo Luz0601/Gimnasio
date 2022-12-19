@@ -1,11 +1,12 @@
-<div class="modal-header">
-    <h2 id="jhi-vacaciones-heading" jhiTranslate="gimnasioApp.vacaciones.home.createOrEditLabel">Create or edit a Vacaciones</h2>
+<div class="modal-header justify-content-center">
+    <h2 id="jhi-vacaciones-heading" jhiTranslate="gimnasioApp.vacaciones.home.createOrEditLabel" class="title-pages">Create or edit a Vacaciones</h2>
 </div>
 <div class="modal-body">
 
     <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
         <div>
             <jhi-alert-error></jhi-alert-error>
+            <h4>Vacaciones comprendidas entre:</h4>
             <div class="form-group">
                 <label class="form-control-label" jhiTranslate="gimnasioApp.vacaciones.inicio" for="field_inicio">Inicio</label>
                 <div class="input-group">
@@ -24,6 +25,7 @@
                         </span>
                     </div>
                 </div>
+                <h4>Nombre del empleado:</h4>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gimnasioApp.vacaciones.empleado" for="field_empleado">Empleado</label>
                     <select class="form-control" id="field_empleado" name="empleado" formControlName="empleadoId">
@@ -32,7 +34,7 @@
                     </select>
                 </div>
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer justify-content-center">
 
                 <div>
                     <button id="cancel-save" class="btn btn-secondary"  (click)="modal.close('Close')">

@@ -19,7 +19,7 @@
       "nombre": "Nombre",
       "apellido": "Apellido",
       "telefono": "Telefono",
-      "fechaNacimiento": "Fecha Nacimiento",
+      "fechaNacimiento": "Nacimiento",
       "email": "Email",
       "direccion": "Direccion",
       "ciclo": "Ciclo"

@@ -18,8 +18,8 @@ Navbar
 
 .navbar {
   padding: 0.2rem 1rem;
-  margin-left: 5%;
-  line-height: 50px;
+  margin-left: 10%;
+  line-height: 60px;
   text-transform: uppercase;
   .dropdown-item.active,
   .dropdown-item.active:focus,
@@ -47,9 +47,14 @@ Navbar
       margin-left: 0.5em;
     }
   }
-
+  ul li.navbar-nav {
+    margin-left: 200px;
+  }
   a.nav-link {
     font-weight: bold;
+  }
+  a.nav-link:hover {
+    border-bottom: 4px solid #301558;
   }
 
   .navbar-toggler {
@@ -61,7 +66,7 @@ Navbar
 .menu__navbar {
   position: absolute;
   right: 0;
-  margin-right: 5%;
+  margin-right: 12%;
 }
 .lang {
   position: absolute;

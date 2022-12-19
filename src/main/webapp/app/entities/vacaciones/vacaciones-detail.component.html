@@ -1,5 +1,5 @@
-<div class="modal-header">
-    <h2><span jhiTranslate="gimnasioApp.vacaciones.detail.title">Vacaciones</span> {{vacaciones.id}}</h2>
+<div class="modal-header justify-content-center">
+    <h2><span jhiTranslate="gimnasioApp.vacaciones.detail.title" class="title-pages">Vacaciones</span> {{vacaciones.empleadoId}}</h2>
 </div>
 <div class="modal-body">
     <jhi-alert-error></jhi-alert-error>
@@ -19,7 +19,7 @@
                     </div>
                 </dd>
             </dl>
-        <div class="modal-footer">
+        <div class="modal-footer justify-content-center">
 
             <button
             (click)="modal.close('Close')"

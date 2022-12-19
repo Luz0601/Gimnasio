@@ -1,6 +1,6 @@
 <div>
     <h2 id="page-heading">
-        <span jhiTranslate="gimnasioApp.suscripcion.home.title">Suscripcions</span>
+        <span jhiTranslate="gimnasioApp.suscripcion.home.title" class="title-pages">Suscripcions</span>
         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-suscripcion" [routerLink]="['/suscripcion/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
             <span  jhiTranslate="gimnasioApp.suscripcion.home.createLabel">
@@ -25,28 +25,31 @@
                 <td><a [routerLink]="['/suscripcion', suscripcion.id, 'view' ]">{{suscripcion.id}}</a></td>
                 <td>{{suscripcion.precio}}</td>
                 <td jhiTranslate="{{'gimnasioApp.PeriodoSuscripcion.' + suscripcion.periodo}}">{{suscripcion.periodo}}</td>
-                <td class="text-right">
-                    <div class="btn-group">
-                        <button type="submit"
-                                [routerLink]="['/suscripcion', suscripcion.id, 'view' ]"
-                                class="btn btn-info btn-sm">
-                            <fa-icon [icon]="'eye'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
-                        </button>
-                        <button type="submit"
-                                [routerLink]="['/suscripcion', suscripcion.id, 'edit']"
-                                class="btn btn-primary btn-sm">
-                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
-                        </button>
-                        <button type="submit"
-                                [routerLink]="['/', 'suscripcion', { outlets: { popup: suscripcion.id + '/delete'} }]"
-                                replaceUrl="true"
-                                queryParamsHandling="merge"
-                                class="btn btn-danger btn-sm">
-                            <fa-icon [icon]="'times'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
-                        </button>
+                <td>
+                    <div class="btn-group" ngbDropdown>
+                            <button type="button" class="btn btn-info dropdown-toggle btn-info" data-toggle="dropdown"  aria-expanded="false" ngbDropdownToggle>
+                                <fa-icon [icon]="'ellipsis-v'"></fa-icon>
+                            </button>
+                            <div class="dropdown-menu" ngbDropdownMenu>
+                                <button
+                                        class="dropdown-item">
+                                    <fa-icon [icon]="'eye'"></fa-icon>
+                                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                                </button>
+                                <button
+                                        class="dropdown-item">
+                                    <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                                </button>
+                                <button type="submit"
+                                        [routerLink]="['/', 'suscripcion', { outlets: { popup: suscripcion.id + '/delete'} }]"
+                                        replaceUrl="true"
+                                        queryParamsHandling="merge"
+                                        class="dropdown-item">
+                                    <fa-icon [icon]="'times'"></fa-icon>
+                                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                                </button>
+                            </div>
                     </div>
                 </td>
             </tr>
