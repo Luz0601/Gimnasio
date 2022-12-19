@@ -1,40 +1,51 @@
-<div class="row">
-    <div class="col-md-3">
-        <span class="hipster img-fluid rounded"></span>
+<div class="row home">
+  <div class="col-8 ml-4 mt-5">
+    <h1 class="display-4 text-white font-weight-bold mb-5" jhiTranslate="home.title">Welcome, PULSE LAB</h1>
+
+    <div [ngSwitch]="isAuthenticated()">
+      <div class="alert alert-primary w-25 p-3 rounded font-weight-normal" *ngSwitchCase="true">
+        <span id="home-logged-message" *ngIf="account" jhiTranslate="home.logged.message" [translateValues]="{ username: account.login }">
+          You are logged in as user "{{ account.login }}".
+        </span>
+      </div>
+
+      <div class="alert alert-secondary w-25 p-3 ml-5" *ngSwitchCase="false">
+        <span jhiTranslate="global.messages.info.authenticated.prefix">If you want to </span>
+        <a class="alert-link" (click)="login()" jhiTranslate="global.messages.info.authenticated.link">sign in</a
+        >
+      </div>
+      <div class="alert alert-secondary w-25 p-3 ml-5" *ngSwitchCase="false">
+        <span jhiTranslate="global.messages.info.register.noaccount">You don't have an account yet?</span>&nbsp;
+        <a class="alert-link" routerLink="register" jhiTranslate="global.messages.info.register.link">Register a new account</a>
+      </div>
+
+      <p class="text-white font-weight-bold mt-5" jhiTranslate="home.question" *ngSwitchCase="true">
+        Links frecuents in the Pulse Lab Page
+      </p>
+
+      <ul *ngSwitchCase="true">
+        <li><a class="text-white" href="#" target="_blank" rel="noopener" jhiTranslate="home.link.clientes">Client</a></li>
+        <li><a class="text-white" href="#" target="_blank" rel="noopener" jhiTranslate="home.link.inventario">Inventary</a></li>
+        <li><a class="text-white" href="#" target="_blank" rel="noopener" jhiTranslate="home.link.suscripcion">Subscription</a></li>
+        <li><a class="text-white" href="#" target="_blank" rel="noopener" jhiTranslate="home.link.proveedor">Supplier</a></li>
+      </ul>
     </div>
-    <div class="col-md-9">
-        <h1 class="display-4" jhiTranslate="home.title">Welcome, PULSE LAB</h1>
-        <p class="lead" jhiTranslate="home.subtitle">This is your homepage</p>
-
-        <div [ngSwitch]="isAuthenticated()">
-            <div class="alert alert-success" *ngSwitchCase="true" style="width: 300px;">
-                <span id="home-logged-message" *ngIf="account" jhiTranslate="home.logged.message"
-                    [translateValues]="{username: account.login}"> You are logged in as user "{{account.login}}". </span>
-            </div>
-
-            <div class="alert alert-warning" *ngSwitchCase="false">
-                <span jhiTranslate="global.messages.info.authenticated.prefix">If you want to </span>
-                <a class="alert-link" (click)="login()" jhiTranslate="global.messages.info.authenticated.link">sign in</a><span jhiTranslate="global.messages.info.authenticated.suffix">, you can try the default accounts:<br/>- Administrator (login="admin" and password="admin") <br/>- User (login="user" and password="user").</span>
-            </div>
-            <div class="alert alert-warning" *ngSwitchCase="false">
-                <span jhiTranslate="global.messages.info.register.noaccount">You don't have an account yet?</span>&nbsp;
-                <a class="alert-link" routerLink="register" jhiTranslate="global.messages.info.register.link">Register a new account</a>
-            </div>
-        </div>
-
-        <p jhiTranslate="home.question">
-            If you have any question on JHipster:
-        </p>
-
-        <ul>
-            <li><a href="#" target="_blank" rel="noopener" jhiTranslate="home.link.clientes">Client</a></li>
-            <li><a href="#" target="_blank" rel="noopener" jhiTranslate="home.link.inventario">Inventary</a></li>
-            <li><a href="#" target="_blank" rel="noopener" jhiTranslate="home.link.suscripcion">Subscription</a></li>
-            <li><a href="#" target="_blank" rel="noopener" jhiTranslate="home.link.proveedor">Supplier</a></li>
-        </ul>
-
-        <p>
-            <span jhiTranslate="home.duda">If you like JHipster, don't forget to give us a star on</span> <a href="https://github.com/jhipster/generator-jhipster" target="_blank" rel="noopener" jhiTranslate="home.github">GitHub</a>!
-        </p>
+  </div>
+  <div class="col">
+    <h1 class="text-white font-weight-bold text-center mt-3 mb-3">Últimas noticias</h1>
+    <div class="row">
+      <div class="col-6">
+        <img class="rounded" src="../../content/images/instagram.png" alt="instagram" width="200px" height="200px" />
+      </div>
+      <div class="col mb-2">
+        <img class="rounded" src="../../content/images/noticia1.jpg" alt="noticia del invierno" width="200px" height="200px" />
+      </div>
+      <div class="col-6">
+        <img class="rounded" src="../../content/images/noticia2.jpg" alt="noticia del invierno" width="200px" height="200px" />
+      </div>
+      <div class="col">
+        <img class="rounded" src="../../content/images/noticia4.jpg" alt="noticia del invierno" width="200px" height="200px" />
+      </div>
     </div>
+  </div>
 </div>
