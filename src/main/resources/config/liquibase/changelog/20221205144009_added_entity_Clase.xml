@@ -7,7 +7,7 @@
                         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
     <property name="now" value="now()" dbms="h2"/>
-    
+
     <property name="now" value="now()" dbms="mysql"/>
     <property name="autoIncrement" value="true"/>
 
@@ -34,11 +34,11 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="inicio" type="date">
+            <column name="inicio" type="timestamp">
                 <constraints nullable="false" />
             </column>
 
-            <column name="fin" type="date">
+            <column name="fin" type="timestamp">
                 <constraints nullable="false" />
             </column>
 
@@ -71,8 +71,8 @@
             <column name="nombre" type="string"/>
             <column name="descripcion" type="string"/>
             <column name="lugar" type="string"/>
-            <column name="inicio" type="date"/>
-            <column name="fin" type="date"/>
+            <column name="inicio" type="timestamp"/>
+            <column name="fin" type="timestamp"/>
             <column name="incidencias" type="boolean"/>
         </loadData>
     </changeSet>

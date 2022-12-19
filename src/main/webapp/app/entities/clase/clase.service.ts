@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import * as moment from 'moment';
-import { DATE_FORMAT } from 'app/shared/constants/input.constants';
+import { DATE_FORMAT, DATE_TIME_FORMAT } from 'app/shared/constants/input.constants';
 import { map } from 'rxjs/operators';
 
 import { SERVER_API_URL } from 'app/app.constants';
@@ -51,8 +51,8 @@ export class ClaseService {
 
   protected convertDateFromClient(clase: IClase): IClase {
     const copy: IClase = Object.assign({}, clase, {
-      inicio: clase.inicio != null && clase.inicio.isValid() ? clase.inicio.format(DATE_FORMAT) : null,
-      fin: clase.fin != null && clase.fin.isValid() ? clase.fin.format(DATE_FORMAT) : null
+      inicio: clase.inicio != null && clase.inicio.isValid() ? clase.inicio.valueOf() : null,
+      fin: clase.fin != null && clase.fin.isValid() ? clase.fin.valueOf() : null
     });
     return copy;
   }
