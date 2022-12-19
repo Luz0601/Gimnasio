@@ -1,5 +1,5 @@
-<div class="modal-header">
-  <h2 id="jhi-empleado-heading" jhiTranslate="gimnasioApp.empleado.home.createOrEditLabel">Create or edit a Empleado</h2>
+<div class="modal-header justify-content-center">
+  <h2 id="jhi-empleado-heading" jhiTranslate="gimnasioApp.empleado.home.createOrEditLabel" class="title-pages">Create or edit a Empleado</h2>
   <button type="button" class="btn-close" aria-label="Close" (click)="modal.close('Cross click')"><fa-icon [icon]="'times'"></fa-icon></button>
 
 </div>
@@ -7,6 +7,7 @@
   <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
     <div>
       <jhi-alert-error></jhi-alert-error>
+      <h4>Información:</h4>
       <div class="form-group">
         <label class="form-control-label" jhiTranslate="gimnasioApp.empleado.dni" for="field_dni">Dni</label>
         <input type="text" class="form-control" name="dni" id="field_dni" formControlName="dni" />
@@ -23,10 +24,6 @@
       <div class="form-group">
         <label class="form-control-label" jhiTranslate="gimnasioApp.empleado.apellido" for="field_apellido">Apellido</label>
         <input type="text" class="form-control" name="apellido" id="field_apellido" formControlName="apellido" />
-      </div>
-      <div class="form-group">
-        <label class="form-control-label" jhiTranslate="gimnasioApp.empleado.telefono" for="field_telefono">Telefono</label>
-        <input type="number" class="form-control" name="telefono" id="field_telefono" formControlName="telefono" />
       </div>
       <div class="form-group">
         <label class="form-control-label" jhiTranslate="gimnasioApp.empleado.fechaNacimiento" for="field_fechaNacimiento"
@@ -49,6 +46,12 @@
           </span>
         </div>
       </div>
+      <h4>Información de Contacto:</h4>
+      <div class="form-group">
+        <label class="form-control-label" jhiTranslate="gimnasioApp.empleado.telefono" for="field_telefono">Telefono</label>
+        <input type="number" class="form-control" name="telefono" id="field_telefono" formControlName="telefono" />
+      </div>
+
       <div class="form-group">
         <label class="form-control-label" jhiTranslate="gimnasioApp.empleado.email" for="field_email">Email</label>
         <input type="text" class="form-control" name="email" id="field_email" formControlName="email" />
@@ -58,17 +61,18 @@
         <label class="form-control-label" jhiTranslate="gimnasioApp.empleado.direccion" for="field_direccion">Direccion</label>
         <input type="text" class="form-control" name="direccion" id="field_direccion" formControlName="direccion" />
       </div>
+      <h4>Días de Vacaciones:</h4>
       <div class="form-group">
-        <label class="form-control-label" jhiTranslate="gimnasioApp.empleado.diasVacaciones" for="field_diasVacaciones"
+        <label class="form-control-label" for="field_diasVacaciones"
           >Dias Vacaciones</label
         >
         <input type="number" class="form-control" name="diasVacaciones" id="field_diasVacaciones" formControlName="diasVacaciones" />
-      </div>
+    </div>
+    <h4>Formación:</h4>
       <div class="form-group">
         <label class="form-control-label" jhiTranslate="gimnasioApp.empleado.especialidad" for="field_especialidad">Especialidad</label>
         <input type="text" class="form-control" name="especialidad" id="field_especialidad" formControlName="especialidad" />
       </div>
-
       <div class="form-group">
         <label class="form-control-label" jhiTranslate="gimnasioApp.empleado.nomina" for="field_nomina">Nomina</label>
         <select class="form-control" id="field_nomina" name="nomina" formControlName="nominaId">
@@ -88,7 +92,7 @@
         </select>
       </div>
     </div>
-    <div class="modal-footer">
+    <div class="modal-footer justify-content-center">
         <div>
             <button class="btn btn-secondary" (click)="modal.close('Close')">
                 <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>

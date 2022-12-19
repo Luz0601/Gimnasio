@@ -1,5 +1,5 @@
-<div class="modal-header">
-    <h2 id="jhi-puesto-heading" jhiTranslate="gimnasioApp.puesto.home.createOrEditLabel">Create or edit a Puesto</h2>
+<div class="modal-header justify-content-center">
+    <h2 id="jhi-puesto-heading" jhiTranslate="gimnasioApp.puesto.home.createOrEditLabel" class="title-pages">Create or edit a Puesto</h2>
 </div>
 <div class="modal-body">
     <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
@@ -28,9 +28,9 @@
                 </div>
 
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer justify-content-center">
                 <div>
-                    <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <button class="btn btn-secondary" (click)="modal.close('Close')">
                         <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
                     </button>
                     <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">

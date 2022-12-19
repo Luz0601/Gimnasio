@@ -1,4 +1,4 @@
-<div class="modal-header">
+<div class="modal-header justify-content-center">
     <h2 id="jhi-proveedor-heading" jhiTranslate="gimnasioApp.proveedor.home.createOrEditLabel">Create or edit a Proveedor</h2>
     <button type="button" class="btn-close" aria-label="Close" (click)="modal.close('Cross click')"><fa-icon [icon]="'times'"></fa-icon></button>
 </div>
@@ -7,11 +7,13 @@
     <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
         <div>
                 <jhi-alert-error></jhi-alert-error>
+                <h4>Información:</h4>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gimnasioApp.proveedor.nombre" for="field_nombre">Nombre</label>
                     <input type="text" class="form-control" name="nombre" id="field_nombre"
                            formControlName="nombre"/>
                 </div>
+                <h4>Información de contacto</h4>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gimnasioApp.proveedor.telefono" for="field_telefono">Telefono</label>
                     <input type="number" class="form-control" name="telefono" id="field_telefono"
@@ -23,7 +25,7 @@
                            formControlName="email"/>
                 </div>
             </div>
-<div class="modal-footer">
+<div class="modal-footer justify-content-center">
 
     <div>
         <button button="button" (click)="modal.close('Close')" class="btn btn-info">

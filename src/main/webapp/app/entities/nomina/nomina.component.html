@@ -1,6 +1,6 @@
 <div>
     <h2 id="page-heading">
-        <span jhiTranslate="gimnasioApp.nomina.home.title">Nominas</span>
+        <span jhiTranslate="gimnasioApp.nomina.home.title" class="title-pages">Nominas</span>
         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-nomina" [routerLink]="['/nomina/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
             <span  jhiTranslate="gimnasioApp.nomina.home.createLabel">
@@ -14,9 +14,9 @@
         <table class="table table-hover">
             <thead class="thead-dark">
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
-            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="iban"><span jhiTranslate="gimnasioApp.nomina.iban">Iban</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="tipoContrato"><span jhiTranslate="gimnasioApp.nomina.tipoContrato">Tipo Contrato</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="id"><span>#</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="iban"><span jhiTranslate="gimnasioApp.nomina.iban">Iban</span> <fa-icon [icon]="'info-circle'" class="hovertext" data-hover="La cuenta bancaria del empleado"></fa-icon></th>
+            <th jhiSortBy="tipoContrato"><span jhiTranslate="gimnasioApp.nomina.tipoContrato">Tipo Contrato</span> <fa-icon [icon]="'info-circle'" class="hovertext" data-hover="El método del contrado, si es mensual, temporal o prácticas"></fa-icon></th>
             <th></th>
             </tr>
             </thead>
@@ -25,28 +25,31 @@
                 <td><a [routerLink]="['/nomina', nomina.id, 'view' ]">{{nomina.id}}</a></td>
                 <td>{{nomina.iban}}</td>
                 <td jhiTranslate="{{'gimnasioApp.TipoNomina.' + nomina.tipoContrato}}">{{nomina.tipoContrato}}</td>
-                <td class="text-right">
-                    <div class="btn-group">
-                        <button type="submit"
-                                [routerLink]="['/nomina', nomina.id, 'view' ]"
-                                class="btn btn-info btn-sm">
-                            <fa-icon [icon]="'eye'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
-                        </button>
-                        <button type="submit"
-                                [routerLink]="['/nomina', nomina.id, 'edit']"
-                                class="btn btn-primary btn-sm">
-                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
-                        </button>
-                        <button type="submit"
-                                [routerLink]="['/', 'nomina', { outlets: { popup: nomina.id + '/delete'} }]"
-                                replaceUrl="true"
-                                queryParamsHandling="merge"
-                                class="btn btn-danger btn-sm">
-                            <fa-icon [icon]="'times'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
-                        </button>
+                <td>
+                    <div class="btn-group" ngbDropdown>
+                            <button type="button" class="btn btn-info dropdown-toggle btn-info" data-toggle="dropdown"  aria-expanded="false" ngbDropdownToggle>
+                                <fa-icon [icon]="'ellipsis-v'"></fa-icon>
+                            </button>
+                            <div class="dropdown-menu" ngbDropdownMenu>
+                                <button
+                                        class="dropdown-item">
+                                    <fa-icon [icon]="'eye'"></fa-icon>
+                                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                                </button>
+                                <button
+                                        class="dropdown-item">
+                                    <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                                </button>
+                                <button type="submit"
+                                        [routerLink]="['/', 'nomina', { outlets: { popup: nomina.id + '/delete'} }]"
+                                        replaceUrl="true"
+                                        queryParamsHandling="merge"
+                                        class="dropdown-item">
+                                    <fa-icon [icon]="'times'"></fa-icon>
+                                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                                </button>
+                            </div>
                     </div>
                 </td>
             </tr>

@@ -1,6 +1,6 @@
 <div>
     <h2 id="page-heading">
-        <span jhiTranslate="gimnasioApp.claseCliente.home.title">Clase Clientes</span>
+        <span jhiTranslate="gimnasioApp.claseCliente.home.title" class="title-page">Clase Clientes</span>
         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-clase-cliente" [routerLink]="['/clase-cliente/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
             <span  jhiTranslate="gimnasioApp.claseCliente.home.createLabel">
@@ -11,10 +11,10 @@
     <jhi-alert></jhi-alert>
     <br/>
     <div class="table-responsive" *ngIf="claseClientes">
-        <table class="table table-striped">
-            <thead>
+        <table class="table table-hover">
+            <thead class="thead-dark">
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
-            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
             <th jhiSortBy="clienteId"><span jhiTranslate="gimnasioApp.claseCliente.cliente">Cliente</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="claseId"><span jhiTranslate="gimnasioApp.claseCliente.clase">Clase</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th></th>
@@ -22,7 +22,7 @@
             </thead>
             <tbody>
             <tr *ngFor="let claseCliente of claseClientes ;trackBy: trackId">
-                <td><a [routerLink]="['/clase-cliente', claseCliente.id, 'view' ]">{{claseCliente.id}}</a></td>
+                <td></td>
                 <td>
                     <div *ngIf="claseCliente.clienteId">
                         <a [routerLink]="['../cliente', claseCliente.clienteId , 'view' ]" >{{claseCliente.clienteId}}</a>
@@ -33,28 +33,31 @@
                         <a [routerLink]="['../clase', claseCliente.claseId , 'view' ]" >{{claseCliente.claseId}}</a>
                     </div>
                 </td>
-                <td class="text-right">
-                    <div class="btn-group">
-                        <button type="submit"
-                                [routerLink]="['/clase-cliente', claseCliente.id, 'view' ]"
-                                class="btn btn-info btn-sm">
-                            <fa-icon [icon]="'eye'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
-                        </button>
-                        <button type="submit"
-                                [routerLink]="['/clase-cliente', claseCliente.id, 'edit']"
-                                class="btn btn-primary btn-sm">
-                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
-                        </button>
-                        <button type="submit"
-                                [routerLink]="['/', 'clase-cliente', { outlets: { popup: claseCliente.id + '/delete'} }]"
-                                replaceUrl="true"
-                                queryParamsHandling="merge"
-                                class="btn btn-danger btn-sm">
-                            <fa-icon [icon]="'times'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
-                        </button>
+                <td>
+                    <div class="btn-group" ngbDropdown>
+                            <button type="button" class="btn btn-info dropdown-toggle btn-info" data-toggle="dropdown"  aria-expanded="false" ngbDropdownToggle>
+                                <fa-icon [icon]="'ellipsis-v'"></fa-icon>
+                            </button>
+                            <div class="dropdown-menu" ngbDropdownMenu>
+                                <button
+                                        class="dropdown-item">
+                                    <fa-icon [icon]="'eye'"></fa-icon>
+                                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                                </button>
+                                <button
+                                        class="dropdown-item">
+                                    <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                                </button>
+                                <button type="submit"
+                                        [routerLink]="['/', 'claseCliente', { outlets: { popup: claseCliente.id + '/delete'} }]"
+                                        replaceUrl="true"
+                                        queryParamsHandling="merge"
+                                        class="dropdown-item">
+                                    <fa-icon [icon]="'times'"></fa-icon>
+                                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                                </button>
+                            </div>
                     </div>
                 </td>
             </tr>
