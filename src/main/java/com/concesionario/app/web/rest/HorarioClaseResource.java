@@ -37,7 +37,7 @@ public class HorarioClaseResource {
     @GetMapping("/horario-clase")
     public ResponseEntity<List<HorarioClaseDTO>> getAllHorarioClases(@RequestParam MultiValueMap<String, String> queryParams, UriComponentsBuilder uriBuilder) {
         log.debug("REST request to get a month of HorarioClase");
-        List<HorarioClaseDTO> list = horarioClaseService.findAll();
+        List<HorarioClaseDTO> list = horarioClaseService.findAll(queryParams.getFirst("date"), queryParams.getFirst("month"), queryParams.getFirst("week"), queryParams.getFirst("day"));
         // hay que pasar pageable de <HorarioClase>
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(uriBuilder.queryParams(queryParams), null);
         return ResponseEntity.ok().headers(headers).body(list);

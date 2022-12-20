@@ -1,7 +1,9 @@
 import { HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { AccountService } from 'app/core';
 import { IHorarioClase } from 'app/shared/model/horario-clase.model';
+import * as moment from 'moment';
 import { JhiAlertService, JhiEventManager, JhiParseLinks } from 'ng-jhipster';
 import { Subscription } from 'rxjs';
 import { HorarioClaseService } from './horario-clase.service';
@@ -13,22 +15,39 @@ import { HorarioClaseService } from './horario-clase.service';
 export class HorarioClaseComponent implements OnInit, OnDestroy {
   horarioClases: IHorarioClase[];
 
+  eventSubscriber: Subscription;
+  currentAccount: any;
   links: any;
   totalItems: any;
-  currentAccount: any;
-  eventSubscriber: Subscription;
+
+  routeData: any;
+  date: any;
+  month: any;
+  week: any;
+  day: any;
+  // reverse: any;
 
   constructor(
     protected horarioClaseService: HorarioClaseService,
     protected parseLinks: JhiParseLinks,
     protected jhiAlertService: JhiAlertService,
     protected accountService: AccountService,
-    protected eventManager: JhiEventManager
-  ) {}
+    protected eventManager: JhiEventManager,
+    protected activatedRoute: ActivatedRoute
+  ) {
+    this.routeData = this.activatedRoute.data.subscribe(data => {
+      // this.month = data.
+    });
+  }
 
   loadAll() {
     this.horarioClaseService
-      .query()
+      .query({
+        date: this.date,
+        month: this.month,
+        week: this.week,
+        day: this.day
+      })
       .subscribe(
         (res: HttpResponse<IHorarioClase[]>) => this.listaHorarioClase(res.body, res.headers),
         (res: HttpErrorResponse) => this.onError(res.message)
@@ -36,6 +55,7 @@ export class HorarioClaseComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.date = moment.now();
     this.loadAll();
     this.accountService.identity().then(account => {
       this.currentAccount = account;

@@ -1,10 +1,14 @@
 package com.concesionario.app.service;
 
+import com.concesionario.app.domain.Clase;
+import com.concesionario.app.domain.ClaseCliente;
 import com.concesionario.app.service.dto.ClaseClienteDTO;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.sql.Timestamp;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -43,4 +47,16 @@ public interface ClaseClienteService {
      * @param id the id of the entity.
      */
     void delete(Long id);
+
+    /**
+     * Get all the claseClientes.
+     *
+     * @return the list of entities.
+     */
+    List<ClaseClienteDTO> findAllList();
+
+    Optional<List<ClaseCliente>> findAllClientesFromClases(Optional<List<Clase>> clases);
+
+	Optional<List<ClaseCliente>> findAllBetweenDates(Timestamp valueOf, Timestamp valueOf2);
+
 }

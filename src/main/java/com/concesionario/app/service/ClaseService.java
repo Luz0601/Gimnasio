@@ -1,10 +1,13 @@
 package com.concesionario.app.service;
 
+import com.concesionario.app.domain.Clase;
 import com.concesionario.app.service.dto.ClaseDTO;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.sql.Timestamp;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -43,4 +46,13 @@ public interface ClaseService {
      * @param id the id of the entity.
      */
     void delete(Long id);
+
+    /**
+     * Get all the clases between 2 dates.
+     *
+     * @param minDate the lowest date.
+     * @param maxDate the highest date
+     * @return the list of entities.
+     */
+    Optional<List<Clase>> findAllBetweenDates(Timestamp minDate, Timestamp maxDate);
 }

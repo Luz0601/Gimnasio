@@ -1,10 +1,14 @@
 package com.concesionario.app.service.impl;
 
 import com.concesionario.app.service.ClaseClienteService;
+import com.concesionario.app.domain.Clase;
 import com.concesionario.app.domain.ClaseCliente;
 import com.concesionario.app.repository.ClaseClienteRepository;
 import com.concesionario.app.service.dto.ClaseClienteDTO;
+import com.concesionario.app.service.dto.ClaseDTO;
 import com.concesionario.app.service.mapper.ClaseClienteMapper;
+import com.concesionario.app.service.mapper.ClaseMapper;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,6 +17,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -28,9 +35,12 @@ public class ClaseClienteServiceImpl implements ClaseClienteService {
 
     private final ClaseClienteMapper claseClienteMapper;
 
-    public ClaseClienteServiceImpl(ClaseClienteRepository claseClienteRepository, ClaseClienteMapper claseClienteMapper) {
+    private final ClaseMapper claseMapper;
+
+    public ClaseClienteServiceImpl(ClaseClienteRepository claseClienteRepository, ClaseClienteMapper claseClienteMapper, ClaseMapper claseMapper) {
         this.claseClienteRepository = claseClienteRepository;
         this.claseClienteMapper = claseClienteMapper;
+        this.claseMapper = claseMapper;
     }
 
     /**
@@ -85,5 +95,23 @@ public class ClaseClienteServiceImpl implements ClaseClienteService {
     public void delete(Long id) {
         log.debug("Request to delete ClaseCliente : {}", id);
         claseClienteRepository.deleteById(id);
+    }
+
+    @Override
+    public List<ClaseClienteDTO> findAllList() {
+        log.debug("Request to get all ClaseClientes");
+        return Optional.of(claseClienteRepository.findAll()).map(claseClienteMapper::toDto).get();
+    }
+
+    @Override
+    public Optional<List<ClaseCliente>> findAllClientesFromClases(Optional<List<Clase>> clases) {
+        log.debug("Request to get all ClaseClientes");
+        return claseClienteRepository.findAllFromClases(clases.get());
+    }
+
+    @Override
+    public Optional<List<ClaseCliente>> findAllBetweenDates(Timestamp minDate, Timestamp maxDate) {
+        log.debug("Request to get all Clases");
+        return claseClienteRepository.findAllBetweenDates(minDate,maxDate);
     }
 }
