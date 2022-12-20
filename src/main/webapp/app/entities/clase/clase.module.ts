@@ -4,6 +4,8 @@ import { JhiLanguageService } from 'ng-jhipster';
 import { JhiLanguageHelper } from 'app/core';
 
 import { GimnasioSharedModule } from 'app/shared';
+import { IncidenciaDetailComponent } from 'app/entities/incidencia/incidencia-detail.component';
+import { EmpleadoDetailComponent } from '../empleado/empleado-detail.component';
 import {
   ClaseComponent,
   ClaseDetailComponent,
@@ -18,8 +20,23 @@ const ENTITY_STATES = [...claseRoute, ...clasePopupRoute];
 
 @NgModule({
   imports: [GimnasioSharedModule, RouterModule.forChild(ENTITY_STATES)],
-  declarations: [ClaseComponent, ClaseDetailComponent, ClaseUpdateComponent, ClaseDeleteDialogComponent, ClaseDeletePopupComponent],
-  entryComponents: [ClaseComponent, ClaseUpdateComponent, ClaseDeleteDialogComponent, ClaseDeletePopupComponent],
+  declarations: [
+    ClaseComponent,
+    IncidenciaDetailComponent,
+    EmpleadoDetailComponent,
+    ClaseDetailComponent,
+    ClaseUpdateComponent,
+    ClaseDeleteDialogComponent,
+    ClaseDeletePopupComponent
+  ],
+  entryComponents: [
+    ClaseComponent,
+    ClaseUpdateComponent,
+    ClaseDeleteDialogComponent,
+    ClaseDeletePopupComponent,
+    IncidenciaDetailComponent,
+    EmpleadoDetailComponent
+  ],
   providers: [{ provide: JhiLanguageService, useClass: JhiLanguageService }],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

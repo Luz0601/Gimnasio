@@ -1,5 +1,5 @@
-    <div class="modal-header">
-            <h2 class="modal-title" id="modal-basic-title">Clase</h2>
+    <div class="modal-header justify-content-center">
+            <h2 class="modal-title" id="modal-basic-title" class="title-pages">Clase</h2>
         <button type="button" class="btn-close" aria-label="Close" (click)="modal.close('Cross click')"><fa-icon [icon]="'times'"></fa-icon></button>
     </div>
     <div class="modal-body">
@@ -31,12 +31,12 @@
                 <dt><span jhiTranslate="gimnasioApp.clase.monitor">Monitor</span></dt>
             </dl>
 
-            <div class="modal-footer">
+            <div class="modal-footer justify-content-center">
                 <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
-                <!-- <button type="button"
+                <button type="button"
                     [routerLink]="['/clase', clase.id, 'edit']"
                     class="btn btn-primary">
                 <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
-                </button> -->
+                </button>
             </div>
     </div>

@@ -6,7 +6,7 @@ import { JhiLanguageHelper } from 'app/core';
 import { GimnasioSharedModule } from 'app/shared';
 import {
   IncidenciaComponent,
-  IncidenciaDetailComponent,
+  // IncidenciaDetailComponent,
   IncidenciaUpdateComponent,
   IncidenciaDeletePopupComponent,
   IncidenciaDeleteDialogComponent,
@@ -20,7 +20,7 @@ const ENTITY_STATES = [...incidenciaRoute, ...incidenciaPopupRoute];
   imports: [GimnasioSharedModule, RouterModule.forChild(ENTITY_STATES)],
   declarations: [
     IncidenciaComponent,
-    IncidenciaDetailComponent,
+    // IncidenciaDetailComponent,
     IncidenciaUpdateComponent,
     IncidenciaDeleteDialogComponent,
     IncidenciaDeletePopupComponent

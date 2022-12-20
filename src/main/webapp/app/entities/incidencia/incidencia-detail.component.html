@@ -1,8 +1,7 @@
 <div class="modal-header justify-content-center">
-  <h2><span jhiTranslate="gimnasioApp.incidencia.detail.title" class="title-pages">Incidencia</span> {{ incidencia.id }}</h2>
+  <h2><span jhiTranslate="gimnasioApp.incidencia.detail.title" class="title-pages">Incidencia</span> <span style="color: red;">{{ incidencia.nombre }}</span></h2>
 </div>
 <div class="modal-body">
-  <hr />
   <jhi-alert-error></jhi-alert-error>
   <dl class="row-md jh-entity-details">
     <dt><span jhiTranslate="gimnasioApp.incidencia.nombre">Nombre</span></dt>
@@ -21,7 +20,7 @@
     </dd>
   </dl>
   <div class="modal-footer justify-content-center">
-    <button type="submit" (click)="previousState()" class="btn btn-info">
+    <button (click)="modal.close('Save')" class="btn btn-info">
       <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
     </button>
 

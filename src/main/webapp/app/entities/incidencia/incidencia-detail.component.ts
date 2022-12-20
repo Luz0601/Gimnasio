@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 
 import { IIncidencia } from 'app/shared/model/incidencia.model';
 
@@ -10,7 +9,7 @@ import { IIncidencia } from 'app/shared/model/incidencia.model';
 export class IncidenciaDetailComponent implements OnInit {
   incidencia: IIncidencia;
 
-  constructor(protected activatedRoute: ActivatedRoute) {}
+  constructor() {}
 
   ngOnInit() {}
 
