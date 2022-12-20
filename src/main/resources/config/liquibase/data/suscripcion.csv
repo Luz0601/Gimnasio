@@ -1,11 +1,5 @@
 id;precio;periodo
-1;3142;Mensual
-2;90756;Mensual
-3;41038;Mensual
-4;7697;Mensual
-5;92969;Mensual
-6;87146;Mensual
-7;89255;Mensual
-8;31800;Mensual
-9;81801;Mensual
-10;51074;Mensual
+1;20;Mensual
+2;70;Trimestral
+3;120;Anual
+

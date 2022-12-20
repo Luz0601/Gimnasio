@@ -1,11 +1,11 @@
-id;ultimo_pago;metodo_pago
-1;2022-12-05T11:04:26;Intuitive application
-2;2022-12-04T21:23:28;payment
-3;2022-12-04T22:01:02;Portugal Persistent
-4;2022-12-05T06:22:31;Chips National Idaho
-5;2022-12-05T05:03:06;Glen Communications
-6;2022-12-05T10:59:29;Connecticut Avon Money Market Account
-7;2022-12-05T14:14:14;HDD Security Virginia
-8;2022-12-04T21:57:09;Lead alarm Cheese
-9;2022-12-05T00:50:28;Checking Account markets
-10;2022-12-04T20:59:51;Configuration
+id;ultimo_pago;metodo_pago;cliente_id;suscripcion_id
+1;2022-12-05T11:04:26;Visa;1;1
+2;2022-12-04T21:23:28;Metalico;2;1
+3;2022-12-04T22:01:02;Paypal;3;2
+4;2022-12-05T06:22:31;Metalico;4;1
+5;2022-12-05T05:03:06;Visa;5;2
+6;2022-12-05T10:59:29;Visa;6;2
+7;2022-12-05T14:14:14;Visa;7;2
+8;2022-12-04T21:57:09;Paypal;8;1
+9;2022-12-05T00:50:28;Metalico;9;2
+10;2022-12-04T20:59:51;Metalico;10;1
