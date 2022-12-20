@@ -1,0 +1,32 @@
+<div>
+    <h2 id="page-heading">
+        <span class="title-page">Horario Clases</span>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div *ngIf="!horarioClases">No hay clases este mes</div>
+    <div *ngIf="horarioClases">
+        <table class="table table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Nombre del MES</th>
+                </tr>
+                <tr>
+                   <th>HORAS</th>
+                    <th>Lunes</th>
+                    <th>Martes</th>
+                    <th>Miercoles</th>
+                    <th>Jueves</th>
+                    <th>Viernes</th>
+                    <th>Sabado</th>
+                    <th>Domingo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let horarioClase of horarioClases ;trackBy: trackClaseId">
+                    <td>{{horarioClase.claseNombre}}<br/>{{horarioClase.numClientes}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

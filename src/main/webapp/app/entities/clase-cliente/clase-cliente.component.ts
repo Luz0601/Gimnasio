@@ -108,7 +108,7 @@ export class ClaseClienteComponent implements OnInit, OnDestroy {
   }
 
   registerChangeInClaseClientes() {
-    this.eventSubscriber = this.eventManager.subscribe('claseClienteListModification', response => this.loadAll());
+    this.eventSubscriber = this.eventManager.subscribe('horarioClaseListModification', response => this.loadAll());
   }
 
   sort() {
