@@ -1,7 +1,9 @@
-<div class="row justify-content-center">
-    <div class="col-8">
+<div class="modal-header justify-content-center">
+    <h2 id="jhi-clase-heading" jhiTranslate="gimnasioApp.clase.home.createOrEditLabel" class="title-pages">Create or edit a Clase</h2>
+  <button type="button" class="btn-close" aria-label="Close" (click)="modal.close('Cross click')"><fa-icon [icon]="'times'"></fa-icon></button>
+</div>
+<div class="modal-body">
         <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
-            <h2 id="jhi-clase-heading" jhiTranslate="gimnasioApp.clase.home.createOrEditLabel">Create or edit a Clase</h2>
             <div>
                 <jhi-alert-error></jhi-alert-error>
                 <div class="form-group" [hidden]="!clase.id">
@@ -28,10 +30,10 @@
                 <div class="form-group">
                         <label class="form-control-label" jhiTranslate="gimnasioApp.clase.lugar" for="field_lugar">Lugar</label>
                         <select class="form-control" id="field_lugar" name="lugar" formControlName="lugar">
-                            <option [ngValue]="null"></option>
-                            <option [ngValue]="sala1">Sala 1</option>
-                            <option [ngValue]="sala2">Sala 2</option>
-                            <option [ngValue]="sala3">Sala 3</option>
+                            <option value="null"></option>
+                            <option value="Sala 1">Sala 1</option>
+                            <option value="Sala 2">Sala 2</option>
+                            <option value="Sala 3">Sala 3</option>
                         </select>
                 </div>
                 <div class="d-flex">
@@ -125,14 +127,15 @@
                     </select>
                 </div>
             </div>
-            <div>
-                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
-                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
-                </button>
-                <button type="submit" id="save-entity" [disabled]="editForm.invalid || (incidenciaForm.invalid && clase.incidencias) || isSaving" class="btn btn-primary">
-                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
-                </button>
-            </div>
-        </form>
-    </div>
+            <div class="modal-footer justify-content-center">
+                <div>
+                    <button id="cancel-save" class="btn btn-secondary"  (click)="modal.close('Close')">
+                        <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                    </button>
+                    <button type="submit" id="save-entity" [disabled]="editForm.invalid || (incidenciaForm.invalid && clase.incidencias) || isSaving" class="btn btn-primary">
+                        <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                    </button>
+                </div>
+            </form>
+        </div>
 </div>
