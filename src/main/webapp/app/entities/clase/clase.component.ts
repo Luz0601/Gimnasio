@@ -13,6 +13,8 @@ import { ITEMS_PER_PAGE } from 'app/shared';
 import { ClaseService } from './clase.service';
 import { ClaseDetailComponent } from './clase-detail.component';
 import { ClaseUpdateComponent } from './clase-update.component';
+import { IncidenciaDetailComponent } from '../incidencia/incidencia-detail.component';
+import { EmpleadoDetailComponent } from '../empleado/empleado-detail.component';
 
 @Component({
   selector: 'jhi-clase',
@@ -73,6 +75,14 @@ export class ClaseComponent implements OnInit, OnDestroy {
   editar(content) {
     const modalRef = this.modalService.open(ClaseUpdateComponent, { ariaLabelledBy: 'modal-basic-title' });
     modalRef.componentInstance.clase = content;
+  }
+  incidencia(content) {
+    const modalRef = this.modalService.open(IncidenciaDetailComponent, { ariaLabelledBy: 'modal-basic-title' });
+    modalRef.componentInstance.incidencia = content;
+  }
+  monitor(content) {
+    const modalRef = this.modalService.open(EmpleadoDetailComponent, { ariaLabelledBy: 'modal-basic-title' });
+    modalRef.componentInstance.empleado = content;
   }
 
   loadPage(page: number) {
