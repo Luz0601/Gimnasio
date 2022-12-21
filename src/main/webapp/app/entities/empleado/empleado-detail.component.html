@@ -45,13 +45,15 @@
                 <dt><span jhiTranslate="gimnasioApp.empleado.nomina">Nomina</span></dt>
                 <dd>
                     <div *ngIf="empleado.nominaId">
-                        <a [routerLink]="['/nomina', empleado.nominaId, 'view']">{{empleado.nominaId}}</a>
+                        <span>{{empleado.nominaId}}</span>
+                        <!-- <a [routerLink]="['/nomina', empleado.nominaId, 'view']">{{empleado.nominaId}}</a> -->
                     </div>
                 </dd>
                 <dt><span jhiTranslate="gimnasioApp.empleado.puesto">Puesto</span></dt>
                 <dd>
                     <div *ngIf="empleado.puestoId">
-                        <a [routerLink]="['/puesto', empleado.puestoId, 'view']">{{empleado.puestoId}}</a>
+                        <span>{{empleado.puestoId}}</span>
+                        <!-- <a [routerLink]="['/puesto', empleado.puestoId, 'view']">{{empleado.puestoId}}</a> -->
                     </div>
                 </dd>
             </dl>
@@ -61,10 +63,10 @@
 
             </button>
 
-            <button type="button"
-            [routerLink]="['/empleado', empleado.id, 'edit']"
-            class="btn btn-primary">
-            <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
-        </button>
+            <!-- <button type="button"
+                [routerLink]="['/empleado', empleado.id, 'edit']"
+                class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button> -->
     </div>
         </div>

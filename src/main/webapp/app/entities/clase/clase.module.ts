@@ -20,23 +20,8 @@ const ENTITY_STATES = [...claseRoute, ...clasePopupRoute];
 
 @NgModule({
   imports: [GimnasioSharedModule, RouterModule.forChild(ENTITY_STATES)],
-  declarations: [
-    ClaseComponent,
-    IncidenciaDetailComponent,
-    EmpleadoDetailComponent,
-    ClaseDetailComponent,
-    ClaseUpdateComponent,
-    ClaseDeleteDialogComponent,
-    ClaseDeletePopupComponent
-  ],
-  entryComponents: [
-    ClaseComponent,
-    ClaseUpdateComponent,
-    ClaseDeleteDialogComponent,
-    ClaseDeletePopupComponent,
-    IncidenciaDetailComponent,
-    EmpleadoDetailComponent
-  ],
+  declarations: [ClaseComponent, ClaseDetailComponent, ClaseUpdateComponent, ClaseDeleteDialogComponent, ClaseDeletePopupComponent],
+  entryComponents: [ClaseComponent, ClaseUpdateComponent, ClaseDeleteDialogComponent, ClaseDeletePopupComponent],
   providers: [{ provide: JhiLanguageService, useClass: JhiLanguageService }],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
