@@ -57,6 +57,4 @@ public interface ClaseClienteService {
 
     Optional<List<ClaseCliente>> findAllClientesFromClases(Optional<List<Clase>> clases);
 
-	Optional<List<ClaseCliente>> findAllBetweenDates(Timestamp valueOf, Timestamp valueOf2);
-
 }

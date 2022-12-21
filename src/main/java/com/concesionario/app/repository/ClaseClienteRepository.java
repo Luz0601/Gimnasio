@@ -23,7 +23,4 @@ public interface ClaseClienteRepository extends JpaRepository<ClaseCliente, Long
     @Query("SELECT c FROM ClaseCliente c WHERE c.clase IN :clases")
     Optional<List<ClaseCliente>> findAllFromClases(@Param("clases") List<Clase> clases);
 
-    @Query("SELECT c FROM ClaseCliente c WHERE c.clase.inicio>:minDate AND c.clase.inicio<:maxDate")
-    Optional<List<ClaseCliente>> findAllBetweenDates(Timestamp minDate, Timestamp maxDate);
-
 }

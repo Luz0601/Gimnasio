@@ -9,6 +9,7 @@ import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,6 +23,7 @@ import com.concesionario.app.service.ClaseService;
 import com.concesionario.app.service.HorarioClaseService;
 import com.concesionario.app.service.dto.ClaseClienteDTO;
 import com.concesionario.app.service.dto.ClaseDTO;
+import com.concesionario.app.service.dto.ClienteDTO;
 import com.concesionario.app.service.dto.HorarioClaseDTO;
 import com.concesionario.app.service.mapper.HorarioClaseMapper;
 
@@ -31,6 +33,7 @@ public class HorarioClaseServiceImpl implements HorarioClaseService {
 
     private final ClaseService claseService;
 
+    @Autowired
     private final ClaseClienteService claseClienteService;
 
     private final HorarioClaseMapper horarioClaseMapper;
@@ -70,14 +73,13 @@ public class HorarioClaseServiceImpl implements HorarioClaseService {
         // } else {
         // }
 
-        // Optional<List<Clase>> clases = claseService.findAllBetweenDates(Timestamp.valueOf(minDate), Timestamp.valueOf(maxDate));
-        // Optional<List<ClaseCliente>> claseclientes = claseClienteService.findAllClientesFromClases(clases);
+        Optional<List<Clase>> clases = claseService.findAllBetweenDates(Timestamp.valueOf(minDate), Timestamp.valueOf(maxDate));
+        Optional<List<ClaseCliente>> claseClientes = claseClienteService.findAllClientesFromClases(clases);
 
-        Optional<List<ClaseCliente>> clasesCli = claseClienteService.findAllBetweenDates(Timestamp.valueOf(minDate), Timestamp.valueOf(maxDate));
+        List<HorarioClaseDTO> horarioClases = clases.map(horarioClaseMapper::toHorarioClaseDTO).get();
+        horarioClases = horarioClaseMapper.toHorarioClaseclientesDTO(horarioClases, claseClientes.get());
 
-        List<HorarioClaseDTO> horarioClases = clasesCli.map(horarioClaseMapper::toHorarioClaseDTO);
-
-        return null;
+        return horarioClases;
     }
 
 }

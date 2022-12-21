@@ -108,10 +108,4 @@ public class ClaseClienteServiceImpl implements ClaseClienteService {
         log.debug("Request to get all ClaseClientes");
         return claseClienteRepository.findAllFromClases(clases.get());
     }
-
-    @Override
-    public Optional<List<ClaseCliente>> findAllBetweenDates(Timestamp minDate, Timestamp maxDate) {
-        log.debug("Request to get all Clases");
-        return claseClienteRepository.findAllBetweenDates(minDate,maxDate);
-    }
 }

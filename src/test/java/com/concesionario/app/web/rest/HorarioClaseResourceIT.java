@@ -1,5 +1,6 @@
 package com.concesionario.app.web.rest;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -33,6 +34,7 @@ public class HorarioClaseResourceIT {
 
     private MockMvc restHorarioClaseMockMvc;
 
+    @BeforeEach
     public void setup() {
         MockitoAnnotations.initMocks(this);
         final HorarioClaseResource horarioClaseResource = new HorarioClaseResource(horarioClaseService);

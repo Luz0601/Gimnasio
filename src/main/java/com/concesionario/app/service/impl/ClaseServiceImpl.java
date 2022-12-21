@@ -127,6 +127,6 @@ public class ClaseServiceImpl implements ClaseService {
     @Override
     public Optional<List<Clase>> findAllBetweenDates(Timestamp minDate, Timestamp maxDate) {
         log.debug("Request to get all Clases");
-        return claseRepository.findAllBetweenDates(minDate,maxDate);
+        return claseRepository.findAllBetweenDates(minDate, maxDate);
     }
 }
