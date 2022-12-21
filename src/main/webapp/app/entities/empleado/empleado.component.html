@@ -41,12 +41,14 @@
                 <td>{{empleado.especialidad}}</td>
                 <td>
                     <div *ngIf="empleado.nominaId">
-                        <a [routerLink]="['../nomina', empleado.nominaId , 'view' ]" >{{empleado.nominaId}}</a>
+                        <span>{{empleado.nominaId}}</span>
+                        <!-- <a [routerLink]="['../nomina', empleado.nominaId , 'view' ]" >{{empleado.nominaId}}</a> -->
                     </div>
                 </td>
                 <td>
                     <div *ngIf="empleado.puestoId">
-                        <a [routerLink]="['../puesto', empleado.puestoId , 'view' ]" >{{empleado.puestoId}}</a>
+                        <span>{{empleado.puestoId}}</span>
+                        <!-- <a [routerLink]="['../puesto', empleado.puestoId , 'view' ]" >{{empleado.puestoId}}</a> -->
                     </div>
                 </td>
                 <td>

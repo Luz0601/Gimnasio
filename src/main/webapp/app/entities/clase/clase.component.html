@@ -32,7 +32,7 @@
                 <td class="ellipsis">{{clase.descripcion}}</td>
                 <td>{{clase.lugar}}</td>
                 <td class="text-center">{{clase.inicio | date:'mediumDate'}}<br>{{clase.inicio | date:'shortTime'}}</td>
-                <td>{{clase.fin | date:'mediumDate'}}<br>{{clase.fin | date:'shortTime'}}</td>
+                <td class="text-center">{{clase.fin | date:'mediumDate'}}<br>{{clase.fin | date:'shortTime'}}</td>
                 <td>
                     <div *ngIf="clase.incidencias; else elseBlock">
                         <a jhiTranslate="gimnasioApp.clase.incidenciasTrue" (click)="incidencia(clase.incidencia)" style="color: red; text-decoration: underline;" >Incidencia</a>
@@ -41,7 +41,8 @@
                 </td>
                 <td>
                     <div *ngIf="clase.monitorId">
-                        <a [routerLink]="['../empleado', clase.monitorId , 'view' ]" >{{clase.monitorId}}</a>
+                        <span>{{clase.monitorId}}</span>
+                        <!-- <a (click)="monitor(clase.monitorId)" >{{clase.monitorId}}</a> -->
                     </div>
                 </td>
                 <td>

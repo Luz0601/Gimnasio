@@ -43,6 +43,12 @@
                         <div class="input-group">
                             <span class="input-group">
                                 <ngb-timepicker formControlName="horaInicio" [(ngModel)]="horaInicio"></ngb-timepicker>
+                                <div *ngIf="editForm.get('horaInicio').invalid && (editForm.get('horaInicio').dirty || editForm.get('horaInicio').touched)">
+                                    <small class="form-text text-danger"
+                                        *ngIf="editForm.get('horaInicio').errors.required" jhiTranslate="entity.validation.required">
+                                    This field is required.
+                                    </small>
+                                </div>
                             </span>
                             <input id="field_inicio" type="text"  name="inicio" ngbDatepicker  #inicioDp="ngbDatepicker" formControlName="inicio"/>
                             <span class="input-group-append">
@@ -125,6 +131,12 @@
                         <option [ngValue]="null"></option>
                         <option [ngValue]="empleadoOption.id" *ngFor="let empleadoOption of monitors; trackBy: trackEmpleadoById">{{empleadoOption.nombre}}</option>
                     </select>
+                </div>
+                <div *ngIf="editForm.get('monitor').invalid && (editForm.get('monitor').dirty || editForm.get('monitor').touched)">
+                    <small class="form-text text-danger"
+                        *ngIf="editForm.get('monitor').errors.required" jhiTranslate="entity.validation.required">
+                    This field is required.
+                    </small>
                 </div>
             </div>
             <div class="modal-footer justify-content-center">

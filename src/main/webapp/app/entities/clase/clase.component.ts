@@ -15,6 +15,7 @@ import { ClaseDetailComponent } from './clase-detail.component';
 import { ClaseUpdateComponent } from './clase-update.component';
 import { IncidenciaDetailComponent } from '../incidencia/incidencia-detail.component';
 import { EmpleadoDetailComponent } from '../empleado/empleado-detail.component';
+import { EmpleadoService } from '../empleado/empleado.service';
 
 @Component({
   selector: 'jhi-clase',
@@ -37,6 +38,7 @@ export class ClaseComponent implements OnInit, OnDestroy {
 
   constructor(
     protected claseService: ClaseService,
+    protected empleadoService: EmpleadoService,
     protected parseLinks: JhiParseLinks,
     protected jhiAlertService: JhiAlertService,
     protected accountService: AccountService,
@@ -82,7 +84,7 @@ export class ClaseComponent implements OnInit, OnDestroy {
   }
   monitor(content) {
     const modalRef = this.modalService.open(EmpleadoDetailComponent, { ariaLabelledBy: 'modal-basic-title' });
-    modalRef.componentInstance.empleado = content;
+    modalRef.componentInstance.empleado = this.empleadoService.find(content);
   }
 
   loadPage(page: number) {
