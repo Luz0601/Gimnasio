@@ -58,11 +58,11 @@
                             <span jhiTranslate="global.menu.entities.cliente">Cliente</span>
                         </a>
                     </li>
-                    <!-- <li *jhiHasAnyAuthority="['ROLE_MONITOR', 'ROLE_ADMIN']">
+                    <li *jhiHasAnyAuthority="['ROLE_MONITOR', 'ROLE_ADMIN']">
                         <a class="dropdown-item" routerLink="incidencia" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <span jhiTranslate="global.menu.entities.incidencia">Incidencia</span>
                         </a>
-                    </li> -->
+                    </li>
                     <li *jhiHasAnyAuthority="'ROLE_ADMIN'">
                         <a class="dropdown-item" routerLink="puesto" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <span jhiTranslate="global.menu.entities.puesto">Puesto</span>
@@ -139,9 +139,6 @@
                   <span *ngIf="!getImageUrl()">
                     <fa-icon icon="user"></fa-icon>
                     <span *ngIf="isAuthenticated(); else elseBlock" >
-                        <span class="p-1" style="text-transform:capitalize">
-                            {{account.login}}
-                        </span>
                     </span>
                     <ng-template #elseBlock  jhiTranslate="global.menu.account.main" >Usuario</ng-template>
 

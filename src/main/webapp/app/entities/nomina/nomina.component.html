@@ -22,7 +22,7 @@
             </thead>
             <tbody>
             <tr *ngFor="let nomina of nominas ;trackBy: trackId">
-                <td><a [routerLink]="['/nomina', nomina.id, 'view' ]">{{nomina.id}}</a></td>
+                <td>{{nomina.id}}</td>
                 <td>{{nomina.iban}}</td>
                 <td jhiTranslate="{{'gimnasioApp.TipoNomina.' + nomina.tipoContrato}}">{{nomina.tipoContrato}}</td>
                 <td>
