@@ -48,7 +48,7 @@
                             <span jhiTranslate="global.menu.entities.suscripcion">Suscripcion</span>
                         </a>
                     </li>
-                    <li *jhiHasAnyAuthority="['ROLE_MONITOR', 'ROLE_ADMIN']">
+                    <li *jhiHasAnyAuthority="'ROLE_ADMIN'">
                         <a class="dropdown-item" routerLink="empleado" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <span jhiTranslate="global.menu.entities.empleado">Empleado</span>
                         </a>
@@ -58,11 +58,11 @@
                             <span jhiTranslate="global.menu.entities.cliente">Cliente</span>
                         </a>
                     </li>
-                    <li *jhiHasAnyAuthority="['ROLE_MONITOR', 'ROLE_ADMIN']">
+                    <!-- <li *jhiHasAnyAuthority="['ROLE_MONITOR', 'ROLE_ADMIN']">
                         <a class="dropdown-item" routerLink="incidencia" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <span jhiTranslate="global.menu.entities.incidencia">Incidencia</span>
                         </a>
-                    </li>
+                    </li> -->
                     <li *jhiHasAnyAuthority="'ROLE_ADMIN'">
                         <a class="dropdown-item" routerLink="puesto" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <span jhiTranslate="global.menu.entities.puesto">Puesto</span>

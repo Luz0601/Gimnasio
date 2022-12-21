@@ -2,22 +2,22 @@
   "gimnasioApp": {
     "clienteSuscripcion": {
       "home": {
-        "title": "ClienteSuscripcions",
-        "createLabel": "Créer un nouveau Cliente Suscripcion",
-        "createOrEditLabel": "Créer ou éditer un Cliente Suscripcion"
+        "title": "ClientSuscripcions",
+        "createLabel": "Créer un nouveau Client Suscripcion",
+        "createOrEditLabel": "Créer ou éditer un Client Suscripcion"
       },
-      "created": "Un nouveau Cliente Suscripcion a été créé avec l'identifiant {{ param }}",
-      "updated": "Le Cliente Suscripcion avec l'identifiant {{ param }} a été mis à jour",
-      "deleted": "Le Cliente Suscripcion avec l'identifiant {{ param }} a été supprimé",
+      "created": "Un nouveau Client Suscripcion a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Client Suscripcion avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Client Suscripcion avec l'identifiant {{ param }} a été supprimé",
       "delete": {
-        "question": "Etes-vous certain de vouloir supprimer le Cliente Suscripcion {{ id }} ?"
+        "question": "Etes-vous certain de vouloir supprimer le Client Suscripcion {{ id }} ?"
       },
       "detail": {
-        "title": "Cliente Suscripcion"
+        "title": "Client Suscripcion"
       },
-      "ultimoPago": "Ultimo Pago",
-      "metodoPago": "Metodo Pago",
-      "cliente": "Cliente",
+      "ultimoPago": "Dernier paiement",
+      "metodoPago": "méthode de paiement",
+      "cliente": "Client",
       "suscripcion": "Suscripcion"
     }
   }

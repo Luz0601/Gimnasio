@@ -2,21 +2,21 @@
   "gimnasioApp": {
     "suscripcion": {
       "home": {
-        "title": "Suscripcions",
-        "createLabel": "Create a new Suscripcion",
-        "createOrEditLabel": "Create or edit a Suscripcion"
+        "title": "Subscription",
+        "createLabel": "Create a new Subscription",
+        "createOrEditLabel": "Create or edit a Subscription"
       },
-      "created": "A new Suscripcion is created with identifier {{ param }}",
-      "updated": "A Suscripcion is updated with identifier {{ param }}",
-      "deleted": "A Suscripcion is deleted with identifier {{ param }}",
+      "created": "A new Subscription is created with identifier {{ param }}",
+      "updated": "A Subscription is updated with identifier {{ param }}",
+      "deleted": "A Subscription is deleted with identifier {{ param }}",
       "delete": {
-        "question": "Are you sure you want to delete Suscripcion {{ id }}?"
+        "question": "Are you sure you want to delete Subscription {{ id }}?"
       },
       "detail": {
-        "title": "Suscripcion"
+        "title": "Subscription"
       },
-      "precio": "Precio",
-      "periodo": "Periodo"
+      "precio": "Price",
+      "periodo": "Period"
     }
   }
 }

@@ -2,18 +2,18 @@
   "gimnasioApp": {
     "suscripcion": {
       "home": {
-        "title": "Suscripcions",
-        "createLabel": "Crear nuevo Suscripcion",
+        "title": "Suscripciones",
+        "createLabel": "Crear nueva suscripción",
         "createOrEditLabel": "Crear o editar Suscripcion"
       },
-      "created": "Un nuevo Suscripcion ha sido creado con el identificador {{ param }}",
-      "updated": "Un Suscripcion ha sido actualizado con el identificador {{ param }}",
-      "deleted": "Un Suscripcion ha sido eliminado con el identificador {{ param }}",
+      "created": "Una nueva suscripción ha sido creada con el identificador {{ param }}",
+      "updated": "Una nueva suscripción ha sido actualizada con el identificador {{ param }}",
+      "deleted": "Una nueva suscripción ha sido eliminada con el identificador {{ param }}",
       "delete": {
         "question": "¿Seguro que quiere eliminar Suscripcion {{ id }}?"
       },
       "detail": {
-        "title": "Suscripcion"
+        "title": "Suscripción:"
       },
       "precio": "Precio",
       "periodo": "Periodo"

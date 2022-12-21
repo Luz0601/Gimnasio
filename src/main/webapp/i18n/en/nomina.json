@@ -2,21 +2,21 @@
   "gimnasioApp": {
     "nomina": {
       "home": {
-        "title": "Nominas",
-        "createLabel": "Create a new Nomina",
-        "createOrEditLabel": "Create or edit a Nomina"
+        "title": "Payroll",
+        "createLabel": "Create a new Payroll",
+        "createOrEditLabel": "Create or edit a Payroll"
       },
-      "created": "A new Nomina is created with identifier {{ param }}",
-      "updated": "A Nomina is updated with identifier {{ param }}",
-      "deleted": "A Nomina is deleted with identifier {{ param }}",
+      "created": "A new Payroll is created with identifier {{ param }}",
+      "updated": "A Payroll is updated with identifier {{ param }}",
+      "deleted": "A Payroll is deleted with identifier {{ param }}",
       "delete": {
-        "question": "Are you sure you want to delete Nomina {{ id }}?"
+        "question": "Are you sure you want to delete Payroll {{ id }}?"
       },
       "detail": {
-        "title": "Nomina"
+        "title": "Payroll"
       },
       "iban": "Iban",
-      "tipoContrato": "Tipo Contrato"
+      "tipoContrato": "Type"
     }
   }
 }
