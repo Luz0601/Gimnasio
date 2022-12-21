@@ -2,18 +2,18 @@
   "gimnasioApp": {
     "puesto": {
       "home": {
-        "title": "Puestos",
-        "createLabel": "Create a new Puesto",
-        "createOrEditLabel": "Create or edit a Puesto"
+        "title": "Job",
+        "createLabel": "Create a new Job",
+        "createOrEditLabel": "Create or edit a Job"
       },
-      "created": "A new Puesto is created with identifier {{ param }}",
-      "updated": "A Puesto is updated with identifier {{ param }}",
-      "deleted": "A Puesto is deleted with identifier {{ param }}",
+      "created": "A new Job is created with identifier {{ param }}",
+      "updated": "A Job is updated with identifier {{ param }}",
+      "deleted": "A Job is deleted with identifier {{ param }}",
       "delete": {
-        "question": "Are you sure you want to delete Puesto {{ id }}?"
+        "question": "Are you sure you want to delete Job {{ id }}?"
       },
       "detail": {
-        "title": "Puesto"
+        "title": "Job"
       },
       "nombre": "Nombre",
       "horario": "Horario",

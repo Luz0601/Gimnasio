@@ -2,27 +2,27 @@
   "gimnasioApp": {
     "cliente": {
       "home": {
-        "title": "Clientes",
-        "createLabel": "Create a new Cliente",
-        "createOrEditLabel": "Create or edit a Cliente"
+        "title": "Clients",
+        "createLabel": "Create a new Client",
+        "createOrEditLabel": "Create or edit a Client"
       },
-      "created": "A new Cliente is created with identifier {{ param }}",
-      "updated": "A Cliente is updated with identifier {{ param }}",
-      "deleted": "A Cliente is deleted with identifier {{ param }}",
+      "created": "A new Client is created with identifier {{ param }}",
+      "updated": "A Client is updated with identifier {{ param }}",
+      "deleted": "A Client is deleted with identifier {{ param }}",
       "delete": {
-        "question": "Are you sure you want to delete Cliente {{ id }}?"
+        "question": "Are you sure you want to delete Client {{ id }}?"
       },
       "detail": {
-        "title": "Cliente"
+        "title": "Client"
       },
       "dni": "Dni",
-      "nombre": "Nombre",
-      "apellido": "Apellido",
-      "telefono": "Telefono",
-      "fechaNacimiento": "Fecha Nacimiento",
+      "nombre": "Name",
+      "apellido": "Surname",
+      "telefono": "Phone",
+      "fechaNacimiento": "Birth Date",
       "email": "Email",
-      "direccion": "Direccion",
-      "ciclo": "Ciclo"
+      "direccion": "Adress",
+      "ciclo": "Cicle"
     }
   }
 }

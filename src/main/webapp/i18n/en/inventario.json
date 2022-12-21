@@ -2,27 +2,27 @@
   "gimnasioApp": {
     "inventario": {
       "home": {
-        "title": "Inventarios",
-        "createLabel": "Create a new Inventario",
-        "createOrEditLabel": "Create or edit a Inventario"
+        "title": "Inventory",
+        "createLabel": "Create a new Inventory",
+        "createOrEditLabel": "Create or edit a Inventory"
       },
-      "created": "A new Inventario is created with identifier {{ param }}",
-      "updated": "A Inventario is updated with identifier {{ param }}",
-      "deleted": "A Inventario is deleted with identifier {{ param }}",
+      "created": "A new Inventory is created with identifier {{ param }}",
+      "updated": "A Inventory is updated with identifier {{ param }}",
+      "deleted": "A Inventory is deleted with identifier {{ param }}",
       "delete": {
-        "question": "Are you sure you want to delete Inventario {{ id }}?"
+        "question": "Are you sure you want to delete Inventory {{ id }}?"
       },
       "detail": {
-        "title": "Inventario"
+        "title": "Inventory"
       },
       "ref": "Ref",
-      "nombre": "Nombre",
-      "descripcion": "Descripcion",
-      "cantidad": "Cantidad",
-      "estado": "Estado",
-      "ultRevision": "Ult Revision",
-      "periodoRevision": "Periodo Rev",
-      "proveedor": "Proveedor",
+      "nombre": "Name",
+      "descripcion": "Description",
+      "cantidad": "Cantity",
+      "estado": "State",
+      "ultRevision": "Ult Rev",
+      "periodoRevision": "Period Rev",
+      "proveedor": "Supplier",
       "estadoTrue": "Available",
       "estadoFalse": "Out of service"
     }

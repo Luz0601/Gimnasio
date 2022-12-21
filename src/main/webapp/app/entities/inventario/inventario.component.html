@@ -28,7 +28,7 @@
             </thead>
             <tbody>
             <tr *ngFor="let inventario of inventarios ;trackBy: trackId">
-                <td><a [routerLink]="['/inventario', inventario.id, 'view' ]">{{inventario.id}}</a></td>
+                <td>{{inventario.id}}</td>
                 <td>{{inventario.ref}}</td>
                 <td>{{inventario.nombre}}</td>
                 <td>{{inventario.descripcion}}</td>
@@ -43,7 +43,7 @@
                 <td>{{inventario.periodoRevision}}</td>
                 <td>
                     <div *ngIf="inventario.proveedorId">
-                        <a [routerLink]="['../proveedor', inventario.proveedorId , 'view' ]" >{{inventario.proveedorId}}</a>
+                        <span>{{inventario.proveedorId}}</span>
                     </div>
                 </td>
                 <td>

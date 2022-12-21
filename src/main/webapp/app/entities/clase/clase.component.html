@@ -37,7 +37,7 @@
                     <div *ngIf="clase.incidencias; else elseBlock">
                         <a jhiTranslate="gimnasioApp.clase.incidenciasTrue" (click)="incidencia(clase.incidencia)" style="color: red; text-decoration: underline;" >Incidencia</a>
                     </div>
-                    <ng-template #elseBlock jhiTranslate="gimnasioApp.clase.incidenciasFalse"> <span style="color: green;">Sin Incidencias</span></ng-template>
+                    <ng-template #elseBlock > <span style="color: green;" jhiTranslate="gimnasioApp.clase.incidenciasFalse">Sin Incidencias</span></ng-template>
                 </td>
                 <td>
                     <div *ngIf="clase.monitorId">

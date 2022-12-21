@@ -2,21 +2,21 @@
   "gimnasioApp": {
     "proveedor": {
       "home": {
-        "title": "Proveedors",
-        "createLabel": "Create a new Proveedor",
-        "createOrEditLabel": "Create or edit a Proveedor"
+        "title": "Supplier",
+        "createLabel": "Create a new Supplier",
+        "createOrEditLabel": "Create or edit a Supplier"
       },
-      "created": "A new Proveedor is created with identifier {{ param }}",
-      "updated": "A Proveedor is updated with identifier {{ param }}",
-      "deleted": "A Proveedor is deleted with identifier {{ param }}",
+      "created": "A new Supplier is created with identifier {{ param }}",
+      "updated": "A Supplier is updated with identifier {{ param }}",
+      "deleted": "A Supplier is deleted with identifier {{ param }}",
       "delete": {
-        "question": "Are you sure you want to delete Proveedor {{ id }}?"
+        "question": "Are you sure you want to delete Supplier {{ id }}?"
       },
       "detail": {
-        "title": "Proveedor"
+        "title": "Supplier"
       },
-      "nombre": "Nombre",
-      "telefono": "Telefono",
+      "nombre": "Name",
+      "telefono": "Phone",
       "email": "Email"
     }
   }

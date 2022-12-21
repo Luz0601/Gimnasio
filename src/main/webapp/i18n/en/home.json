@@ -1,17 +1,16 @@
 {
   "home": {
-    "title": "Welcome, Java Hipster!",
+    "title": "Welcome, Pulse <span style='color: #661fd1'>Lab</span>!",
     "subtitle": "This is your homepage",
     "logged": {
       "message": "You are logged in as user \"{{username}}\"."
     },
-    "question": "If you have any question on JHipster:",
+    "question": "Links frecuentes de la página de Pulse Lab",
     "link": {
-      "homepage": "JHipster homepage",
-      "stackoverflow": "JHipster on Stack Overflow",
-      "bugtracker": "JHipster bug tracker",
-      "chat": "JHipster public chat room",
-      "follow": "follow @java_hipster on Twitter"
+      "clientes": "Clients",
+      "inventario": "Inventary",
+      "suscripcion": "Subscripcion",
+      "proveedor": "Supplier"
     },
     "like": "If you like JHipster, don't forget to give us a star on",
     "github": "GitHub"

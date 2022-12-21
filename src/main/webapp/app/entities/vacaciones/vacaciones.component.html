@@ -26,7 +26,8 @@
                 <td>{{vacaciones.fin | date:'mediumDate'}}</td>
                 <td>
                     <div *ngIf="vacaciones.empleadoId">
-                        <a [routerLink]="['../empleado', vacaciones.empleadoId , 'view' ]" >{{vacaciones.empleadoId}}</a>
+                        <span>{{vacaciones.empleadoId}}</span>
+                        <!-- <a [routerLink]="['../empleado', vacaciones.empleadoId , 'view' ]" ></a> -->
                     </div>
                 </td>
                 <td>

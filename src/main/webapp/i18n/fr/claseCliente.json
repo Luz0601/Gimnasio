@@ -2,21 +2,21 @@
   "gimnasioApp": {
     "claseCliente": {
       "home": {
-        "title": "ClaseClientes",
-        "createLabel": "Créer un nouveau Clase Cliente",
-        "createOrEditLabel": "Créer ou éditer un Clase Cliente"
+        "title": "ClaseClients",
+        "createLabel": "Créer un nouveau Classe Client",
+        "createOrEditLabel": "Créer ou éditer un Classe Client"
       },
-      "created": "Un nouveau Clase Cliente a été créé avec l'identifiant {{ param }}",
-      "updated": "Le Clase Cliente avec l'identifiant {{ param }} a été mis à jour",
-      "deleted": "Le Clase Cliente avec l'identifiant {{ param }} a été supprimé",
+      "created": "Un nouveau Classe Client a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Classe Client avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Classe Client avec l'identifiant {{ param }} a été supprimé",
       "delete": {
-        "question": "Etes-vous certain de vouloir supprimer le Clase Cliente {{ id }} ?"
+        "question": "Etes-vous certain de vouloir supprimer le Classe Client {{ id }} ?"
       },
       "detail": {
-        "title": "Clase Cliente"
+        "title": "Classe Client"
       },
-      "cliente": "Cliente",
-      "clase": "Clase"
+      "cliente": "Client",
+      "clase": "Classe"
     }
   }
 }
