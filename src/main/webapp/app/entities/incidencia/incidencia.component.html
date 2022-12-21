@@ -26,7 +26,8 @@
                 <td>{{incidencia.descripcion}}</td>
                 <td>
                     <div *ngIf="incidencia.claseId">
-                        <a [routerLink]="['../clase', incidencia.claseId , 'view' ]" >{{incidencia.claseId}}</a>
+                        <span>{{incidencia.claseId}}</span>
+                        <!-- <a [routerLink]="['../clase', incidencia.claseId , 'view' ]" >{{incidencia.claseId}}</a> -->
                     </div>
                 </td>
                 <td>
