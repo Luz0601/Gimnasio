@@ -21,7 +21,6 @@ export class ClaseDetailComponent implements OnInit {
   }
 
   open(content) {
-    // this.modal.close('Edit');
     const modalRef = this.modalService.open(ClaseUpdateComponent, { ariaLabelledBy: 'modal-basic-title' });
     modalRef.componentInstance.clase = content;
   }

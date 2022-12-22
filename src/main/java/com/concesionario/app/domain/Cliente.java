@@ -56,7 +56,7 @@ public class Cliente implements Serializable {
 
     @OneToMany(mappedBy = "cliente", orphanRemoval = true, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonIgnoreProperties("cliente")
-    private Set<ClaseCliente> claseCliente;
+    private Set<ClaseCliente> claseClientes;
 
     @OneToMany(mappedBy = "cliente", orphanRemoval = true, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonIgnoreProperties("cliente")

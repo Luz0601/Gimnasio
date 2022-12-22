@@ -61,6 +61,7 @@ export class ClienteComponent implements OnInit, OnDestroy {
     const modalRef = this.modalService.open(ClienteUpdateComponent, { ariaLabelledBy: 'modal-basic-title' });
     modalRef.componentInstance.cliente = content;
   }
+
   loadAll() {
     this.clienteService
       .query({
