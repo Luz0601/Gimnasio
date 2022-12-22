@@ -1,6 +1,8 @@
     <div class="modal-header justify-content-center">
-            <h2 class="modal-title" id="modal-basic-title" class="title-pages">Clase</h2>
-        <button type="button" class="btn-close" aria-label="Close" (click)="modal.close('Cross click')"><fa-icon [icon]="'times'"></fa-icon></button>
+            <h2>
+                <span class="title-pages" jhiTranslate="gimnasioApp.clase.detail.title" class="title-pages">Clase</span>
+                <span style="color: red;">{{clase.nombre}}</span>
+            </h2>
     </div>
     <div class="modal-body">
             <dl class="row-md jh-entity-details">
@@ -18,21 +20,29 @@
                 </dd>
                 <dt><span jhiTranslate="gimnasioApp.clase.inicio">Inicio</span></dt>
                 <dd>
-                    <span>{{clase.inicio}}</span>
+                    <span>{{clase.inicio | date:'mediumDate'}} | {{clase.inicio | date:'shortTime'}}</span>
                 </dd>
                 <dt><span jhiTranslate="gimnasioApp.clase.fin">Fin</span></dt>
                 <dd>
-                    <span>{{clase.fin}}</span>
+                    <span>{{clase.fin | date:'mediumDate'}} | {{clase.fin | date:'shortTime'}}</span>
                 </dd>
                 <dt><span jhiTranslate="gimnasioApp.clase.incidencias">Incidencias</span></dt>
                 <dd>
-                    <span>{{clase.incidencias}}</span>
+                    <div *ngIf="clase.incidencias; else elseBlock">
+                        <a jhiTranslate="gimnasioApp.clase.incidenciasTrue" (click)="incidencia(clase.incidencia)" style="color: red; text-decoration: underline;" >Incidencia</a>
+                    </div>
+                    <ng-template #elseBlock > <span style="color: green;" jhiTranslate="gimnasioApp.clase.incidenciasFalse">Sin Incidencias</span></ng-template>
                 </dd>
                 <dt><span jhiTranslate="gimnasioApp.clase.monitor">Monitor</span></dt>
+                <dd>
+                    <span>{{clase.monitorId}}</span>
+                </dd>
             </dl>
 
             <div class="modal-footer justify-content-center">
-                <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+                <button type="button" class="btn btn-info" (click)="modal.close('Back')">
+                    <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+                </button>
                 <!-- <button type="button"
                     [routerLink]="['/clase', clase.id, 'edit']"
                     class="btn btn-primary">

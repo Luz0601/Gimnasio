@@ -41,13 +41,12 @@
                     </td>
                     <td>
                         <div *ngIf="clase.monitorId">
-                            <span>{{clase.monitorId}}</span>
-                            <!-- <a (click)="monitor(clase.monitorId)" >{{clase.monitorId}}</a> -->
+                            <a (click)="monitor(clase.monitorId)" >{{clase.monitorId}}</a>
                         </div>
                     </td>
                     <td>
                         <div class="btn-group" ngbDropdown>
-                                <button type="button" class="btn btn-info dropdown-toggle btn-info" data-toggle="dropdown"  aria-expanded="false" ngbDropdownToggle>
+                                <button type="button" class="btn btn-info dropdown-toggle btn-info" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>
                                     <fa-icon [icon]="'ellipsis-v'"></fa-icon>
                                 </button>
                                 <div class="dropdown-menu" ngbDropdownMenu >

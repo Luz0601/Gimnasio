@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { JhiEventManager, JhiParseLinks, JhiAlertService } from 'ng-jhipster';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
@@ -16,6 +16,7 @@ import { ClaseUpdateComponent } from './clase-update.component';
 import { IncidenciaDetailComponent } from '../incidencia/incidencia-detail.component';
 import { EmpleadoDetailComponent } from '../empleado/empleado-detail.component';
 import { EmpleadoService } from '../empleado/empleado.service';
+import { IEmpleado } from 'app/shared/model/empleado.model';
 
 @Component({
   selector: 'jhi-clase',
@@ -83,8 +84,13 @@ export class ClaseComponent implements OnInit, OnDestroy {
     modalRef.componentInstance.incidencia = content;
   }
   monitor(content) {
-    const modalRef = this.modalService.open(EmpleadoDetailComponent, { ariaLabelledBy: 'modal-basic-title' });
-    modalRef.componentInstance.empleado = this.empleadoService.find(content);
+    this.empleadoService.find(content).subscribe(
+      (res: HttpResponse<IEmpleado>) => {
+        const modalRef = this.modalService.open(EmpleadoDetailComponent, { ariaLabelledBy: 'modal-basic-title' });
+        modalRef.componentInstance.empleado = res.body;
+      },
+      (res: HttpErrorResponse) => this.onError(res.message)
+    );
   }
 
   loadPage(page: number) {
