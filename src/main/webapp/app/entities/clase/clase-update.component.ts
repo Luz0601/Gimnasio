@@ -33,8 +33,7 @@ export class ClaseUpdateComponent implements OnInit {
     nombre: [null, [Validators.required]],
     descripcion: [],
     lugar: [],
-    inicio: [null, [Validators.required]],
-    fin: [null, [Validators.required]],
+    fecha: [null, [Validators.required]],
     incidencias: [],
     monitorId: [null, [Validators.required]],
     incidencia: [],
@@ -87,9 +86,8 @@ export class ClaseUpdateComponent implements OnInit {
       nombre: clase.nombre,
       descripcion: clase.descripcion,
       lugar: clase.lugar,
-      inicio: clase.inicio,
+      fecha: clase.inicio,
       horaInicio: new FormControl(),
-      fin: clase.fin,
       horaFin: new FormControl(),
       incidencias: clase.incidencias,
       monitorId: clase.monitorId,
@@ -126,11 +124,11 @@ export class ClaseUpdateComponent implements OnInit {
       descripcion: this.editForm.get(['descripcion']).value,
       lugar: this.editForm.get(['lugar']).value,
       inicio: this.editForm
-        .get(['inicio'])
+        .get(['fecha'])
         .value.hours(this.horaInicio.hour)
         .minutes(this.horaInicio.minute),
       fin: this.editForm
-        .get(['fin'])
+        .get(['fecha'])
         .value.hours(this.horaFin.hour)
         .minutes(this.horaFin.minute),
       incidencias: this.editForm.get(['incidencias']).value,
