@@ -27,7 +27,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let clase of clases ;trackBy: trackId">
-                    <td><a [routerLink]="['/clase', clase.id, 'view' ]">{{clase.id}}</a></td>
+                    <td>{{clase.id}}</td>
                     <td>{{clase.nombre}}</td>
                     <td class="ellipsis">{{clase.descripcion}}</td>
                     <td>{{clase.lugar}}</td>
