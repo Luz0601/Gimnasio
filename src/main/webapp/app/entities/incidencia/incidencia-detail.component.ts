@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { IIncidencia } from 'app/shared/model/incidencia.model';
 
@@ -9,7 +10,7 @@ import { IIncidencia } from 'app/shared/model/incidencia.model';
 export class IncidenciaDetailComponent implements OnInit {
   incidencia: IIncidencia;
 
-  constructor() {}
+  constructor(protected modal: NgbActiveModal) {}
 
   ngOnInit() {}
 
