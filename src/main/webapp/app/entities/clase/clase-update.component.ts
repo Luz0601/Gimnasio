@@ -12,6 +12,7 @@ import { IEmpleado } from 'app/shared/model/empleado.model';
 import { EmpleadoService } from 'app/entities/empleado';
 import { IIncidencia, Incidencia } from 'app/shared/model/incidencia.model';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { noUndefined } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'jhi-clase-update',
@@ -66,9 +67,9 @@ export class ClaseUpdateComponent implements OnInit {
     // });
     if (!this.clase) {
       this.clase = new Clase();
-    } else {
-      this.updateForm(this.clase);
     }
+    this.updateForm(this.clase);
+
     this.empleadoService
       .query()
       .pipe(
@@ -110,7 +111,7 @@ export class ClaseUpdateComponent implements OnInit {
   save() {
     this.isSaving = true;
     const clase = this.createFromForm();
-    if (clase.id !== null) {
+    if (clase.id !== undefined) {
       this.subscribeToSaveResponse(this.claseService.update(clase));
     } else {
       this.subscribeToSaveResponse(this.claseService.create(clase));
@@ -132,6 +133,7 @@ export class ClaseUpdateComponent implements OnInit {
         .get(['fin'])
         .value.hours(this.horaFin.hour)
         .minutes(this.horaFin.minute),
+      incidencias: this.editForm.get(['incidencias']).value,
       monitorId: this.editForm.get(['monitorId']).value,
       incidencia: this.createIncidenciaFromForm()
     };

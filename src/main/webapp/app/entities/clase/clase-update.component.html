@@ -10,135 +10,135 @@
                     <label for="id" jhiTranslate="global.field.id">ID</label>
                     <input type="text" class="form-control" id="id" name="id" formControlName="id"
                         readonly />
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="gimnasioApp.clase.nombre" for="field_nombre">Nombre</label>
-                    <input type="text" class="form-control" name="nombre" id="field_nombre"
-                           formControlName="nombre"/>
-                    <div *ngIf="editForm.get('nombre').invalid && (editForm.get('nombre').dirty || editForm.get('nombre').touched)">
-                        <small class="form-text text-danger"
-                               *ngIf="editForm.get('nombre').errors.required" jhiTranslate="entity.validation.required">
-                        This field is required.
-                        </small>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="gimnasioApp.clase.descripcion" for="field_descripcion">Descripcion</label>
-                    <input type="text" class="form-control" name="descripcion" id="field_descripcion"
-                           formControlName="descripcion"/>
-                </div>
-                <div class="form-group">
-                        <label class="form-control-label" jhiTranslate="gimnasioApp.clase.lugar" for="field_lugar">Lugar</label>
-                        <select class="form-control" id="field_lugar" name="lugar" formControlName="lugar">
-                            <option value="null"></option>
-                            <option value="Sala 1">Sala 1</option>
-                            <option value="Sala 2">Sala 2</option>
-                            <option value="Sala 3">Sala 3</option>
-                        </select>
-                </div>
-                <div class="d-flex">
-                    <div class="form-group">
-                        <label class="form-control-label" jhiTranslate="gimnasioApp.clase.inicio" for="field_inicio">Inicio</label>
-
-                        <div class="input-group">
-                            <span class="input-group">
-                                <ngb-timepicker formControlName="horaInicio" [(ngModel)]="horaInicio"></ngb-timepicker>
-                                <div *ngIf="editForm.get('horaInicio').invalid && (editForm.get('horaInicio').dirty || editForm.get('horaInicio').touched)">
-                                    <small class="form-text text-danger"
-                                        *ngIf="editForm.get('horaInicio').errors.required" jhiTranslate="entity.validation.required">
-                                    This field is required.
-                                    </small>
-                                </div>
-                            </span>
-                            <input id="field_inicio" type="text"  name="inicio" ngbDatepicker  #inicioDp="ngbDatepicker" formControlName="inicio"/>
-                            <span class="input-group-append">
-                                <button type="button" class="btn btn-secondary" (click)="inicioDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
-                            </span>
-                        </div>
-                        <div *ngIf="editForm.get('inicio').invalid && (editForm.get('inicio').dirty || editForm.get('inicio').touched)">
-                            <small class="form-text text-danger"
-                                *ngIf="editForm.get('inicio').errors.required" jhiTranslate="entity.validation.required">
-                            This field is required.
-                            </small>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-control-label" jhiTranslate="gimnasioApp.clase.fin" for="field_fin">Fin</label>
-                        <div class="input-group">
-                            <span class="input-group">
-                                <ngb-timepicker formControlName="horaFin" [(ngModel)]="horaFin"></ngb-timepicker>
-                                <div *ngIf="editForm.get('horaFin').invalid && (editForm.get('horaFin').dirty || editForm.get('horaFin').touched)">
-                                    <small class="form-text text-danger"
-                                        *ngIf="editForm.get('horaFin').errors.required" jhiTranslate="entity.validation.required">
-                                    This field is required.
-                                    </small>
-                                </div>
-                            </span>
-                            <input id="field_fin" type="text" name="fin" ngbDatepicker  #finDp="ngbDatepicker" formControlName="fin"/>
-                            <span class="input-group-append">
-                                <button type="button" class="btn btn-secondary" (click)="finDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
-                            </span>
-                        </div>
-                        <div *ngIf="editForm.get('fin').invalid && (editForm.get('fin').dirty || editForm.get('fin').touched)">
-                            <small class="form-text text-danger"
-                                *ngIf="editForm.get('fin').errors.required" jhiTranslate="entity.validation.required">
-                            This field is required.
-                            </small>
-                        </div>
-                    </div>
-                </div>
-
-                    <div class="form-group">
-                        <label class="form-control-label" jhiTranslate="gimnasioApp.clase.incidencias" for="field_incidencias">Incidencias</label>
-                        <input type="checkbox" class="form-control" name="incidencias" id="field_incidencias"
-                            formControlName="incidencias" (change)="onCheck($event)"/>
-                    </div>
-
-                    <form class="card border-primary mb-3" [(hidden)]="!clase.incidencias" name="incidenciaForm" role="form" novalidate [formGroup]="incidenciaForm">
-
-                        <div class="card-header bg-dark text-white" jhiTranslate="gimnasioApp.clase.incidencias">Incidencia</div>
-
-                        <div class="card-body">
-                            <div class="form-group">
-                                <label class="form-control-label" jhiTranslate="gimnasioApp.clase.nombre" for="field_nombre">Nombre</label>
-                                <input type="text" class="form-control" name="nombre" id="field_nombre"
-                                    formControlName="nombre"/>
-                                <div *ngIf="incidenciaForm.get('nombre').invalid && (incidenciaForm.get('nombre').dirty || incidenciaForm.get('nombre').touched)">
-                                    <small class="form-text text-danger"
-                                        *ngIf="incidenciaForm.get('nombre').errors.required" jhiTranslate="entity.validation.required">
-                                    This field is required.
-                                    </small>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-control-label" jhiTranslate="gimnasioApp.clase.descripcion" for="field_descripcion">Descripcion</label>
-                                <input type="text" class="form-control" name="descripcion" id="field_descripcion"
-                                    formControlName="descripcion"/>
-                                <div *ngIf="incidenciaForm.get('descripcion').invalid && (incidenciaForm.get('descripcion').dirty || incidenciaForm.get('descripcion').touched)">
-                                    <small class="form-text text-danger"
-                                            *ngIf="incidenciaForm.get('descripcion').errors.required" jhiTranslate="entity.validation.required">
-                                    This field is required.
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="gimnasioApp.clase.monitor" for="field_monitor">Monitor</label>
-                    <select class="form-control" id="field_monitor" name="monitor" formControlName="monitorId">
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="empleadoOption.id" *ngFor="let empleadoOption of monitors; trackBy: trackEmpleadoById">{{empleadoOption.nombre}}</option>
-                    </select>
-                </div>
-                <div *ngIf="editForm.get('monitor').invalid && (editForm.get('monitor').dirty || editForm.get('monitor').touched)">
+            </div>
+            <div class="form-group">
+                <label class="form-control-label" jhiTranslate="gimnasioApp.clase.nombre" for="field_nombre">Nombre</label>
+                <input type="text" class="form-control" name="nombre" id="field_nombre"
+                        formControlName="nombre"/>
+                <div *ngIf="editForm.get('nombre').invalid && (editForm.get('nombre').dirty || editForm.get('nombre').touched)">
                     <small class="form-text text-danger"
-                        *ngIf="editForm.get('monitor').errors.required" jhiTranslate="entity.validation.required">
+                            *ngIf="editForm.get('nombre').errors.required" jhiTranslate="entity.validation.required">
                     This field is required.
                     </small>
                 </div>
             </div>
+            <div class="form-group">
+                <label class="form-control-label" jhiTranslate="gimnasioApp.clase.descripcion" for="field_descripcion">Descripcion</label>
+                <input type="text" class="form-control" name="descripcion" id="field_descripcion"
+                        formControlName="descripcion"/>
+            </div>
+            <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gimnasioApp.clase.lugar" for="field_lugar">Lugar</label>
+                    <select class="form-control" id="field_lugar" name="lugar" formControlName="lugar">
+                        <option value="null"></option>
+                        <option value="Sala 1">Sala 1</option>
+                        <option value="Sala 2">Sala 2</option>
+                        <option value="Sala 3">Sala 3</option>
+                    </select>
+            </div>
+            <div class="d-flex">
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gimnasioApp.clase.inicio" for="field_inicio">Inicio</label>
+
+                    <div class="input-group">
+                        <span class="input-group">
+                            <ngb-timepicker formControlName="horaInicio" [(ngModel)]="horaInicio"></ngb-timepicker>
+                            <div *ngIf="editForm.get('horaInicio').invalid && (editForm.get('horaInicio').dirty || editForm.get('horaInicio').touched)">
+                                <small class="form-text text-danger"
+                                    *ngIf="editForm.get('horaInicio').errors.required" jhiTranslate="entity.validation.required">
+                                This field is required.
+                                </small>
+                            </div>
+                        </span>
+                        <input id="field_inicio" type="text"  name="inicio" ngbDatepicker  #inicioDp="ngbDatepicker" formControlName="inicio"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="inicioDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('inicio').invalid && (editForm.get('inicio').dirty || editForm.get('inicio').touched)">
+                        <small class="form-text text-danger"
+                            *ngIf="editForm.get('inicio').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gimnasioApp.clase.fin" for="field_fin">Fin</label>
+                    <div class="input-group">
+                        <span class="input-group">
+                            <ngb-timepicker formControlName="horaFin" [(ngModel)]="horaFin"></ngb-timepicker>
+                            <div *ngIf="editForm.get('horaFin').invalid && (editForm.get('horaFin').dirty || editForm.get('horaFin').touched)">
+                                <small class="form-text text-danger"
+                                    *ngIf="editForm.get('horaFin').errors.required" jhiTranslate="entity.validation.required">
+                                This field is required.
+                                </small>
+                            </div>
+                        </span>
+                        <input id="field_fin" type="text" name="fin" ngbDatepicker  #finDp="ngbDatepicker" formControlName="fin"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="finDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('fin').invalid && (editForm.get('fin').dirty || editForm.get('fin').touched)">
+                        <small class="form-text text-danger"
+                            *ngIf="editForm.get('fin').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-control-label" jhiTranslate="gimnasioApp.clase.incidencias" for="field_incidencias">Incidencias</label>
+                <input type="checkbox" class="form-control" name="incidencias" id="field_incidencias"
+                    formControlName="incidencias" (change)="onCheck($event)"/>
+            </div>
+
+            <form class="card border-primary mb-3" [(hidden)]="!clase.incidencias" name="incidenciaForm" role="form" novalidate [formGroup]="incidenciaForm">
+
+                <div class="card-header bg-dark text-white" jhiTranslate="gimnasioApp.clase.incidencias">Incidencia</div>
+
+                <div class="card-body">
+                    <div class="form-group">
+                        <label class="form-control-label" jhiTranslate="gimnasioApp.clase.nombre" for="field_nombre">Nombre</label>
+                        <input type="text" class="form-control" name="nombre" id="field_nombre"
+                            formControlName="nombre"/>
+                        <div *ngIf="incidenciaForm.get('nombre').invalid && (incidenciaForm.get('nombre').dirty || incidenciaForm.get('nombre').touched)">
+                            <small class="form-text text-danger"
+                                *ngIf="incidenciaForm.get('nombre').errors.required" jhiTranslate="entity.validation.required">
+                            This field is required.
+                            </small>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label" jhiTranslate="gimnasioApp.clase.descripcion" for="field_descripcion">Descripcion</label>
+                        <input type="text" class="form-control" name="descripcion" id="field_descripcion"
+                            formControlName="descripcion"/>
+                        <div *ngIf="incidenciaForm.get('descripcion').invalid && (incidenciaForm.get('descripcion').dirty || incidenciaForm.get('descripcion').touched)">
+                            <small class="form-text text-danger"
+                                    *ngIf="incidenciaForm.get('descripcion').errors.required" jhiTranslate="entity.validation.required">
+                            This field is required.
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <div class="form-group">
+                <label class="form-control-label" jhiTranslate="gimnasioApp.clase.monitor" for="field_monitorId">Monitor</label>
+                <select class="form-control" id="field_monitorId" name="monitorId" formControlName="monitorId">
+                    <option [ngValue]="null"></option>
+                    <option [ngValue]="empleadoOption.id" *ngFor="let empleadoOption of monitors; trackBy: trackEmpleadoById">{{empleadoOption.nombre}}</option>
+                </select>
+            </div>
+            <div *ngIf="editForm.get('monitorId').invalid && (editForm.get('monitorId').dirty || editForm.get('monitorId').touched)">
+                <small class="form-text text-danger"
+                    *ngIf="editForm.get('monitorId').errors.required" jhiTranslate="entity.validation.required">
+                This field is required.
+                </small>
+            </div>
+
             <div class="modal-footer justify-content-center">
                 <div>
                     <button id="cancel-save" class="btn btn-secondary"  (click)="modal.close('Close')">
@@ -148,6 +148,7 @@
                         <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
                     </button>
                 </div>
-            </form>
-        </div>
+            </div>
+        </form>
 </div>
+
