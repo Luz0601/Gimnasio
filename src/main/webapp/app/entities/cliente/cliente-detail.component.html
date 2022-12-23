@@ -1,5 +1,8 @@
 <div class="modal-header justify-content-center">
-    <h2><span jhiTranslate="gimnasioApp.cliente.detail.title" class="title-pages">Cliente</span> {{cliente.id}}</h2>
+    <h2>
+        <span jhiTranslate="gimnasioApp.cliente.detail.title" class="title-pages">Cliente</span>
+        <span style="color: red;">{{cliente.nombre}} {{cliente.apellido}}</span>
+    </h2>
 </div>
 <div class="modal-body justify-content-center">
 
@@ -22,7 +25,7 @@
         </dd>
         <dt><span jhiTranslate="gimnasioApp.cliente.fechaNacimiento">Fecha Nacimiento</span></dt>
         <dd>
-            <span>{{cliente.fechaNacimiento}}</span>
+            <span>{{cliente.fechaNacimiento | date:'longDate'}}</span>
         </dd>
         <dt><span jhiTranslate="gimnasioApp.cliente.email">Email</span></dt>
         <dd>
