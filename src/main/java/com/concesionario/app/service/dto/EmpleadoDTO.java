@@ -22,7 +22,7 @@ public class EmpleadoDTO implements Serializable {
 
     private LocalDate fechaNacimiento;
 
-    
+
     private String email;
 
     private String direccion;
@@ -35,6 +35,8 @@ public class EmpleadoDTO implements Serializable {
     private Long nominaId;
 
     private Long puestoId;
+
+    private String puestoNombre;
 
     public Long getId() {
         return id;
@@ -132,6 +134,14 @@ public class EmpleadoDTO implements Serializable {
         this.puestoId = puestoId;
     }
 
+    public String getPuestoNombre() {
+        return puestoNombre;
+    }
+
+    public void setPuestoNombre(String puestoNombre) {
+        this.puestoNombre = puestoNombre;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -168,6 +178,7 @@ public class EmpleadoDTO implements Serializable {
             ", especialidad='" + getEspecialidad() + "'" +
             ", nomina=" + getNominaId() +
             ", puesto=" + getPuestoId() +
+            ", puesto=" + getPuestoNombre() +
             "}";
     }
 }

@@ -54,10 +54,11 @@ export class EmpleadoUpdateComponent implements OnInit {
 
   ngOnInit() {
     this.isSaving = false;
-    this.activatedRoute.data.subscribe(({ empleado }) => {
-      this.updateForm(this.empleado);
-      this.empleado = empleado;
-    });
+    if (!this.empleado) {
+      this.empleado = new Empleado();
+    }
+    this.updateForm(this.empleado);
+
     this.nominaService
       .query()
       .pipe(

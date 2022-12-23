@@ -12,11 +12,7 @@ export class NominaDetailComponent implements OnInit {
 
   constructor(protected activatedRoute: ActivatedRoute) {}
 
-  ngOnInit() {
-    this.activatedRoute.data.subscribe(({ nomina }) => {
-      this.nomina = nomina;
-    });
-  }
+  ngOnInit() {}
 
   previousState() {
     window.history.back();

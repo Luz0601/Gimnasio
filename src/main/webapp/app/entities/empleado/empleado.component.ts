@@ -13,6 +13,8 @@ import { ITEMS_PER_PAGE } from 'app/shared';
 import { EmpleadoService } from './empleado.service';
 import { EmpleadoDetailComponent } from './empleado-detail.component';
 import { EmpleadoUpdateComponent } from './empleado-update.component';
+import { NominaDetailComponent, NominaService } from '../nomina';
+import { INomina } from 'app/shared/model/nomina.model';
 
 @Component({
   selector: 'jhi-empleado',
@@ -35,6 +37,7 @@ export class EmpleadoComponent implements OnInit, OnDestroy {
 
   constructor(
     protected empleadoService: EmpleadoService,
+    protected nominaService: NominaService,
     protected parseLinks: JhiParseLinks,
     protected jhiAlertService: JhiAlertService,
     protected accountService: AccountService,
@@ -78,6 +81,16 @@ export class EmpleadoComponent implements OnInit, OnDestroy {
   editar(content) {
     const modalRef = this.modalService.open(EmpleadoUpdateComponent, { ariaLabelledBy: 'modal-basic-title' });
     modalRef.componentInstance.empleado = content;
+  }
+
+  nomina(content) {
+    this.nominaService.find(content).subscribe(
+      (res: HttpResponse<INomina>) => {
+        const modalRef = this.modalService.open(NominaDetailComponent, { ariaLabelledBy: 'modal-basic-title' });
+        modalRef.componentInstance.nomina = res.body;
+      },
+      (res: HttpErrorResponse) => this.onError(res.message)
+    );
   }
 
   transition() {

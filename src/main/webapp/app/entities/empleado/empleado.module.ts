@@ -12,13 +12,26 @@ import {
   empleadoRoute,
   empleadoPopupRoute
 } from './';
+import { NominaDetailComponent } from '../nomina';
 
 const ENTITY_STATES = [...empleadoRoute, ...empleadoPopupRoute];
 
 @NgModule({
   imports: [GimnasioSharedModule, RouterModule.forChild(ENTITY_STATES)],
-  declarations: [EmpleadoComponent, EmpleadoUpdateComponent, EmpleadoDeleteDialogComponent, EmpleadoDeletePopupComponent],
-  entryComponents: [EmpleadoComponent, EmpleadoUpdateComponent, EmpleadoDeleteDialogComponent, EmpleadoDeletePopupComponent],
+  declarations: [
+    EmpleadoComponent,
+    EmpleadoUpdateComponent,
+    EmpleadoDeleteDialogComponent,
+    EmpleadoDeletePopupComponent,
+    NominaDetailComponent
+  ],
+  entryComponents: [
+    EmpleadoComponent,
+    EmpleadoUpdateComponent,
+    EmpleadoDeleteDialogComponent,
+    EmpleadoDeletePopupComponent,
+    NominaDetailComponent
+  ],
   providers: [{ provide: JhiLanguageService, useClass: JhiLanguageService }],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
