@@ -50,13 +50,20 @@ public class HorarioClaseServiceImpl implements HorarioClaseService {
     @Transactional(readOnly = true)
     public List<HorarioClaseDTO> findAll(String dateS, String monthS, String weekS, String dayS) {
         log.debug("Request to get all HorarioClase");
-        Integer month = Integer.parseInt(monthS), week = Integer.parseInt(weekS), day = Integer.parseInt(dayS);
+        String undefined = "undefined";
+        Integer month;
+
+        if (monthS.equals(undefined))
+            month = null;
+        //Integer month = Integer.parseInt(monthS), week = Integer.parseInt(weekS), day = Integer.parseInt(dayS);
 
         LocalDateTime minDate = Timestamp.valueOf(dateS).toLocalDateTime()
             .withHour(0)
             .withMinute(0)
             .withSecond(0);
         LocalDateTime maxDate;
+
+        //yyyy-[m]m-[d]d hh:mm:ss[.f...]
 
         // Primer dia del mes
         minDate = minDate.withDayOfMonth(1);

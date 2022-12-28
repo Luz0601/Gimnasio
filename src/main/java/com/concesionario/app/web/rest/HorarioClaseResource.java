@@ -41,7 +41,8 @@ public class HorarioClaseResource {
         log.debug("REST request to get a month of HorarioClase");
         List<HorarioClaseDTO> list = horarioClaseService.findAll(queryParams.getFirst("date"), queryParams.getFirst("month"), queryParams.getFirst("week"), queryParams.getFirst("day"));
         // hay que pasar pageable de <HorarioClase>
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(uriBuilder.queryParams(queryParams), null);
+        // HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(uriBuilder.queryParams(queryParams), null);
+        HttpHeaders headers = new HttpHeaders(queryParams);
         return ResponseEntity.ok().headers(headers).body(list);
     }
 

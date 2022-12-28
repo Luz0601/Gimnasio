@@ -4,9 +4,11 @@
     </h2>
     <jhi-alert></jhi-alert>
     <br/>
-    <div *ngIf="!horarioClases">No hay clases este mes</div>
-    <div *ngIf="horarioClases">
-        <table class="table table-hover">
+    <div class="justify-content-center" >
+        <!-- <div *ngIf="!horarioClases"> -->
+        <h2 class="title-pages" *ngIf="!horarioClases">No hay clases este mes</h2>
+
+        <table class="table table-hover" *ngIf="horarioClases">
             <thead class="thead-dark">
                 <tr>
                     <th>Nombre del MES</th>

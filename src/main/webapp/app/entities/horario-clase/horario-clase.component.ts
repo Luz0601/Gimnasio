@@ -43,19 +43,19 @@ export class HorarioClaseComponent implements OnInit, OnDestroy {
   loadAll() {
     this.horarioClaseService
       .query({
-        date: this.date,
+        date: this.date.format('YYYY-MM-DD HH:mm:ss'),
         month: this.month,
         week: this.week,
         day: this.day
       })
       .subscribe(
-        (res: HttpResponse<IHorarioClase[]>) => this.listaHorarioClase(res.body, res.headers),
+        (res: HttpResponse<IHorarioClase[]>) => this.listaHorarioClase(res.body), //, res.headers),
         (res: HttpErrorResponse) => this.onError(res.message)
       );
   }
 
   ngOnInit(): void {
-    this.date = moment.now();
+    this.date = moment();
     this.loadAll();
     this.accountService.identity().then(account => {
       this.currentAccount = account;
@@ -75,9 +75,10 @@ export class HorarioClaseComponent implements OnInit, OnDestroy {
     return item.claseId;
   }
 
-  protected listaHorarioClase(data: IHorarioClase[], headers: HttpHeaders) {
-    this.links = this.parseLinks.parse(headers.get('link'));
-    this.totalItems = parseInt(headers.get('X-Total-Count'), 10);
+  protected listaHorarioClase(data: IHorarioClase[]) {
+    // , headers: HttpHeaders) {
+    // this.links = this.parseLinks.parse(headers.get('link'));
+    // this.totalItems = parseInt(headers.get('X-Total-Count'), 10);
     this.horarioClases = data;
   }
 

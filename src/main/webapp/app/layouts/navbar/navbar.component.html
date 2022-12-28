@@ -17,6 +17,11 @@
             </li>
             <!-- Navbar nuevo -->
             <li *jhiHasAnyAuthority="['ROLE_MONITOR', 'ROLE_ADMIN']">
+                <a class="nav-link ml-4" routerLink="horario-clase" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                    <span jhiTranslate="global.menu.entities.horarioClase">Horario Clases</span>
+                </a>
+            </li>
+            <li *jhiHasAnyAuthority="['ROLE_MONITOR', 'ROLE_ADMIN']">
                 <a class="nav-link ml-4" routerLink="clase" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                     <span jhiTranslate="global.menu.entities.clase">Clase</span>
                 </a>

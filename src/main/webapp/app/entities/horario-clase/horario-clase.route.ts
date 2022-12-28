@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot, Routes } from '@angular/router';
+import { UserRouteAccessService } from 'app/core';
 import { HorarioClase, IHorarioClase } from 'app/shared/model/horario-clase.model';
 import { Observable, of } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
-import { HorarioClaseComponent } from './horario-clase.component';
 import { HorarioClaseService } from './horario-clase.service';
-import { UserRouteAccessService } from 'app/core';
+import { HorarioClaseComponent } from './horario-clase.component';
 
 @Injectable({ providedIn: 'root' })
 export class HorarioClaseResolve implements Resolve<IHorarioClase> {

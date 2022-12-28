@@ -51,6 +51,10 @@ import { RouterModule } from '@angular/router';
       {
         path: 'proveedor',
         loadChildren: './proveedor/proveedor.module#GimnasioProveedorModule'
+      },
+      {
+        path: 'horario-clase',
+        loadChildren: './horario-clase/horario-clase.module#GimnasioHorarioClaseModule'
       }
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ])

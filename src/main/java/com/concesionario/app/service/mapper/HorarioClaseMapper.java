@@ -84,7 +84,10 @@ public interface HorarioClaseMapper extends EntityMapper<HorarioClaseDTO, ClaseC
             if (claseCliente.getClase().getId() == horarioClaseDTO.getClaseId())
                 clientes.add( clienteMapper.toDto( claseCliente.getCliente() ));
         }
-        horarioClaseDTO.setClientes((ClienteDTO[]) clientes.toArray());
+
+        if (!clientes.isEmpty())
+            horarioClaseDTO.setClientes( clientes.toArray( new ClienteDTO[clientes.size()] ) );
+
         horarioClaseDTO.setNumClientes(clientes.size());
 
         return horarioClaseDTO;
