@@ -10,6 +10,9 @@ import { AccountService } from 'app/core';
 
 import { ITEMS_PER_PAGE } from 'app/shared';
 import { NominaService } from './nomina.service';
+import { NominaDetailComponent } from './nomina-detail.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NominaUpdateComponent } from './nomina-update.component';
 
 @Component({
   selector: 'jhi-nomina',
@@ -37,7 +40,8 @@ export class NominaComponent implements OnInit, OnDestroy {
     protected accountService: AccountService,
     protected activatedRoute: ActivatedRoute,
     protected router: Router,
-    protected eventManager: JhiEventManager
+    protected eventManager: JhiEventManager,
+    private modalService: NgbModal
   ) {
     this.itemsPerPage = ITEMS_PER_PAGE;
     this.routeData = this.activatedRoute.data.subscribe(data => {
@@ -127,5 +131,15 @@ export class NominaComponent implements OnInit, OnDestroy {
 
   protected onError(errorMessage: string) {
     this.jhiAlertService.error(errorMessage, null, null);
+  }
+
+  open(content) {
+    const modalRef = this.modalService.open(NominaDetailComponent, { ariaLabelledBy: 'modal-basic-title' });
+    modalRef.componentInstance.nomina = content;
+  }
+
+  editar(content) {
+    const modalRef = this.modalService.open(NominaUpdateComponent, { ariaLabelledBy: 'modal-basic-title' });
+    modalRef.componentInstance.nomina = content;
   }
 }

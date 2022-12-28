@@ -36,7 +36,8 @@
                                 <fa-icon [icon]="'ellipsis-v'"></fa-icon>
                             </button>
                             <div class="dropdown-menu" ngbDropdownMenu>
-                                <button
+                                <button type="button"
+                                        (click)="open(incidencia)"
                                         class="dropdown-item">
                                     <fa-icon [icon]="'eye'"></fa-icon>
                                     <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>

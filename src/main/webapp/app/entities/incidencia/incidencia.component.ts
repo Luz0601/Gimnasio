@@ -13,6 +13,7 @@ import { AccountService } from 'app/core';
 import { ITEMS_PER_PAGE } from 'app/shared';
 import { IncidenciaService } from './incidencia.service';
 import { IncidenciaUpdateComponent } from './incidencia-update.component';
+import { IncidenciaDetailComponent } from './incidencia-detail.component';
 
 @Component({
   selector: 'jhi-incidencia',
@@ -71,10 +72,7 @@ export class IncidenciaComponent implements OnInit, OnDestroy {
       this.transition();
     }
   }
-  editar(content) {
-    const modalRef = this.modalService.open(IncidenciaUpdateComponent, { ariaLabelledBy: 'modal-basic-title' });
-    modalRef.componentInstance.incidencia = content;
-  }
+
   transition() {
     this.router.navigate(['/incidencia'], {
       queryParams: {
@@ -124,6 +122,16 @@ export class IncidenciaComponent implements OnInit, OnDestroy {
       result.push('id');
     }
     return result;
+  }
+
+  open(content) {
+    const modalRef = this.modalService.open(IncidenciaDetailComponent, { ariaLabelledBy: 'modal-basic-title' });
+    modalRef.componentInstance.incidencia = content;
+  }
+
+  editar(content) {
+    const modalRef = this.modalService.open(IncidenciaUpdateComponent, { ariaLabelledBy: 'modal-basic-title' });
+    modalRef.componentInstance.incidencia = content;
   }
 
   protected paginateIncidencias(data: IIncidencia[], headers: HttpHeaders) {

@@ -13,6 +13,8 @@ import { InventarioService } from './inventario.service';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { InventarioDetailComponent } from './inventario-detail.component';
 import { InventarioUpdateComponent } from './inventario-update.component';
+import { ProveedorDetailComponent, ProveedorService } from '../proveedor';
+import { INomina } from 'app/shared/model/nomina.model';
 
 @Component({
   selector: 'jhi-inventario',
@@ -35,6 +37,7 @@ export class InventarioComponent implements OnInit, OnDestroy {
 
   constructor(
     protected inventarioService: InventarioService,
+    protected proveedorService: ProveedorService,
     protected parseLinks: JhiParseLinks,
     protected jhiAlertService: JhiAlertService,
     protected accountService: AccountService,
@@ -64,14 +67,7 @@ export class InventarioComponent implements OnInit, OnDestroy {
         (res: HttpErrorResponse) => this.onError(res.message)
       );
   }
-  open(content) {
-    const modalRef = this.modalService.open(InventarioDetailComponent, { ariaLabelledBy: 'modal-basic-title' });
-    modalRef.componentInstance.inventario = content;
-  }
-  editar(content) {
-    const modalRef = this.modalService.open(InventarioUpdateComponent, { ariaLabelledBy: 'modal-basic-title' });
-    modalRef.componentInstance.inventario = content;
-  }
+
   loadPage(page: number) {
     if (page !== this.previousPage) {
       this.previousPage = page;
@@ -128,6 +124,24 @@ export class InventarioComponent implements OnInit, OnDestroy {
       result.push('id');
     }
     return result;
+  }
+
+  open(content) {
+    const modalRef = this.modalService.open(InventarioDetailComponent, { ariaLabelledBy: 'modal-basic-title' });
+    modalRef.componentInstance.inventario = content;
+  }
+  editar(content) {
+    const modalRef = this.modalService.open(InventarioUpdateComponent, { ariaLabelledBy: 'modal-basic-title' });
+    modalRef.componentInstance.inventario = content;
+  }
+  proveedor(content) {
+    this.proveedorService.find(content).subscribe(
+      (res: HttpResponse<INomina>) => {
+        const modalRef = this.modalService.open(ProveedorDetailComponent, { ariaLabelledBy: 'modal.basic-title' });
+        modalRef.componentInstance.proveedor = res.body;
+      },
+      (res: HttpErrorResponse) => this.onError(res.message)
+    );
   }
 
   protected paginateInventarios(data: IInventario[], headers: HttpHeaders) {

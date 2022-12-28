@@ -57,13 +57,6 @@ export class ClaseUpdateComponent implements OnInit {
 
   ngOnInit() {
     this.isSaving = false;
-    // this.activatedRoute.data.subscribe(({ clase }) => {
-    //   if (!this.clase.incidencias) {
-    //     this.clase.incidencias = false;
-    //   }
-    //   this.updateForm(this.clase);
-    //   this.clase = clase;
-    // });
     if (!this.clase) {
       this.clase = new Clase();
     }
@@ -117,25 +110,21 @@ export class ClaseUpdateComponent implements OnInit {
   }
 
   private createFromForm(): IClase {
+    const fechaI = moment(this.editForm.get(['fecha']).value.toISOString());
+    const fechaF = moment(this.editForm.get(['fecha']).value.toISOString());
+
     const entity = {
       ...new Clase(),
       id: this.editForm.get(['id']).value,
       nombre: this.editForm.get(['nombre']).value,
       descripcion: this.editForm.get(['descripcion']).value,
       lugar: this.editForm.get(['lugar']).value,
-      inicio: this.editForm
-        .get(['fecha'])
-        .value.hours(this.horaInicio.hour)
-        .minutes(this.horaInicio.minute),
-      fin: this.editForm
-        .get(['fecha'])
-        .value.hours(this.horaFin.hour)
-        .minutes(this.horaFin.minute),
+      inicio: fechaI.hours(this.horaInicio.hour).minutes(this.horaInicio.minute),
+      fin: fechaF.hours(this.horaFin.hour).minutes(this.horaFin.minute),
       incidencias: this.editForm.get(['incidencias']).value,
       monitorId: this.editForm.get(['monitorId']).value,
       incidencia: this.createIncidenciaFromForm()
     };
-
     return entity;
   }
 

@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { INomina, Nomina } from 'app/shared/model/nomina.model';
 import { NominaService } from './nomina.service';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'jhi-nomina-update',
@@ -20,14 +21,16 @@ export class NominaUpdateComponent implements OnInit {
     tipoContrato: [null, [Validators.required]]
   });
 
-  constructor(protected nominaService: NominaService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
+  constructor(
+    protected nominaService: NominaService,
+    protected activatedRoute: ActivatedRoute,
+    protected modal: NgbActiveModal,
+    private fb: FormBuilder
+  ) {}
 
   ngOnInit() {
     this.isSaving = false;
-    this.activatedRoute.data.subscribe(({ nomina }) => {
-      this.updateForm(nomina);
-      this.nomina = nomina;
-    });
+    this.updateForm(this.nomina);
   }
 
   updateForm(nomina: INomina) {
@@ -68,7 +71,7 @@ export class NominaUpdateComponent implements OnInit {
 
   protected onSaveSuccess() {
     this.isSaving = false;
-    this.previousState();
+    window.location.reload();
   }
 
   protected onSaveError() {

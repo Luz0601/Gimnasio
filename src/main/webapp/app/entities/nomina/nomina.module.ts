@@ -18,7 +18,7 @@ const ENTITY_STATES = [...nominaRoute, ...nominaPopupRoute];
 
 @NgModule({
   imports: [GimnasioSharedModule, RouterModule.forChild(ENTITY_STATES)],
-  declarations: [NominaComponent, NominaDetailComponent, NominaUpdateComponent, NominaDeleteDialogComponent, NominaDeletePopupComponent],
+  declarations: [NominaComponent, NominaUpdateComponent, NominaDeleteDialogComponent, NominaDeletePopupComponent],
   entryComponents: [NominaComponent, NominaUpdateComponent, NominaDeleteDialogComponent, NominaDeletePopupComponent],
   providers: [{ provide: JhiLanguageService, useClass: JhiLanguageService }],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

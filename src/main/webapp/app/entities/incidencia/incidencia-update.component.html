@@ -39,7 +39,7 @@
             <div class="modal-footer justify-content-center">
 
                 <div>
-                    <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="modal.close('Close')">
                         <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
                     </button>
                     <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">

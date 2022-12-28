@@ -2,9 +2,8 @@
     <h2><span jhiTranslate="gimnasioApp.proveedor.detail.title" class="title-pages">Proveedor</span> {{proveedor.id}}</h2>
   <button type="button" class="btn-close" aria-label="Close" (click)="modal.close('Cross click')"><fa-icon [icon]="'times'"></fa-icon></button>
 </div>
-            <jhi-alert-error></jhi-alert-error>
 <div class="modal-body">
-
+    <jhi-alert-error></jhi-alert-error>
     <dl class="row-md jh-entity-details">
         <dt><span jhiTranslate="gimnasioApp.proveedor.nombre">Nombre</span></dt>
                 <dd>
@@ -26,8 +25,9 @@
           </button>
 
             <button type="button"
-            class="btn btn-primary">
-            <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Aceptar</span>
+                    (click)="editar(proveedor)"
+                    class="btn btn-primary">
+            <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
         </button>
     </div>
 </div>

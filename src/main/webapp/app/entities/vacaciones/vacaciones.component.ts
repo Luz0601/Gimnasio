@@ -13,6 +13,8 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { VacacionesService } from './vacaciones.service';
 import { VacacionesDetailComponent } from './vacaciones-detail.component';
 import { VacacionesUpdateComponent } from './vacaciones-update.component';
+import { EmpleadoDetailComponent, EmpleadoService } from '../empleado';
+import { IEmpleado } from 'app/shared/model/empleado.model';
 
 @Component({
   selector: 'jhi-vacaciones',
@@ -35,6 +37,7 @@ export class VacacionesComponent implements OnInit, OnDestroy {
 
   constructor(
     protected vacacionesService: VacacionesService,
+    protected empleadoService: EmpleadoService,
     protected parseLinks: JhiParseLinks,
     protected jhiAlertService: JhiAlertService,
     protected accountService: AccountService,
@@ -130,6 +133,16 @@ export class VacacionesComponent implements OnInit, OnDestroy {
       result.push('id');
     }
     return result;
+  }
+
+  empleado(content) {
+    this.empleadoService.find(content).subscribe(
+      (res: HttpResponse<IEmpleado>) => {
+        const modalRef = this.modalService.open(EmpleadoDetailComponent, { ariaLabelledBy: 'modal-basic-title' });
+        modalRef.componentInstance.empleado = res.body;
+      },
+      (res: HttpErrorResponse) => this.onError(res.message)
+    );
   }
 
   protected paginateVacaciones(data: IVacaciones[], headers: HttpHeaders) {

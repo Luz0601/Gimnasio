@@ -43,7 +43,7 @@
                 <td>{{inventario.periodoRevision}}</td>
                 <td>
                     <div *ngIf="inventario.proveedorId">
-                        <span>{{inventario.proveedorId}}</span>
+                        <a (click)="proveedor(inventario.proveedorId)">{{inventario.proveedorId}}</a>
                     </div>
                 </td>
                 <td>
