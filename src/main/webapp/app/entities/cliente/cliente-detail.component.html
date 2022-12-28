@@ -43,7 +43,9 @@
 
     <div class="modal-footer justify-content-center">
 
-        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Atrás</button>
+        <button type="button" class="btn btn-info" (click)="modal.close('Save click')">
+            <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+        </button>
 
         <button type="button"
             (click)="editar(cliente)"

@@ -1,5 +1,8 @@
 <div class="modal-header justify-content-center">
-    <h2><span jhiTranslate="gimnasioApp.empleado.detail.title" class="title-pages">Empleado</span></h2>
+    <h2>
+        <span jhiTranslate="gimnasioApp.empleado.detail.title" class="title-pages">Empleado</span>
+        <span style="color: red">{{empleado.nombre}} {{empleado.apellido}}</span>
+    </h2>
     <button type="button" class="btn-close" aria-label="Close" (click)="modal.close('Cross click')"><fa-icon [icon]="'times'"></fa-icon></button>
 </div>
 <jhi-alert-error></jhi-alert-error>
@@ -62,11 +65,11 @@
                 <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
         </button>
 
-        <button type="button"
+        <!-- <button type="button"
                 (click)="editar(empleado)"
                 class="btn btn-primary">
             <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
-        </button>
+        </button> -->
 
     </div>
 </div>

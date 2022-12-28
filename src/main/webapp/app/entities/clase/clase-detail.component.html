@@ -44,7 +44,8 @@
                     <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
                 </button>
                 <button type="button"
-                    (click)="open(clase)"
+                    *ngIf="edit"
+                    (click)="editar(clase)"
                     class="btn btn-primary">
                 <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
                 </button>

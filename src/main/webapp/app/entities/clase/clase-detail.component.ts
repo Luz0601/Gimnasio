@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { IClase } from 'app/shared/model/clase.model';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ClaseUpdateComponent } from './clase-update.component';
+import { IncidenciaDetailComponent } from '../incidencia';
 
 @Component({
   selector: 'jhi-clase-detail',
@@ -11,8 +12,9 @@ import { ClaseUpdateComponent } from './clase-update.component';
 })
 export class ClaseDetailComponent implements OnInit {
   clase: IClase;
+  edit: Boolean;
 
-  constructor(protected activatedRoute: ActivatedRoute, protected modal: NgbActiveModal, private modalService: NgbModal) {}
+  constructor(protected activatedRoute: ActivatedRoute, protected modalService: NgbModal, protected modal: NgbActiveModal) {}
 
   ngOnInit() {}
 
@@ -20,8 +22,13 @@ export class ClaseDetailComponent implements OnInit {
     window.history.back();
   }
 
-  open(content) {
+  editar(content) {
     const modalRef = this.modalService.open(ClaseUpdateComponent, { ariaLabelledBy: 'modal-basic-title' });
     modalRef.componentInstance.clase = content;
+  }
+
+  incidencia(content) {
+    const modalRef = this.modalService.open(IncidenciaDetailComponent, { ariaLabelledBy: 'modal-basic-title' });
+    modalRef.componentInstance.incidencia = content;
   }
 }

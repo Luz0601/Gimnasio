@@ -78,6 +78,7 @@ export class ClaseComponent implements OnInit, OnDestroy {
   editar(content) {
     const modalRef = this.modalService.open(ClaseUpdateComponent, { ariaLabelledBy: 'modal-basic-title' });
     modalRef.componentInstance.clase = content;
+    modalRef.componentInstance.edit = Boolean(true);
   }
   incidencia(content) {
     const modalRef = this.modalService.open(IncidenciaDetailComponent, { ariaLabelledBy: 'modal-basic-title' });

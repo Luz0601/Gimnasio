@@ -1,6 +1,9 @@
 <div class="modal-header justify-content-center">
-  <h2><span jhiTranslate="gimnasioApp.inventario.detail.title">Inventario</span> {{ inventario.nombre }}</h2>
-  <button type="button" class="btn-close" aria-label="Close" (click)="modal.close('Cross click')"><fa-icon [icon]="'times'"></fa-icon></button>
+    <h2>
+        <span class="title-pages" jhiTranslate="gimnasioApp.inventario.detail.title">Inventario</span>
+        <span style="color: red;">{{ inventario.nombre }}</span>
+    </h2>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.close('Cross click')"><fa-icon [icon]="'times'"></fa-icon></button>
 
   <jhi-alert-error></jhi-alert-error>
 </div>
