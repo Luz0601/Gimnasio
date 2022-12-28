@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.concesionario.app.domain.Clase;
@@ -27,6 +28,7 @@ import com.concesionario.app.service.dto.ClienteDTO;
 import com.concesionario.app.service.dto.HorarioClaseDTO;
 import com.concesionario.app.service.mapper.HorarioClaseMapper;
 
+@Service
 public class HorarioClaseServiceImpl implements HorarioClaseService {
 
     private final Logger log = LoggerFactory.getLogger(HorarioClaseServiceImpl.class);
