@@ -1,7 +1,7 @@
 <div>
     <h2 id="page-heading">
-        <span jhiTranslate="gimnasioApp.clase.home.title">Clases</span>
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-clase" [routerLink]="['/clase/new']">
+        <span jhiTranslate="gimnasioApp.clase.home.title" class="title-pages">Clases</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-clase" (click)="editar(clase)">
             <fa-icon [icon]="'plus'"></fa-icon>
             <span  jhiTranslate="gimnasioApp.clase.home.createLabel">
             Create new Clase
@@ -13,62 +13,65 @@
     <div class="table-responsive" *ngIf="clases">
         <table class="table table-hover">
             <thead class="thead-dark">
-            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
-            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="nombre"><span jhiTranslate="gimnasioApp.clase.nombre">Nombre</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="descripcion"><span jhiTranslate="gimnasioApp.clase.descripcion">Descripcion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="lugar"><span jhiTranslate="gimnasioApp.clase.lugar">Lugar</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="inicio"><span jhiTranslate="gimnasioApp.clase.inicio">Inicio</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="fin"><span jhiTranslate="gimnasioApp.clase.fin">Fin</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="incidencias"><span jhiTranslate="gimnasioApp.clase.incidencias">Incidencias</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="monitorId"><span jhiTranslate="gimnasioApp.clase.monitor">Monitor</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th></th>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+                <th jhiSortBy="id"><span>#</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th jhiSortBy="nombre"><span jhiTranslate="gimnasioApp.clase.nombre">Nombre</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th jhiSortBy="descripcion"><span jhiTranslate="gimnasioApp.clase.descripcion">Descripcion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th jhiSortBy="lugar"><span jhiTranslate="gimnasioApp.clase.lugar">Lugar</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th jhiSortBy="inicio"><span jhiTranslate="gimnasioApp.clase.inicio">Inicio</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th jhiSortBy="fin"><span jhiTranslate="gimnasioApp.clase.fin">Fin</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th jhiSortBy="incidencias"><span jhiTranslate="gimnasioApp.clase.incidencias">Incidencias</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th jhiSortBy="monitorId"><span jhiTranslate="gimnasioApp.clase.monitor">Monitor</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let clase of clases ;trackBy: trackId">
-                <td><a [routerLink]="['/clase', clase.id, 'view' ]">{{clase.id}}</a></td>
-                <td>{{clase.nombre}}</td>
-                <td>{{clase.descripcion}}</td>
-                <td>{{clase.lugar}}</td>
-                <td class="text-center">{{clase.inicio | date:'mediumDate'}}<br>{{clase.inicio | date:'shortTime'}}</td>
-                <td>{{clase.fin | date:'mediumDate'}}<br>{{clase.fin | date:'shortTime'}}</td>
-                <td>
-                    <div *ngIf="clase.incidencias; else elseBlock">
-                        <a jhiTranslate="gimnasioApp.clase.incidenciasTrue" [routerLink]="['../incidencia', clase.incidencia.id , 'view' ]" >Incidencia</a>
-                    </div>
-                    <ng-template #elseBlock jhiTranslate="gimnasioApp.clase.incidenciasFalse">Sin Incidencias</ng-template>
-                </td>
-                <td>
-                    <div *ngIf="clase.monitorId">
-                        <a [routerLink]="['../empleado', clase.monitorId , 'view' ]" >{{clase.monitorId}}</a>
-                    </div>
-                </td>
-                <td class="text-right">
-                    <div class="btn-group">
-                        <button
-                                (click)="open(clase)"
-                                class="btn btn-info btn-sm">
-                            <fa-icon [icon]="'eye'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
-                        </button>
-                        <button type="submit"
-                                [routerLink]="['/clase', clase.id, 'edit']"
-                                class="btn btn-primary btn-sm">
-                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
-                        </button>
-                        <button type="submit"
-                                [routerLink]="['/', 'clase', { outlets: { popup: clase.id + '/delete'} }]"
-                                replaceUrl="true"
-                                queryParamsHandling="merge"
-                                class="btn btn-danger btn-sm">
-                            <fa-icon [icon]="'times'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
-                        </button>
-                    </div>
-                </td>
-            </tr>
+                <tr *ngFor="let clase of clases ;trackBy: trackId">
+                    <td>{{clase.id}}</td>
+                    <td>{{clase.nombre}}</td>
+                    <td class="ellipsis">{{clase.descripcion}}</td>
+                    <td>{{clase.lugar}}</td>
+                    <td class="text-center">{{clase.inicio | date:'mediumDate'}}<br>{{clase.inicio | date:'shortTime'}}</td>
+                    <td class="text-center">{{clase.fin | date:'mediumDate'}}<br>{{clase.fin | date:'shortTime'}}</td>
+                    <td>
+                        <div *ngIf="clase.incidencias; else elseBlock">
+                            <a jhiTranslate="gimnasioApp.clase.incidenciasTrue" (click)="incidencia(clase.incidencia)" style="color: red; text-decoration: underline;" >Incidencia</a>
+                        </div>
+                        <ng-template #elseBlock > <span style="color: green;" jhiTranslate="gimnasioApp.clase.incidenciasFalse">Sin Incidencias</span></ng-template>
+                    </td>
+                    <td>
+                        <div *ngIf="clase.monitorId">
+                            <a (click)="monitor(clase.monitorId)" >{{clase.monitorId}}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="btn-group" ngbDropdown>
+                                <button type="button" class="btn btn-info dropdown-toggle btn-info" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>
+                                    <fa-icon [icon]="'ellipsis-v'"></fa-icon>
+                                </button>
+                                <div class="dropdown-menu" ngbDropdownMenu >
+                                    <button (click)="open(clase)"
+                                            class="dropdown-item">
+                                        <fa-icon [icon]="'eye'"></fa-icon>
+                                        <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                                    </button>
+                                    <button (click)="editar(clase)"
+                                            class="dropdown-item">
+                                        <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                                        <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                                    </button>
+                                    <button type="submit"
+                                            [routerLink]="['/', 'clase', { outlets: { popup: clase.id + '/delete'} }]"
+                                            replaceUrl="true"
+                                            queryParamsHandling="merge"
+                                            class="dropdown-item">
+                                        <fa-icon [icon]="'times'"></fa-icon>
+                                        <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                                    </button>
+                                </div>
+                        </div>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>

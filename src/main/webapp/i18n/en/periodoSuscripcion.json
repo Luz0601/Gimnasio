@@ -2,9 +2,9 @@
   "gimnasioApp": {
     "PeriodoSuscripcion": {
       "null": "",
-      "Mensual": "Mensual",
-      "Trimestral": "Trimestral",
-      "Anual": "Anual"
+      "Mensual": "Monthly",
+      "Trimestral": "Trimonthly",
+      "Anual": "Yearly"
     }
   }
 }

@@ -41,14 +41,10 @@
                 <td>{{empleado.especialidad}}</td>
                 <td>
                     <div *ngIf="empleado.nominaId">
-                        <a [routerLink]="['../nomina', empleado.nominaId , 'view' ]" >{{empleado.nominaId}}</a>
+                        <a (click)="nomina(empleado.nominaId)" >{{empleado.nominaId}}</a>
                     </div>
                 </td>
-                <td>
-                    <div *ngIf="empleado.puestoId">
-                        <a [routerLink]="['../puesto', empleado.puestoId , 'view' ]" >{{empleado.puestoId}}</a>
-                    </div>
-                </td>
+                <td>{{empleado.puestoNombre}}</td>
                 <td>
                     <div class="btn-group" ngbDropdown>
                             <button type="button" class="btn btn-info dropdown-toggle btn-info" data-toggle="dropdown"  aria-expanded="false" ngbDropdownToggle>

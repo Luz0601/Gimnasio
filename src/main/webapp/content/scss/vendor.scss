@@ -45,6 +45,7 @@ tbody {
   content: attr(data-hover);
   visibility: hidden;
   opacity: 0;
+  line-height: 20px;
   width: 150px;
   text-align: left;
   background-color: #3b079c;
@@ -85,4 +86,8 @@ tbody {
 }
 .btn-info.dropdown-toggle::after {
   display: none;
+}
+.modal-content {
+  width: 110%;
+  min-width: 100%;
 }

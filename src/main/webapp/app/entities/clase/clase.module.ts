@@ -4,6 +4,8 @@ import { JhiLanguageService } from 'ng-jhipster';
 import { JhiLanguageHelper } from 'app/core';
 
 import { GimnasioSharedModule } from 'app/shared';
+import { IncidenciaDetailComponent } from 'app/entities/incidencia/incidencia-detail.component';
+import { EmpleadoDetailComponent } from '../empleado/empleado-detail.component';
 import {
   ClaseComponent,
   ClaseDetailComponent,

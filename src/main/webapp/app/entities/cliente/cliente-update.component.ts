@@ -38,10 +38,10 @@ export class ClienteUpdateComponent implements OnInit {
 
   ngOnInit() {
     this.isSaving = false;
-    this.activatedRoute.data.subscribe(({ cliente }) => {
-      this.updateForm(this.cliente);
-      this.cliente = cliente;
-    });
+    if (!this.cliente) {
+      this.cliente = new Cliente();
+    }
+    this.updateForm(this.cliente);
   }
 
   updateForm(cliente: ICliente) {

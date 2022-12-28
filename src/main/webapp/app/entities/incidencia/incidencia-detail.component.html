@@ -1,8 +1,7 @@
 <div class="modal-header justify-content-center">
-  <h2><span jhiTranslate="gimnasioApp.incidencia.detail.title" class="title-pages">Incidencia</span> {{ incidencia.id }}</h2>
+  <h2><span jhiTranslate="gimnasioApp.incidencia.detail.title" class="title-pages">Incidencia</span> <span style="color: red;">{{ incidencia.nombre }}</span></h2>
 </div>
 <div class="modal-body">
-  <hr />
   <jhi-alert-error></jhi-alert-error>
   <dl class="row-md jh-entity-details">
     <dt><span jhiTranslate="gimnasioApp.incidencia.nombre">Nombre</span></dt>
@@ -16,17 +15,20 @@
     <dt><span jhiTranslate="gimnasioApp.incidencia.clase">Clase</span></dt>
     <dd>
       <div *ngIf="incidencia.claseId">
-        <a [routerLink]="['/clase', incidencia.claseId, 'view']">{{ incidencia.claseId }}</a>
+        <span>{{ incidencia.claseId }}</span>
+        <!-- <a [routerLink]="['/clase', incidencia.claseId, 'view']">{{ incidencia.claseId }}</a> -->
       </div>
     </dd>
   </dl>
   <div class="modal-footer justify-content-center">
-    <button type="submit" (click)="previousState()" class="btn btn-info">
+    <button button="button" (click)="modal.close('Back')" class="btn btn-info">
       <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
     </button>
 
-    <button type="button" [routerLink]="['/incidencia', incidencia.id, 'edit']" class="btn btn-primary">
+    <!-- <button type="button"
+            (click)="editar(incidencia)"
+            class="btn btn-primary">
       <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
-    </button>
+    </button> -->
   </div>
 </div>

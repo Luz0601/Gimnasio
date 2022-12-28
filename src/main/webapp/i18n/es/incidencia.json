@@ -6,9 +6,9 @@
         "createLabel": "Crear nueva Incidencia",
         "createOrEditLabel": "Crear o editar Incidencia"
       },
-      "created": "Un nuevo Incidencia ha sido creado con el identificador {{ param }}",
-      "updated": "Un Incidencia ha sido actualizado con el identificador {{ param }}",
-      "deleted": "Un Incidencia ha sido eliminado con el identificador {{ param }}",
+      "created": "Una nuevo Incidencia ha sido creada con el identificador {{ param }}",
+      "updated": "Una Incidencia ha sido actualizada con el identificador {{ param }}",
+      "deleted": "Una Incidencia ha sido eliminada con el identificador {{ param }}",
       "delete": {
         "question": "¿Seguro que quiere eliminar Incidencia {{ id }}?"
       },

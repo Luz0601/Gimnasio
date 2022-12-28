@@ -2,26 +2,26 @@
   "gimnasioApp": {
     "clase": {
       "home": {
-        "title": "Clases",
-        "createLabel": "Créer un nouveau Clase",
-        "createOrEditLabel": "Créer ou éditer un Clase"
+        "title": "Classe",
+        "createLabel": "Créer un nouveau Classe",
+        "createOrEditLabel": "Créer ou éditer un Classe"
       },
-      "created": "Un nouveau Clase a été créé avec l'identifiant {{ param }}",
-      "updated": "Le Clase avec l'identifiant {{ param }} a été mis à jour",
-      "deleted": "Le Clase avec l'identifiant {{ param }} a été supprimé",
+      "created": "Un nouveau Classe a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Classe avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Classe avec l'identifiant {{ param }} a été supprimé",
       "delete": {
-        "question": "Etes-vous certain de vouloir supprimer le Clase {{ id }} ?"
+        "question": "Etes-vous certain de vouloir supprimer le Classe {{ id }} ?"
       },
       "detail": {
-        "title": "Clase"
+        "title": "Classe"
       },
-      "nombre": "Nombre",
-      "descripcion": "Descripcion",
-      "lugar": "Lugar",
-      "inicio": "Inicio",
-      "fin": "Fin",
-      "incidencias": "Incidencias",
-      "monitor": "Monitor"
+      "nombre": "Nom",
+      "descripcion": "Description",
+      "lugar": "Place",
+      "inicio": "Debút",
+      "fin": "Terminer",
+      "incidencias": "Incidencies",
+      "monitor": "Moniteur"
     }
   }
 }

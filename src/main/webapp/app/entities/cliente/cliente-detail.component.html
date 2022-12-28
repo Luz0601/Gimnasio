@@ -1,6 +1,8 @@
 <div class="modal-header justify-content-center">
-    <h2><span jhiTranslate="gimnasioApp.cliente.detail.title" class="title-pages">Cliente</span> {{cliente.id}}</h2>
-    <button type="button" class="btn-close" aria-label="Close" (click)="modal.close('Cross click')"><fa-icon [icon]="'times'"></fa-icon></button>
+    <h2>
+        <span jhiTranslate="gimnasioApp.cliente.detail.title" class="title-pages">Cliente</span>
+        <span style="color: red;">{{cliente.nombre}} {{cliente.apellido}}</span>
+    </h2>
 </div>
 <div class="modal-body justify-content-center">
 
@@ -17,34 +19,36 @@
         <dd>
             <span>{{cliente.apellido}}</span>
         </dd>
-                <dt><span jhiTranslate="gimnasioApp.cliente.telefono">Telefono</span></dt>
-                <dd>
-                    <span>{{cliente.telefono}}</span>
-                </dd>
-                <dt><span jhiTranslate="gimnasioApp.cliente.fechaNacimiento">Fecha Nacimiento</span></dt>
-                <dd>
-                    <span>{{cliente.fechaNacimiento}}</span>
-                </dd>
-                <dt><span jhiTranslate="gimnasioApp.cliente.email">Email</span></dt>
-                <dd>
-                    <span>{{cliente.email}}</span>
-                </dd>
-                <dt><span jhiTranslate="gimnasioApp.cliente.direccion">Direccion</span></dt>
-                <dd>
-                    <span>{{cliente.direccion}}</span>
-                </dd>
-                <dt><span jhiTranslate="gimnasioApp.cliente.ciclo">Ciclo</span></dt>
-                <dd>
-                    <span>{{cliente.ciclo}}</span>
-                </dd>
-            </dl>
-            <div class="modal-footer justify-content-center">
+        <dt><span jhiTranslate="gimnasioApp.cliente.telefono">Telefono</span></dt>
+        <dd>
+            <span>{{cliente.telefono}}</span>
+        </dd>
+        <dt><span jhiTranslate="gimnasioApp.cliente.fechaNacimiento">Fecha Nacimiento</span></dt>
+        <dd>
+            <span>{{cliente.fechaNacimiento | date:'longDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="gimnasioApp.cliente.email">Email</span></dt>
+        <dd>
+            <span>{{cliente.email}}</span>
+        </dd>
+        <dt><span jhiTranslate="gimnasioApp.cliente.direccion">Direccion</span></dt>
+        <dd>
+            <span>{{cliente.direccion}}</span>
+        </dd>
+        <dt><span jhiTranslate="gimnasioApp.cliente.ciclo">Ciclo</span></dt>
+        <dd>
+            <span>{{cliente.ciclo}}</span>
+        </dd>
+    </dl>
 
+    <div class="modal-footer justify-content-center">
 
-                <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Atrás</button>
+        <button type="button" class="btn btn-info" (click)="modal.close('Save click')">
+            <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+        </button>
 
-            <button type="button"
-            [routerLink]="['/cliente', cliente.id, 'edit']"
+        <button type="button"
+            (click)="editar(cliente)"
             class="btn btn-primary">
             <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
         </button>

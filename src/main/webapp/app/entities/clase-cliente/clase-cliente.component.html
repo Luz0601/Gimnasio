@@ -25,12 +25,14 @@
                 <td></td>
                 <td>
                     <div *ngIf="claseCliente.clienteId">
+                        <!-- <span>{{claseCliente.clienteId}}</span> -->
                         <a [routerLink]="['../cliente', claseCliente.clienteId , 'view' ]" >{{claseCliente.clienteId}}</a>
                     </div>
                 </td>
                 <td>
                     <div *ngIf="claseCliente.claseId">
-                        <a [routerLink]="['../clase', claseCliente.claseId , 'view' ]" >{{claseCliente.claseId}}</a>
+                        <span>{{claseCliente.claseId}}</span>
+                        <!-- <a [routerLink]="['../clase', claseCliente.claseId , 'view' ]" >{{claseCliente.claseId}}</a> -->
                     </div>
                 </td>
                 <td>

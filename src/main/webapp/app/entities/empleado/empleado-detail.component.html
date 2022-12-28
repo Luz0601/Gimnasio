@@ -1,70 +1,75 @@
 <div class="modal-header justify-content-center">
-    <h2><span jhiTranslate="gimnasioApp.empleado.detail.title" class="title-pages">Empleado</span></h2>
+    <h2>
+        <span jhiTranslate="gimnasioApp.empleado.detail.title" class="title-pages">Empleado</span>
+        <span style="color: red">{{empleado.nombre}} {{empleado.apellido}}</span>
+    </h2>
     <button type="button" class="btn-close" aria-label="Close" (click)="modal.close('Cross click')"><fa-icon [icon]="'times'"></fa-icon></button>
 </div>
 <jhi-alert-error></jhi-alert-error>
-    <div class="modal-body">
+<div class="modal-body">
 
-        <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="gimnasioApp.empleado.dni">Dni</span></dt>
-                <dd>
-                    <span>{{empleado.dni}}</span>
-                </dd>
-                <dt><span jhiTranslate="gimnasioApp.empleado.nombre">Nombre</span></dt>
-                <dd>
-                    <span>{{empleado.nombre}}</span>
-                </dd>
-                <dt><span jhiTranslate="gimnasioApp.empleado.apellido">Apellido</span></dt>
-                <dd>
-                    <span>{{empleado.apellido}}</span>
-                </dd>
-                <dt><span jhiTranslate="gimnasioApp.empleado.telefono">Telefono</span></dt>
-                <dd>
-                    <span>{{empleado.telefono}}</span>
-                </dd>
-                <dt><span jhiTranslate="gimnasioApp.empleado.fechaNacimiento">Fecha Nacimiento</span></dt>
-                <dd>
-                    <span>{{empleado.fechaNacimiento}}</span>
-                </dd>
-                <dt><span jhiTranslate="gimnasioApp.empleado.email">Email</span></dt>
-                <dd>
-                    <span>{{empleado.email}}</span>
-                </dd>
-                <dt><span jhiTranslate="gimnasioApp.empleado.direccion">Direccion</span></dt>
-                <dd>
-                    <span>{{empleado.direccion}}</span>
-                </dd>
-                <dt><span jhiTranslate="gimnasioApp.empleado.diasVacaciones">Dias Vacaciones</span></dt>
-                <dd>
-                    <span>{{empleado.diasVacaciones}}</span>
-                </dd>
-                <dt><span jhiTranslate="gimnasioApp.empleado.especialidad">Especialidad</span></dt>
-                <dd>
-                    <span>{{empleado.especialidad}}</span>
-                </dd>
-                <dt><span jhiTranslate="gimnasioApp.empleado.nomina">Nomina</span></dt>
-                <dd>
-                    <div *ngIf="empleado.nominaId">
-                        <a [routerLink]="['/nomina', empleado.nominaId, 'view']">{{empleado.nominaId}}</a>
-                    </div>
-                </dd>
-                <dt><span jhiTranslate="gimnasioApp.empleado.puesto">Puesto</span></dt>
-                <dd>
-                    <div *ngIf="empleado.puestoId">
-                        <a [routerLink]="['/puesto', empleado.puestoId, 'view']">{{empleado.puestoId}}</a>
-                    </div>
-                </dd>
-            </dl>
-            <div class="modal-footer justify-content-center">
-
-                <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Atrás</button>
-
-            </button>
-
-            <button type="button"
-            [routerLink]="['/empleado', empleado.id, 'edit']"
-            class="btn btn-primary">
-            <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="gimnasioApp.empleado.dni">Dni</span></dt>
+        <dd>
+            <span>{{empleado.dni}}</span>
+        </dd>
+        <dt><span jhiTranslate="gimnasioApp.empleado.nombre">Nombre</span></dt>
+        <dd>
+            <span>{{empleado.nombre}}</span>
+        </dd>
+        <dt><span jhiTranslate="gimnasioApp.empleado.apellido">Apellido</span></dt>
+        <dd>
+            <span>{{empleado.apellido}}</span>
+        </dd>
+        <dt><span jhiTranslate="gimnasioApp.empleado.telefono">Telefono</span></dt>
+        <dd>
+            <span>{{empleado.telefono}}</span>
+        </dd>
+        <dt><span jhiTranslate="gimnasioApp.empleado.fechaNacimiento">Fecha Nacimiento</span></dt>
+        <dd>
+            <span>{{empleado.fechaNacimiento | date:'longDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="gimnasioApp.empleado.email">Email</span></dt>
+        <dd>
+            <span>{{empleado.email}}</span>
+        </dd>
+        <dt><span jhiTranslate="gimnasioApp.empleado.direccion">Direccion</span></dt>
+        <dd>
+            <span>{{empleado.direccion}}</span>
+        </dd>
+        <dt><span jhiTranslate="gimnasioApp.empleado.diasVacaciones">Dias Vacaciones</span></dt>
+        <dd>
+            <span>{{empleado.diasVacaciones}}</span>
+        </dd>
+        <dt><span jhiTranslate="gimnasioApp.empleado.especialidad">Especialidad</span></dt>
+        <dd>
+            <span>{{empleado.especialidad}}</span>
+        </dd>
+        <dt><span jhiTranslate="gimnasioApp.empleado.nomina">Nomina</span></dt>
+        <dd>
+            <div *ngIf="empleado.nominaId">
+                <a (click)="nomina(empleado.nominaId)" >{{empleado.nominaId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="gimnasioApp.empleado.puesto">Puesto</span></dt>
+        <dd>
+            <div *ngIf="empleado.puestoId">
+                <span>{{empleado.puestoNombre}}</span>
+            </div>
+        </dd>
+    </dl>
+    <div class="modal-footer justify-content-center">
+        <button type="button"
+                (click)="modal.close('Save click')"
+                class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
         </button>
+
+        <!-- <button type="button"
+                (click)="editar(empleado)"
+                class="btn btn-primary">
+            <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+        </button> -->
+
     </div>
-        </div>
+</div>

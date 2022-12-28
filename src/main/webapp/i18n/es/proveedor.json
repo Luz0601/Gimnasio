@@ -2,7 +2,7 @@
   "gimnasioApp": {
     "proveedor": {
       "home": {
-        "title": "Proveedors",
+        "title": "Proveedores",
         "createLabel": "Crear nuevo Proveedor",
         "createOrEditLabel": "Crear o editar Proveedor"
       },
@@ -13,7 +13,7 @@
         "question": "¿Seguro que quiere eliminar Proveedor {{ id }}?"
       },
       "detail": {
-        "title": "Proveedor"
+        "title": "Proveedor:"
       },
       "nombre": "Nombre",
       "telefono": "Telefono",

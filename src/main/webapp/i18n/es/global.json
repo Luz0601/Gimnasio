@@ -98,7 +98,7 @@
     "ribbon": {
       "dev": "Development"
     },
-    "item-count": "Monstrando {{first}} - {{second}} de {{total}} artículos."
+    "item-count": "Mostrando {{first}} - {{second}} de {{total}} artículos."
   },
   "entity": {
     "action": {
@@ -110,7 +110,7 @@
       "edit": "Editar",
       "open": "Open",
       "save": "Guardar",
-      "view": "Vista"
+      "view": "Ver"
     },
     "detail": {
       "field": "Campo",

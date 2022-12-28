@@ -6,11 +6,11 @@
             <dl class="row-md jh-entity-details">
                 <dt><span jhiTranslate="gimnasioApp.vacaciones.inicio">Inicio</span></dt>
                 <dd>
-                    <span>{{vacaciones.inicio}}</span>
+                    <span>{{vacaciones.inicio | date:'longDate'}}</span>
                 </dd>
                 <dt><span jhiTranslate="gimnasioApp.vacaciones.fin">Fin</span></dt>
                 <dd>
-                    <span>{{vacaciones.fin}}</span>
+                    <span>{{vacaciones.fin | date:'longDate'}}</span>
                 </dd>
                 <dt><span jhiTranslate="gimnasioApp.vacaciones.empleado">Empleado</span></dt>
                 <dd>
@@ -21,15 +21,15 @@
             </dl>
         <div class="modal-footer justify-content-center">
 
-            <button
-            (click)="modal.close('Close')"
-            class="btn btn-info">
+        <button type="button"
+                (click)="modal.close('Close')"
+                class="btn btn-info">
             <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
         </button>
 
         <button type="button"
-        [routerLink]="['/vacaciones', vacaciones.id, 'edit']"
-        class="btn btn-primary">
+                (click)="editar(vacaciones)"
+                class="btn btn-primary">
         <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
     </button>
 </div>

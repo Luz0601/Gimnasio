@@ -29,9 +29,10 @@ export class IncidenciaUpdateModalComponent implements OnInit {
   constructor(
     protected jhiAlertService: JhiAlertService,
     protected incidenciaService: IncidenciaService,
-    public activeModal: NgbActiveModal,
+    protected activeModal: NgbActiveModal,
     private fb: FormBuilder
   ) {}
+  ngOnInit() {}
 
   clear() {
     this.activeModal.dismiss('cancel');

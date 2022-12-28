@@ -46,10 +46,8 @@ export class InventarioUpdateComponent implements OnInit {
 
   ngOnInit() {
     this.isSaving = false;
-    this.activatedRoute.data.subscribe(({ inventario }) => {
-      this.updateForm(this.inventario);
-      this.inventario = inventario;
-    });
+    this.updateForm(this.inventario);
+
     this.proveedorService
       .query()
       .pipe(

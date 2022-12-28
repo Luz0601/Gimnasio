@@ -3,12 +3,12 @@
     "nomina": {
       "home": {
         "title": "Nominas",
-        "createLabel": "Crear nuevo Nomina",
+        "createLabel": "Crear nueva Nomina",
         "createOrEditLabel": "Crear o editar Nomina"
       },
-      "created": "Un nuevo Nomina ha sido creado con el identificador {{ param }}",
-      "updated": "Un Nomina ha sido actualizado con el identificador {{ param }}",
-      "deleted": "Un Nomina ha sido eliminado con el identificador {{ param }}",
+      "created": "Una nueva Nomina ha sido creada con el identificador {{ param }}",
+      "updated": "Una Nomina ha sido actualizada con el identificador {{ param }}",
+      "deleted": "Una Nomina ha sido eliminada con el identificador {{ param }}",
       "delete": {
         "question": "¿Seguro que quiere eliminar Nomina {{ id }}?"
       },

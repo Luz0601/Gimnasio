@@ -2,22 +2,22 @@
   "gimnasioApp": {
     "incidencia": {
       "home": {
-        "title": "Incidencias",
-        "createLabel": "Create a new Incidencia",
-        "createOrEditLabel": "Create or edit a Incidencia"
+        "title": "Incident",
+        "createLabel": "Create a new Incident",
+        "createOrEditLabel": "Create or edit a Incident"
       },
-      "created": "A new Incidencia is created with identifier {{ param }}",
-      "updated": "A Incidencia is updated with identifier {{ param }}",
-      "deleted": "A Incidencia is deleted with identifier {{ param }}",
+      "created": "A new Incident is created with identifier {{ param }}",
+      "updated": "A Incident is updated with identifier {{ param }}",
+      "deleted": "A Incident is deleted with identifier {{ param }}",
       "delete": {
-        "question": "Are you sure you want to delete Incidencia {{ id }}?"
+        "question": "Are you sure you want to delete Incident {{ id }}?"
       },
       "detail": {
-        "title": "Incidencia"
+        "title": "Incident"
       },
-      "nombre": "Nombre",
-      "descripcion": "Descripcion",
-      "clase": "Clase"
+      "nombre": "Name",
+      "descripcion": "Description",
+      "clase": "Class"
     }
   }
 }

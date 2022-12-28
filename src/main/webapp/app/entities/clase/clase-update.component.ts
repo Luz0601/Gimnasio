@@ -11,6 +11,8 @@ import { ClaseService } from './clase.service';
 import { IEmpleado } from 'app/shared/model/empleado.model';
 import { EmpleadoService } from 'app/entities/empleado';
 import { IIncidencia, Incidencia } from 'app/shared/model/incidencia.model';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { noUndefined } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'jhi-clase-update',
@@ -31,8 +33,7 @@ export class ClaseUpdateComponent implements OnInit {
     nombre: [null, [Validators.required]],
     descripcion: [],
     lugar: [],
-    inicio: [null, [Validators.required]],
-    fin: [null, [Validators.required]],
+    fecha: [null, [Validators.required]],
     incidencias: [],
     monitorId: [null, [Validators.required]],
     incidencia: [],
@@ -50,46 +51,24 @@ export class ClaseUpdateComponent implements OnInit {
     protected claseService: ClaseService,
     protected empleadoService: EmpleadoService,
     protected activatedRoute: ActivatedRoute,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    protected modal: NgbActiveModal
   ) {}
 
   ngOnInit() {
     this.isSaving = false;
-    this.activatedRoute.data.subscribe(({ clase }) => {
-      this.updateForm(clase);
-      this.clase = clase;
-    });
     if (!this.clase) {
       this.clase = new Clase();
-      if (!this.clase.incidencias) {
-        this.clase.incidencias = false;
-      }
     }
+    this.updateForm(this.clase);
+
     this.empleadoService
-      .query({ filter: 'clase-is-null' })
+      .query()
       .pipe(
         filter((mayBeOk: HttpResponse<IEmpleado[]>) => mayBeOk.ok),
         map((response: HttpResponse<IEmpleado[]>) => response.body)
       )
-      .subscribe(
-        (res: IEmpleado[]) => {
-          if (!this.clase.monitorId) {
-            this.monitors = res;
-          } else {
-            this.empleadoService
-              .find(this.clase.monitorId)
-              .pipe(
-                filter((subResMayBeOk: HttpResponse<IEmpleado>) => subResMayBeOk.ok),
-                map((subResponse: HttpResponse<IEmpleado>) => subResponse.body)
-              )
-              .subscribe(
-                (subRes: IEmpleado) => (this.monitors = [subRes].concat(res)),
-                (subRes: HttpErrorResponse) => this.onError(subRes.message)
-              );
-          }
-        },
-        (res: HttpErrorResponse) => this.onError(res.message)
-      );
+      .subscribe((res: IEmpleado[]) => (this.monitors = res), (res: HttpErrorResponse) => this.onError(res.message));
   }
 
   updateForm(clase: IClase) {
@@ -100,14 +79,14 @@ export class ClaseUpdateComponent implements OnInit {
       nombre: clase.nombre,
       descripcion: clase.descripcion,
       lugar: clase.lugar,
-      inicio: clase.inicio,
+      fecha: clase.inicio,
       horaInicio: new FormControl(),
-      fin: clase.fin,
       horaFin: new FormControl(),
       incidencias: clase.incidencias,
       monitorId: clase.monitorId,
       incidencia: clase.incidencia
     });
+
     if (clase.incidencia) {
       this.incidenciaForm.patchValue({
         nombre: clase.incidencia.nombre,
@@ -131,25 +110,21 @@ export class ClaseUpdateComponent implements OnInit {
   }
 
   private createFromForm(): IClase {
+    const fechaI = moment(this.editForm.get(['fecha']).value.toISOString());
+    const fechaF = moment(this.editForm.get(['fecha']).value.toISOString());
+
     const entity = {
       ...new Clase(),
       id: this.editForm.get(['id']).value,
       nombre: this.editForm.get(['nombre']).value,
       descripcion: this.editForm.get(['descripcion']).value,
       lugar: this.editForm.get(['lugar']).value,
-      inicio: this.editForm
-        .get(['inicio'])
-        .value.hours(this.horaInicio.hour)
-        .minutes(this.horaInicio.minute),
-      fin: this.editForm
-        .get(['fin'])
-        .value.hours(this.horaFin.hour)
-        .minutes(this.horaFin.minute),
+      inicio: fechaI.hours(this.horaInicio.hour).minutes(this.horaInicio.minute),
+      fin: fechaF.hours(this.horaFin.hour).minutes(this.horaFin.minute),
       incidencias: this.editForm.get(['incidencias']).value,
       monitorId: this.editForm.get(['monitorId']).value,
       incidencia: this.createIncidenciaFromForm()
     };
-
     return entity;
   }
 
@@ -172,7 +147,7 @@ export class ClaseUpdateComponent implements OnInit {
 
   protected onSaveSuccess() {
     this.isSaving = false;
-    this.previousState();
+    window.location.reload();
   }
 
   protected onSaveError() {

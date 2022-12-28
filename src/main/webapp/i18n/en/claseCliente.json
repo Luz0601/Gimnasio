@@ -2,21 +2,21 @@
   "gimnasioApp": {
     "claseCliente": {
       "home": {
-        "title": "Clase Clientes",
-        "createLabel": "Create a new Clase Cliente",
-        "createOrEditLabel": "Create or edit a Clase Cliente"
+        "title": "Class Clients",
+        "createLabel": "Create a new Class Clients",
+        "createOrEditLabel": "Create or edit a Class Clients"
       },
-      "created": "A new Clase Cliente is created with identifier {{ param }}",
-      "updated": "A Clase Cliente is updated with identifier {{ param }}",
-      "deleted": "A Clase Cliente is deleted with identifier {{ param }}",
+      "created": "A new Class Clients is created with identifier {{ param }}",
+      "updated": "A Class Clients is updated with identifier {{ param }}",
+      "deleted": "A Class Clients is deleted with identifier {{ param }}",
       "delete": {
-        "question": "Are you sure you want to delete Clase Cliente {{ id }}?"
+        "question": "Are you sure you want to delete Class Clients {{ id }}?"
       },
       "detail": {
-        "title": "Clase Cliente"
+        "title": "Class Clients:"
       },
-      "cliente": "Cliente",
-      "clase": "Clase"
+      "cliente": "Clients",
+      "clase": "Class"
     }
   }
 }

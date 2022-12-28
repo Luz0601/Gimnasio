@@ -18,13 +18,7 @@ const ENTITY_STATES = [...proveedorRoute, ...proveedorPopupRoute];
 
 @NgModule({
   imports: [GimnasioSharedModule, RouterModule.forChild(ENTITY_STATES)],
-  declarations: [
-    ProveedorComponent,
-    ProveedorDetailComponent,
-    ProveedorUpdateComponent,
-    ProveedorDeleteDialogComponent,
-    ProveedorDeletePopupComponent
-  ],
+  declarations: [ProveedorComponent, ProveedorUpdateComponent, ProveedorDeleteDialogComponent, ProveedorDeletePopupComponent],
   entryComponents: [ProveedorComponent, ProveedorUpdateComponent, ProveedorDeleteDialogComponent, ProveedorDeletePopupComponent],
   providers: [{ provide: JhiLanguageService, useClass: JhiLanguageService }],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

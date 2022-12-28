@@ -2,30 +2,30 @@
   "gimnasioApp": {
     "empleado": {
       "home": {
-        "title": "Empleados",
-        "createLabel": "Créer un nouveau Empleado",
-        "createOrEditLabel": "Créer ou éditer un Empleado"
+        "title": "Employé",
+        "createLabel": "Créer un nouveau Employé",
+        "createOrEditLabel": "Créer ou éditer un Employé"
       },
-      "created": "Un nouveau Empleado a été créé avec l'identifiant {{ param }}",
-      "updated": "Le Empleado avec l'identifiant {{ param }} a été mis à jour",
-      "deleted": "Le Empleado avec l'identifiant {{ param }} a été supprimé",
+      "created": "Un nouveau Employé a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Employé avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Employé avec l'identifiant {{ param }} a été supprimé",
       "delete": {
-        "question": "Etes-vous certain de vouloir supprimer le Empleado {{ id }} ?"
+        "question": "Etes-vous certain de vouloir supprimer le Employé {{ id }} ?"
       },
       "detail": {
-        "title": "Empleado"
+        "title": "Employé"
       },
       "dni": "Dni",
-      "nombre": "Nombre",
-      "apellido": "Apellido",
-      "telefono": "Telefono",
-      "fechaNacimiento": "Fecha Nacimiento",
+      "nombre": "Nom",
+      "apellido": "Le nom",
+      "telefono": "téléphone",
+      "fechaNacimiento": "Date de naissance",
       "email": "Email",
-      "direccion": "Direccion",
-      "diasVacaciones": "Dias Vacaciones",
-      "especialidad": "Especialidad",
-      "nomina": "Nomina",
-      "puesto": "Puesto"
+      "direccion": "Adresse",
+      "diasVacaciones": "Des vacances",
+      "especialidad": "Spécialité",
+      "nomina": "Paie",
+      "puesto": "Positionner"
     }
   }
 }

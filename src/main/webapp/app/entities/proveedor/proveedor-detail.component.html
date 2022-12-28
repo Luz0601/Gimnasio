@@ -1,34 +1,36 @@
 <div class="modal-header justify-content-center">
-    <h2><span jhiTranslate="gimnasioApp.proveedor.detail.title" class="title-pages">Proveedor</span> {{proveedor.id}}</h2>
-  <button type="button" class="btn-close" aria-label="Close" (click)="modal.close('Cross click')"><fa-icon [icon]="'times'"></fa-icon></button>
+    <h2>
+        <span jhiTranslate="gimnasioApp.proveedor.detail.title" class="title-pages">Proveedor</span>
+        <span style="color: red;">{{proveedor.nombre}}</span>
+    </h2>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.close('Cross click')"><fa-icon [icon]="'times'"></fa-icon></button>
 </div>
-            <jhi-alert-error></jhi-alert-error>
 <div class="modal-body">
-
+    <jhi-alert-error></jhi-alert-error>
     <dl class="row-md jh-entity-details">
         <dt><span jhiTranslate="gimnasioApp.proveedor.nombre">Nombre</span></dt>
-                <dd>
-                    <span>{{proveedor.nombre}}</span>
-                </dd>
-                <dt><span jhiTranslate="gimnasioApp.proveedor.telefono">Telefono</span></dt>
-                <dd>
-                    <span>{{proveedor.telefono}}</span>
-                </dd>
-                <dt><span jhiTranslate="gimnasioApp.proveedor.email">Email</span></dt>
-                <dd>
-                    <span>{{proveedor.email}}</span>
-                </dd>
-            </dl>
-    <div class="modal-footer justify-content-center">
+        <dd>
+            <span>{{proveedor.nombre}}</span>
+        </dd>
+        <dt><span jhiTranslate="gimnasioApp.proveedor.telefono">Telefono</span></dt>
+        <dd>
+            <span>{{proveedor.telefono}}</span>
+        </dd>
+        <dt><span jhiTranslate="gimnasioApp.proveedor.email">Email</span></dt>
+        <dd>
+            <span>{{proveedor.email}}</span>
+        </dd>
+    </dl>
 
+    <div class="modal-footer justify-content-center">
         <button button="button" (click)="modal.close('Close')" class="btn btn-info">
             <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
-          </button>
-
-            <button type="button"
-            [routerLink]="['/proveedor', proveedor.id, 'edit']"
-            class="btn btn-primary">
-            <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
         </button>
+
+        <!-- <button type="button"
+                (click)="editar(proveedor)"
+                class="btn btn-primary">
+            <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+        </button> -->
     </div>
 </div>

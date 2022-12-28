@@ -1,8 +1,12 @@
-<div class="row justify-content-center">
+<div class="modal-header justify-content-center">
+    <h2>
+        <span class="title-pages" jhiTranslate="gimnasioApp.nomina.detail.title">Nomina</span>
+        <span style="color: red;">{{nomina.tipoContrato}}</span>
+    </h2>
+</div>
+<div class="modal-body row justify-content-center">
     <div class="col-8">
         <div *ngIf="nomina">
-            <h2><span jhiTranslate="gimnasioApp.nomina.detail.title">Nomina</span> {{nomina.id}}</h2>
-            <hr>
             <jhi-alert-error></jhi-alert-error>
             <dl class="row-md jh-entity-details">
                 <dt><span jhiTranslate="gimnasioApp.nomina.iban">Iban</span></dt>
@@ -15,17 +19,20 @@
                 </dd>
             </dl>
 
-            <button type="submit"
-                    (click)="previousState()"
-                    class="btn btn-info">
-                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
-            </button>
+            <div class="modal-footer justify-content-center">
+                <button type="button"
+                        (click)="modal.close('Close-nomina')"
+                        class="btn btn-info">
+                    <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+                </button>
 
-            <button type="button"
-                    [routerLink]="['/nomina', nomina.id, 'edit']"
-                    class="btn btn-primary">
-                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
-            </button>
+                <!-- <button type="button"
+                        (click)="editar(nomina)"
+                        class="btn btn-primary">
+                    <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+                </button> -->
+            </div>
+
         </div>
     </div>
 </div>

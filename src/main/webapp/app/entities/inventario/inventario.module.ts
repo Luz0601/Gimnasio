@@ -13,6 +13,7 @@ import {
   inventarioRoute,
   inventarioPopupRoute
 } from './';
+import { ProveedorUpdateComponent } from '../proveedor';
 
 const ENTITY_STATES = [...inventarioRoute, ...inventarioPopupRoute];
 

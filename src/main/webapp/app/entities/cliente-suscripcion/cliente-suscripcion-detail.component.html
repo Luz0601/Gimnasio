@@ -16,13 +16,15 @@
                 <dt><span jhiTranslate="gimnasioApp.clienteSuscripcion.cliente">Cliente</span></dt>
                 <dd>
                     <div *ngIf="clienteSuscripcion.clienteId">
-                        <a [routerLink]="['/cliente', clienteSuscripcion.clienteId, 'view']">{{clienteSuscripcion.clienteId}}</a>
+                        <span>{{clienteSuscripcion.clienteId}}</span>
+                        <!-- <a [routerLink]="['/cliente', clienteSuscripcion.clienteId, 'view']">{{clienteSuscripcion.clienteId}}</a> -->
                     </div>
                 </dd>
                 <dt><span jhiTranslate="gimnasioApp.clienteSuscripcion.suscripcion">Suscripcion</span></dt>
                 <dd>
                     <div *ngIf="clienteSuscripcion.suscripcionId">
-                        <a [routerLink]="['/suscripcion', clienteSuscripcion.suscripcionId, 'view']">{{clienteSuscripcion.suscripcionId}}</a>
+                        <span>{{clienteSuscripcion.suscripcionId}}</span>
+                        <!-- <a [routerLink]="['/suscripcion', clienteSuscripcion.suscripcionId, 'view']">{{clienteSuscripcion.suscripcionId}}</a> -->
                     </div>
                 </dd>
             </dl>

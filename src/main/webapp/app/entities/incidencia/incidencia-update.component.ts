@@ -39,10 +39,7 @@ export class IncidenciaUpdateComponent implements OnInit {
 
   ngOnInit() {
     this.isSaving = false;
-    this.activatedRoute.data.subscribe(({ incidencia }) => {
-      this.updateForm(this.incidencia);
-      this.incidencia = incidencia;
-    });
+    this.updateForm(this.incidencia);
     this.claseService
       .query({ filter: 'incidencia-is-null' })
       .pipe(
@@ -92,7 +89,7 @@ export class IncidenciaUpdateComponent implements OnInit {
 
   protected onSaveSuccess() {
     this.isSaving = false;
-    this.previousState();
+    window.location.reload();
   }
 
   protected onSaveError() {

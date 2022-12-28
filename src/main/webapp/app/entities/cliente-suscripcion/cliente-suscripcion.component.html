@@ -29,12 +29,14 @@
                 <td>{{clienteSuscripcion.metodoPago}}</td>
                 <td>
                     <div *ngIf="clienteSuscripcion.clienteId">
-                        <a [routerLink]="['../cliente', clienteSuscripcion.clienteId , 'view' ]" >{{clienteSuscripcion.clienteId}}</a>
+                        <span>{{clienteSuscripcion.clienteId}}</span>
+                        <!-- <a [routerLink]="['../cliente', clienteSuscripcion.clienteId , 'view' ]" >{{clienteSuscripcion.clienteId}}</a> -->
                     </div>
                 </td>
                 <td>
                     <div *ngIf="clienteSuscripcion.suscripcionId">
-                        <a [routerLink]="['../suscripcion', clienteSuscripcion.suscripcionId , 'view' ]" >{{clienteSuscripcion.suscripcionId}}</a>
+                        <span>{{clienteSuscripcion.suscripcionId}}</span>
+                        <!-- <a [routerLink]="['../suscripcion', clienteSuscripcion.suscripcionId , 'view' ]" >{{clienteSuscripcion.suscripcionId}}</a> -->
                     </div>
                 </td>
                 <td>

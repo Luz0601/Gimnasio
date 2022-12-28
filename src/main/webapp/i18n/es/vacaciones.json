@@ -3,7 +3,7 @@
     "vacaciones": {
       "home": {
         "title": "Vacaciones",
-        "createLabel": "Crear nuevo Vacaciones",
+        "createLabel": "Crear nueva Vacaciones",
         "createOrEditLabel": "Crear o editar Vacaciones"
       },
       "created": "Un nuevo Vacaciones ha sido creado con el identificador {{ param }}",
@@ -13,7 +13,7 @@
         "question": "¿Seguro que quiere eliminar Vacaciones {{ id }}?"
       },
       "detail": {
-        "title": "Vacaciones"
+        "title": "Vacaciones:"
       },
       "inicio": "Inicio",
       "fin": "Fin",

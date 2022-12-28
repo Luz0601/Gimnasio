@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { ICliente } from 'app/shared/model/cliente.model';
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ClienteUpdateComponent } from './cliente-update.component';
 
 @Component({
   selector: 'jhi-cliente-detail',
@@ -11,11 +12,16 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 export class ClienteDetailComponent implements OnInit {
   cliente: ICliente;
 
-  constructor(protected activatedRoute: ActivatedRoute, protected modal: NgbActiveModal) {}
+  constructor(protected activatedRoute: ActivatedRoute, protected modal: NgbActiveModal, protected modalService: NgbModal) {}
 
   ngOnInit() {}
 
   previousState() {
     window.history.back();
+  }
+
+  editar(content) {
+    const modalRef = this.modalService.open(ClienteUpdateComponent, { ariaLabelledBy: 'modal-basic-title' });
+    modalRef.componentInstance.cliente = content;
   }
 }

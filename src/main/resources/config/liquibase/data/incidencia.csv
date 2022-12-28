@@ -1,11 +1,5 @@
-id;nombre;descripcion
-1;Maine PCI SAS;Interactions
-2;Pennsylvania dynamic bandwidth;navigate Oklahoma
-3;Triple-buffered array;Bedfordshire Tools
-4;Arizona hack;Fresh payment synthesize
-5;Versatile seize;asymmetric EXE
-6;web services;Industrial Designer Incredible Fresh Car
-7;Principal Senior;Paraguay
-8;Sleek Tuna magenta;Wells
-9;Naira iterate;Unbranded Plastic Chips Brand Regional
-10;Generic B2B;olive
+id;nombre;descripcion;clase_id
+1;Accidente;Señora de 40 años, llamada Gema se ha hecho un esguince.;1
+2;Rotura del Equipamiento;Se ha roto en la sala 1 el disco de 12kg.;3
+3;Gotera;Gotera en la sala 2 debido a las lluvias.;2
+4;Accidente;Señor de 45 años se ha lesionado al hacer Spinin'.;4
