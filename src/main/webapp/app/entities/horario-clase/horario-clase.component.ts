@@ -49,7 +49,7 @@ export class HorarioClaseComponent implements OnInit, OnDestroy {
         day: this.day
       })
       .subscribe(
-        (res: HttpResponse<IHorarioClase[]>) => this.listaHorarioClase(res.body), //, res.headers),
+        (res: HttpResponse<IHorarioClase[]>) => this.listaHorarioClase(res.body, res.headers),
         (res: HttpErrorResponse) => this.onError(res.message)
       );
   }
@@ -75,8 +75,7 @@ export class HorarioClaseComponent implements OnInit, OnDestroy {
     return item.claseId;
   }
 
-  protected listaHorarioClase(data: IHorarioClase[]) {
-    // , headers: HttpHeaders) {
+  protected listaHorarioClase(data: IHorarioClase[], headers: HttpHeaders) {
     // this.links = this.parseLinks.parse(headers.get('link'));
     // this.totalItems = parseInt(headers.get('X-Total-Count'), 10);
     this.horarioClases = data;

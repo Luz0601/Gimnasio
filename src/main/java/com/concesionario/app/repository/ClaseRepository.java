@@ -21,7 +21,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ClaseRepository extends JpaRepository<Clase, Long> {
 
-    @Query("SELECT c FROM Clase c WHERE c.inicio>:minDate AND c.inicio<:maxDate")
+    @Query("SELECT c FROM Clase c WHERE c.inicio>:minDate AND c.inicio<:maxDate ORDER BY c.inicio")
     Optional<List<Clase>> findAllBetweenDates(@Param("minDate") Timestamp minDate, @Param("maxDate") Timestamp maxDate);
 
 }
