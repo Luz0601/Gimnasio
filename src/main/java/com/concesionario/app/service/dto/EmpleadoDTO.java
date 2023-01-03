@@ -34,6 +34,8 @@ public class EmpleadoDTO implements Serializable {
 
     private Long nominaId;
 
+    private String nominaTipoContrato;
+
     private Long puestoId;
 
     private String puestoNombre;
@@ -124,6 +126,14 @@ public class EmpleadoDTO implements Serializable {
 
     public void setNominaId(Long nominaId) {
         this.nominaId = nominaId;
+    }
+
+    public String getNominaTipoContrato() {
+        return nominaTipoContrato;
+    }
+
+    public void setNominaTipoContrato(String nominaTipoContrato) {
+        this.nominaTipoContrato = nominaTipoContrato;
     }
 
     public Long getPuestoId() {

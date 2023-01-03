@@ -1,13 +1,13 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <div *ngIf="clienteSuscripcion">
-            <h2><span jhiTranslate="gimnasioApp.clienteSuscripcion.detail.title">Cliente Suscripcion</span> {{clienteSuscripcion.id}}</h2>
+            <h2><span jhiTranslate="gimnasioApp.clienteSuscripcion.detail.title">Cliente Suscripcion</span></h2>
             <hr>
             <jhi-alert-error></jhi-alert-error>
             <dl class="row-md jh-entity-details">
                 <dt><span jhiTranslate="gimnasioApp.clienteSuscripcion.ultimoPago">Ultimo Pago</span></dt>
                 <dd>
-                    <span>{{clienteSuscripcion.ultimoPago}}</span>
+                    <span>{{ clienteSuscripcion.ultimoPago | date: "mediumDate" }}</span>
                 </dd>
                 <dt><span jhiTranslate="gimnasioApp.clienteSuscripcion.metodoPago">Metodo Pago</span></dt>
                 <dd>
@@ -16,14 +16,14 @@
                 <dt><span jhiTranslate="gimnasioApp.clienteSuscripcion.cliente">Cliente</span></dt>
                 <dd>
                     <div *ngIf="clienteSuscripcion.clienteId">
-                        <span>{{clienteSuscripcion.clienteId}}</span>
-                        <!-- <a [routerLink]="['/cliente', clienteSuscripcion.clienteId, 'view']">{{clienteSuscripcion.clienteId}}</a> -->
+                        <span>{{clienteSuscripcion.clienteNombre}}</span>
+                        <!-- <a [routerLink]="['/cliente', clienteSuscripcion.clienteId, 'view']">{{clienteSuscripcion.clienteNombre}}</a> -->
                     </div>
                 </dd>
                 <dt><span jhiTranslate="gimnasioApp.clienteSuscripcion.suscripcion">Suscripcion</span></dt>
                 <dd>
                     <div *ngIf="clienteSuscripcion.suscripcionId">
-                        <span>{{clienteSuscripcion.suscripcionId}}</span>
+                        <span>{{clienteSuscripcion.suscripcionPeriodo}}</span>
                         <!-- <a [routerLink]="['/suscripcion', clienteSuscripcion.suscripcionId, 'view']">{{clienteSuscripcion.suscripcionId}}</a> -->
                     </div>
                 </dd>

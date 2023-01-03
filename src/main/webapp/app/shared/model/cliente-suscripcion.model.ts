@@ -1,11 +1,14 @@
 import { Moment } from 'moment';
+import { PeriodoSuscripcion } from './suscripcion.model';
 
 export interface IClienteSuscripcion {
   id?: number;
   ultimoPago?: Moment;
   metodoPago?: string;
   clienteId?: number;
+  clienteNombre?: string;
   suscripcionId?: number;
+  suscripcionPeriodo?: PeriodoSuscripcion;
 }
 
 export class ClienteSuscripcion implements IClienteSuscripcion {
@@ -14,6 +17,8 @@ export class ClienteSuscripcion implements IClienteSuscripcion {
     public ultimoPago?: Moment,
     public metodoPago?: string,
     public clienteId?: number,
-    public suscripcionId?: number
+    public clienteNombre?: string,
+    public suscripcionId?: number,
+    public suscripcionPeriodo?: PeriodoSuscripcion
   ) {}
 }

@@ -27,6 +27,8 @@ public class InventarioDTO implements Serializable {
 
     private Long proveedorId;
 
+    private String proveedorNombre;
+
     public Long getId() {
         return id;
     }
@@ -97,6 +99,14 @@ public class InventarioDTO implements Serializable {
 
     public void setProveedorId(Long proveedorId) {
         this.proveedorId = proveedorId;
+    }
+
+    public String getProveedorNombre() {
+        return proveedorNombre;
+    }
+
+    public void setProveedorNombre(String proveedorNombre) {
+        this.proveedorNombre = proveedorNombre;
     }
 
     @Override

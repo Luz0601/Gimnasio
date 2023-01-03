@@ -14,7 +14,6 @@
         <table class="table table-hover">
             <thead class="thead-dark">
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
-            <th jhiSortBy="id"><span>#</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="nombre"><span jhiTranslate="gimnasioApp.proveedor.nombre">Nombre</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="telefono"><span jhiTranslate="gimnasioApp.proveedor.telefono">Telefono</span>  <fa-icon [icon]="'info-circle'" class="hovertext" data-hover="El teléfono de contacto para llamar"></fa-icon></th>
             <th jhiSortBy="email"><span jhiTranslate="gimnasioApp.proveedor.email">Email</span> <fa-icon [icon]="'sort'"></fa-icon></th>
@@ -23,7 +22,6 @@
             </thead>
             <tbody>
             <tr *ngFor="let proveedor of proveedors ;trackBy: trackId">
-                <td>{{proveedor.id}}</td>
                 <td>{{proveedor.nombre}}</td>
                 <td>{{proveedor.telefono}}</td>
                 <td>{{proveedor.email}}</td>

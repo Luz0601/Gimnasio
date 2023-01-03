@@ -12,6 +12,7 @@ import org.mapstruct.*;
 public interface InventarioMapper extends EntityMapper<InventarioDTO, Inventario> {
 
     @Mapping(source = "proveedor.id", target = "proveedorId")
+    @Mapping(source = "proveedor.nombre", target = "proveedorNombre")
     InventarioDTO toDto(Inventario inventario);
 
     @Mapping(source = "proveedorId", target = "proveedor")

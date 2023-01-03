@@ -25,7 +25,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let horarioClase of horarioClases ;trackBy: trackClaseId">
-                    <td>{{ horarioClase.inicio | date:'shortTime' }}</td>
+                    <td>{{ horarioClase.inicio | date:'shortTime' }} - {{ horarioClase.fin | date:'shortTime' }}</td>
                     <td>{{horarioClase.claseNombre}}<br/>{{horarioClase.numClientes}}</td>
                 </tr>
             </tbody>

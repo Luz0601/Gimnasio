@@ -14,7 +14,6 @@
         <table class="table table-hover">
             <thead class="thead-dark">
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
-            <th jhiSortBy="id"><span>#</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="iban"><span jhiTranslate="gimnasioApp.nomina.iban">Iban</span> <fa-icon [icon]="'info-circle'" class="hovertext" data-hover="La cuenta bancaria del empleado"></fa-icon></th>
             <th jhiSortBy="tipoContrato"><span jhiTranslate="gimnasioApp.nomina.tipoContrato">Tipo Contrato</span> <fa-icon [icon]="'info-circle'" class="hovertext" data-hover="El método del contrado, si es mensual, temporal o prácticas"></fa-icon></th>
             <th></th>
@@ -22,7 +21,6 @@
             </thead>
             <tbody>
             <tr *ngFor="let nomina of nominas ;trackBy: trackId">
-                <td>{{nomina.id}}</td>
                 <td>{{nomina.iban}}</td>
                 <td jhiTranslate="{{'gimnasioApp.TipoNomina.' + nomina.tipoContrato}}">{{nomina.tipoContrato}}</td>
                 <td>

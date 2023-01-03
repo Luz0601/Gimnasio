@@ -31,7 +31,7 @@
     </dd>
     <dt><span jhiTranslate="gimnasioApp.inventario.ultRevision">Ult Revision</span></dt>
     <dd>
-      <span>{{ inventario.ultRevision }}</span>
+      <span>{{ inventario.ultRevision | date: "mediumDate" }}</span>
     </dd>
     <dt><span jhiTranslate="gimnasioApp.inventario.periodoRevision">Periodo Revision</span></dt>
     <dd>
@@ -40,7 +40,7 @@
     <dt><span jhiTranslate="gimnasioApp.inventario.proveedor">Proveedor</span></dt>
     <dd>
       <div *ngIf="inventario.proveedorId">
-        <a [routerLink]="['/proveedor', inventario.proveedorId, 'view']">{{ inventario.proveedorId }}</a>
+        <a (click)="proveedor(inventario.proveedorId)">{{ inventario.proveedorNombre }}</a>
       </div>
     </dd>
   </dl>

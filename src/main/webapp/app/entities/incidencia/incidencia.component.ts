@@ -14,6 +14,8 @@ import { ITEMS_PER_PAGE } from 'app/shared';
 import { IncidenciaService } from './incidencia.service';
 import { IncidenciaUpdateComponent } from './incidencia-update.component';
 import { IncidenciaDetailComponent } from './incidencia-detail.component';
+import { ClaseDetailComponent, ClaseService } from '../clase';
+import { IClase } from 'app/shared/model/clase.model';
 
 @Component({
   selector: 'jhi-incidencia',
@@ -36,6 +38,7 @@ export class IncidenciaComponent implements OnInit, OnDestroy {
 
   constructor(
     protected incidenciaService: IncidenciaService,
+    protected claseService: ClaseService,
     protected parseLinks: JhiParseLinks,
     protected jhiAlertService: JhiAlertService,
     protected accountService: AccountService,
@@ -132,6 +135,16 @@ export class IncidenciaComponent implements OnInit, OnDestroy {
   editar(content) {
     const modalRef = this.modalService.open(IncidenciaUpdateComponent, { ariaLabelledBy: 'modal-basic-title' });
     modalRef.componentInstance.incidencia = content;
+  }
+
+  clase(content) {
+    this.claseService.find(content).subscribe(
+      (res: HttpResponse<IClase>) => {
+        const modalRef = this.modalService.open(ClaseDetailComponent, { ariaLabelledBy: 'modal-basic-title' });
+        modalRef.componentInstance.clase = res.body;
+      },
+      (res: HttpErrorResponse) => this.onError(res.message)
+    );
   }
 
   protected paginateIncidencias(data: IIncidencia[], headers: HttpHeaders) {

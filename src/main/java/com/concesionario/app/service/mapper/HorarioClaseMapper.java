@@ -36,6 +36,7 @@ public interface HorarioClaseMapper extends EntityMapper<HorarioClaseDTO, ClaseC
         horarioClaseDTO.setClaseNombre( clase.getNombre() );
         horarioClaseDTO.setFin( clase.getFin() );
         horarioClaseDTO.setInicio( clase.getInicio() );
+        horarioClaseDTO.setNumClientes( 0 );
         Empleado monitor = entityMonitor( clase );
         if (monitor != null){
             horarioClaseDTO.setMonitorId( monitor.getId() );

@@ -12,7 +12,9 @@ import org.mapstruct.*;
 public interface ClienteSuscripcionMapper extends EntityMapper<ClienteSuscripcionDTO, ClienteSuscripcion> {
 
     @Mapping(source = "cliente.id", target = "clienteId")
+    @Mapping(source = "cliente.nombre", target = "clienteNombre")
     @Mapping(source = "suscripcion.id", target = "suscripcionId")
+    @Mapping(source = "suscripcion.periodo", target = "suscripcionPeriodo")
     ClienteSuscripcionDTO toDto(ClienteSuscripcion clienteSuscripcion);
 
     @Mapping(source = "clienteId", target = "cliente")

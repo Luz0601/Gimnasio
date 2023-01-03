@@ -12,6 +12,7 @@ export interface IEmpleado {
   diasVacaciones?: number;
   especialidad?: string;
   nominaId?: number;
+  nominaTipoContrato?: string;
   puestoId?: number;
   puestoNombre?: string;
 }
@@ -29,6 +30,7 @@ export class Empleado implements IEmpleado {
     public diasVacaciones?: number,
     public especialidad?: string,
     public nominaId?: number,
+    public nominaTipoContrato?: string,
     public puestoId?: number,
     public puestoNombre?: string
   ) {}

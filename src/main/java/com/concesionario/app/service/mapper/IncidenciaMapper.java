@@ -12,6 +12,7 @@ import org.mapstruct.*;
 public interface IncidenciaMapper extends EntityMapper<IncidenciaDTO, Incidencia> {
 
     @Mapping(source = "clase.id", target = "claseId")
+    @Mapping(source = "clase.nombre", target = "claseNombre")
     IncidenciaDTO toDto(Incidencia incidencia);
 
     @Mapping(source = "claseId", target = "clase")

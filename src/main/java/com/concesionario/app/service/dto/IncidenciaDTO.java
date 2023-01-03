@@ -19,6 +19,8 @@ public class IncidenciaDTO implements Serializable {
 
     private Long claseId;
 
+    private String claseNombre;
+
     public Long getId() {
         return id;
     }
@@ -49,6 +51,14 @@ public class IncidenciaDTO implements Serializable {
 
     public void setClaseId(Long claseId) {
         this.claseId = claseId;
+    }
+
+    public String getClaseNombre() {
+        return claseNombre;
+    }
+
+    public void setClaseNombre(String claseNombre) {
+        this.claseNombre = claseNombre;
     }
 
     @Override

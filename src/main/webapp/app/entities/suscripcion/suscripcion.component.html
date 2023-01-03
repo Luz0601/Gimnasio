@@ -14,7 +14,6 @@
         <table class="table table-hover">
             <thead class="thead-dark">
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
-            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="precio"><span jhiTranslate="gimnasioApp.suscripcion.precio">Precio</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="periodo"><span jhiTranslate="gimnasioApp.suscripcion.periodo">Periodo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th></th>
@@ -22,7 +21,6 @@
             </thead>
             <tbody>
             <tr *ngFor="let suscripcion of suscripcions ;trackBy: trackId">
-                <td><a [routerLink]="['/suscripcion', suscripcion.id, 'view' ]">{{suscripcion.id}}</a></td>
                 <td>{{suscripcion.precio}}</td>
                 <td jhiTranslate="{{'gimnasioApp.PeriodoSuscripcion.' + suscripcion.periodo}}">{{suscripcion.periodo}}</td>
                 <td>

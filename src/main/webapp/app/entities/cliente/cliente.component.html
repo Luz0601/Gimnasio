@@ -14,7 +14,6 @@
         <table class="table table-hover">
             <thead class="thead-dark">
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
-            <th jhiSortBy="id"><span>#</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="dni"><span jhiTranslate="gimnasioApp.cliente.dni">Dni</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="nombre"><span jhiTranslate="gimnasioApp.cliente.nombre">Nombre</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="apellido"><span jhiTranslate="gimnasioApp.cliente.apellido">Apellido</span> <fa-icon [icon]="'sort'"></fa-icon></th>
@@ -28,7 +27,6 @@
             </thead>
             <tbody>
             <tr *ngFor="let cliente of clientes ;trackBy: trackId">
-                <td>{{cliente.id}}</td>
                 <td>{{cliente.dni}}</td>
                 <td>{{cliente.nombre}}</td>
                 <td>{{cliente.apellido}}</td>

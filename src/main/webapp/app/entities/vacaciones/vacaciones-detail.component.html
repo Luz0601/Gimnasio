@@ -1,5 +1,8 @@
 <div class="modal-header justify-content-center">
-    <h2><span jhiTranslate="gimnasioApp.vacaciones.detail.title" class="title-pages">Vacaciones</span> {{vacaciones.empleadoId}}</h2>
+    <h2>
+        <span jhiTranslate="gimnasioApp.vacaciones.detail.title" class="title-pages">Vacaciones</span>
+        <span style="color: red;">{{vacaciones.empleadoNombre}}</span>
+    </h2>
 </div>
 <div class="modal-body">
     <jhi-alert-error></jhi-alert-error>
@@ -15,7 +18,8 @@
                 <dt><span jhiTranslate="gimnasioApp.vacaciones.empleado">Empleado</span></dt>
                 <dd>
                     <div *ngIf="vacaciones.empleadoId">
-                        <a [routerLink]="['/empleado', vacaciones.empleadoId, 'view']">{{vacaciones.empleadoId}}</a>
+                        <span>{{vacaciones.empleadoNombre}}</span>
+                        <!-- <a (click)="empleado(vacaciones.empleadoId)">{{vacaciones.empleadoNombre}}</a> -->
                     </div>
                 </dd>
             </dl>

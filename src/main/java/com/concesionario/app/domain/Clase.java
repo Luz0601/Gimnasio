@@ -4,12 +4,13 @@ package com.concesionario.app.domain;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import javax.validation.constraints.*;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
-import java.time.Instant;
 import java.util.Objects;
 
 /**
@@ -48,7 +49,7 @@ public class Clase implements Serializable {
     private Boolean incidencias;
 
     @OneToOne
-    @JoinColumn(unique = true)
+    @JsonIgnoreProperties("Clase")
     private Empleado monitor;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove

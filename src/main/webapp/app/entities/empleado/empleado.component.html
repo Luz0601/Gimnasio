@@ -41,7 +41,7 @@
                 <td>{{empleado.especialidad}}</td>
                 <td>
                     <div *ngIf="empleado.nominaId">
-                        <a (click)="nomina(empleado.nominaId)" >{{empleado.nominaId}}</a>
+                        <a (click)="nomina(empleado.nominaId)" jhiTranslate="{{'gimnasioApp.TipoNomina.' + empleado.nominaTipoContrato}}">{{empleado.nominaTipoContrato}}</a>
                     </div>
                 </td>
                 <td>{{empleado.puestoNombre}}</td>

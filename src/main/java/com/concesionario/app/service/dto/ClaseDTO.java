@@ -33,6 +33,7 @@ public class ClaseDTO implements Serializable {
 
     private Long monitorId;
 
+    private String monitorNombre;
 
     private IncidenciaDTO incidencia;
 
@@ -95,6 +96,14 @@ public class ClaseDTO implements Serializable {
 
     public Long getMonitorId() {
         return monitorId;
+    }
+
+    public String getMonitorNombre() {
+        return monitorNombre;
+    }
+
+    public void setMonitorNombre(String monitorNombre) {
+        this.monitorNombre = monitorNombre;
     }
 
     public void setMonitorId(Long empleadoId) {

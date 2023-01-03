@@ -12,6 +12,7 @@ import org.mapstruct.*;
 public interface VacacionesMapper extends EntityMapper<VacacionesDTO, Vacaciones> {
 
     @Mapping(source = "empleado.id", target = "empleadoId")
+    @Mapping(source = "empleado.nombre", target = "empleadoNombre")
     VacacionesDTO toDto(Vacaciones vacaciones);
 
     @Mapping(source = "empleadoId", target = "empleado")

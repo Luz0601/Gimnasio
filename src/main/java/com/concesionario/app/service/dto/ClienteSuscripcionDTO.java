@@ -1,6 +1,9 @@
 package com.concesionario.app.service.dto;
 import java.time.LocalDate;
 import javax.validation.constraints.*;
+
+import com.concesionario.app.domain.enumeration.PeriodoSuscripcion;
+
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -19,7 +22,11 @@ public class ClienteSuscripcionDTO implements Serializable {
 
     private Long clienteId;
 
+    private String clienteNombre;
+
     private Long suscripcionId;
+
+    private PeriodoSuscripcion suscripcionPeriodo;
 
     public Long getId() {
         return id;
@@ -53,12 +60,28 @@ public class ClienteSuscripcionDTO implements Serializable {
         this.clienteId = clienteId;
     }
 
+    public String getClienteNombre() {
+        return clienteNombre;
+    }
+
+    public void setClienteNombre(String clienteNombre) {
+        this.clienteNombre = clienteNombre;
+    }
+
     public Long getSuscripcionId() {
         return suscripcionId;
     }
 
     public void setSuscripcionId(Long suscripcionId) {
         this.suscripcionId = suscripcionId;
+    }
+
+    public PeriodoSuscripcion getSuscripcionPeriodo() {
+        return suscripcionPeriodo;
+    }
+
+    public void setSuscripcionPeriodo(PeriodoSuscripcion suscripcionPeriodo) {
+        this.suscripcionPeriodo = suscripcionPeriodo;
     }
 
     @Override

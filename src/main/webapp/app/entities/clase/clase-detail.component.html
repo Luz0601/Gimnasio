@@ -29,13 +29,13 @@
                 <dt><span jhiTranslate="gimnasioApp.clase.incidencias">Incidencias</span></dt>
                 <dd>
                     <div *ngIf="clase.incidencias; else elseBlock">
-                        <a jhiTranslate="gimnasioApp.clase.incidenciasTrue" (click)="incidencia(clase.incidencia)" style="color: red; text-decoration: underline;" >Incidencia</a>
+                        <a jhiTranslate="gimnasioApp.clase.incidenciasTrue" (click)="incidencia(clase.incidencia)" style="color: red; text-decoration: underline;" >{{clase.incidencia.nombre}}</a>
                     </div>
                     <ng-template #elseBlock > <span style="color: green;" jhiTranslate="gimnasioApp.clase.incidenciasFalse">Sin Incidencias</span></ng-template>
                 </dd>
                 <dt><span jhiTranslate="gimnasioApp.clase.monitor">Monitor</span></dt>
                 <dd>
-                    <span>{{clase.monitorId}}</span>
+                    <span>{{clase.monitorNombre}}</span>
                 </dd>
             </dl>
 

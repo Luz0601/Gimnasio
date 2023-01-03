@@ -8,7 +8,7 @@
       "405": "El verbo HTTP utilizado no tiene soporte para este URL.",
       "500": "Error interno del servidor."
     },
-    "concurrencyFailure": "Otro usuario ha modificado esta data al mismo tiempo que tú. Tus cambios fueron rechazados.",
+    "concurrencyFailure": "Otro usuario ha modificado este dato al mismo tiempo que tú. Tus cambios fueron rechazados.",
     "validation": "Error de validación en el servidor."
   }
 }

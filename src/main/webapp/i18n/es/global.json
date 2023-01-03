@@ -28,7 +28,7 @@
         "password": "Contraseña",
         "sessions": "Sesiones",
         "login": "Iniciar sesión",
-        "logout": "Cerrar la sesión",
+        "logout": "Cerrar sesión",
         "register": "Crear una cuenta"
       },
       "admin": {
@@ -49,12 +49,12 @@
     "form": {
       "username.label": "Usuario",
       "username.placeholder": "Nombre de usuario",
-      "currentpassword.label": "Current password",
-      "currentpassword.placeholder": "Current password",
+      "currentpassword.label": "Contraseña actual",
+      "currentpassword.placeholder": "Contraseña actual",
       "newpassword.label": "Nueva contraseña",
       "newpassword.placeholder": "Nueva contraseña",
       "confirmpassword.label": "Confirmación de la nueva contraseña",
-      "confirmpassword.placeholder": "Confirmación de la nueva contraseña",
+      "confirmpassword.placeholder": "Confirma la nueva contraseña",
       "email.label": "Correo electrónico",
       "email.placeholder": "Su correo electrónico"
     },
@@ -62,12 +62,12 @@
       "info": {
         "authenticated": {
           "prefix": "Si desea ",
-          "link": "iniciar una sesión",
+          "link": "iniciar sesión",
           "suffix": ", puede intentar con las cuentas predeterminadas:<br/>- Administrator (usuario=\"admin\" y contraseña=\"admin\") <br/>- Usuario (usuario=\"user\" y contraseña=\"user\")."
         },
         "register": {
           "noaccount": "¿No tienes una cuenta todavía?",
-          "link": "Crea una cuenta"
+          "link": "Crear una cuenta"
         }
       },
       "error": {
@@ -76,7 +76,7 @@
       "validate": {
         "newpassword": {
           "required": "Se requiere que ingrese una contraseña.",
-          "minlength": "Se requiere que su contraseña tenga por lo menos 5 caracteres",
+          "minlength": "Se requiere que su contraseña tenga por lo menos 4 caracteres",
           "maxlength": "Su contraseña no puede tener más de 50 caracteres",
           "strength": "Seguridad de la contraseña:"
         },

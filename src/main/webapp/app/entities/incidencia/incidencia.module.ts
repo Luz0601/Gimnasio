@@ -13,13 +13,26 @@ import {
   incidenciaRoute,
   incidenciaPopupRoute
 } from './';
+import { ClaseDetailComponent } from '../clase';
 
 const ENTITY_STATES = [...incidenciaRoute, ...incidenciaPopupRoute];
 
 @NgModule({
   imports: [GimnasioSharedModule, RouterModule.forChild(ENTITY_STATES)],
-  declarations: [IncidenciaComponent, IncidenciaUpdateComponent, IncidenciaDeleteDialogComponent, IncidenciaDeletePopupComponent],
-  entryComponents: [IncidenciaComponent, IncidenciaUpdateComponent, IncidenciaDeleteDialogComponent, IncidenciaDeletePopupComponent],
+  declarations: [
+    IncidenciaComponent,
+    IncidenciaUpdateComponent,
+    IncidenciaDeleteDialogComponent,
+    IncidenciaDeletePopupComponent,
+    ClaseDetailComponent
+  ],
+  entryComponents: [
+    IncidenciaComponent,
+    IncidenciaUpdateComponent,
+    IncidenciaDeleteDialogComponent,
+    IncidenciaDeletePopupComponent,
+    ClaseDetailComponent
+  ],
   providers: [{ provide: JhiLanguageService, useClass: JhiLanguageService }],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

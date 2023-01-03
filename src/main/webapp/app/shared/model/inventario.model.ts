@@ -10,6 +10,7 @@ export interface IInventario {
   ultRevision?: Moment;
   periodoRevision?: number;
   proveedorId?: number;
+  proveedorNombre?: string;
 }
 
 export class Inventario implements IInventario {
@@ -22,7 +23,8 @@ export class Inventario implements IInventario {
     public estado?: boolean,
     public ultRevision?: Moment,
     public periodoRevision?: number,
-    public proveedorId?: number
+    public proveedorId?: number,
+    public proveedorNombre?: string
   ) {
     this.estado = this.estado || false;
   }

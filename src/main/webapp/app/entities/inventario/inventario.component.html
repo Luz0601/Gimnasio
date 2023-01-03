@@ -14,7 +14,6 @@
         <table class="table table-hover">
             <thead class="thead-dark">
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
-            <th jhiSortBy="id"><span>#</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="ref"><span jhiTranslate="gimnasioApp.inventario.ref">Ref</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="nombre"><span jhiTranslate="gimnasioApp.inventario.nombre">Nombre</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="descripcion"><span jhiTranslate="gimnasioApp.inventario.descripcion">Descripcion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
@@ -28,7 +27,6 @@
             </thead>
             <tbody>
             <tr *ngFor="let inventario of inventarios ;trackBy: trackId">
-                <td>{{inventario.id}}</td>
                 <td>{{inventario.ref}}</td>
                 <td>{{inventario.nombre}}</td>
                 <td>{{inventario.descripcion}}</td>
@@ -43,7 +41,7 @@
                 <td>{{inventario.periodoRevision}}</td>
                 <td>
                     <div *ngIf="inventario.proveedorId">
-                        <a (click)="proveedor(inventario.proveedorId)">{{inventario.proveedorId}}</a>
+                        <a (click)="proveedor(inventario.proveedorId)">{{inventario.proveedorNombre}}</a>
                     </div>
                 </td>
                 <td>

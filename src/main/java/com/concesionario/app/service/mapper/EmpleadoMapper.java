@@ -11,7 +11,9 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {NominaMapper.class, PuestoMapper.class})
 public interface EmpleadoMapper extends EntityMapper<EmpleadoDTO, Empleado> {
 
+    @Named("toDto")
     @Mapping(source = "nomina.id", target = "nominaId")
+    @Mapping(source = "nomina.tipoContrato", target = "nominaTipoContrato")
     @Mapping(source = "puesto.id", target = "puestoId")
     @Mapping(source = "puesto.nombre", target = "puestoNombre")
     EmpleadoDTO toDto(Empleado empleado);

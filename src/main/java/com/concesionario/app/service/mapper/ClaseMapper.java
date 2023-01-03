@@ -12,6 +12,7 @@ import org.mapstruct.*;
 public interface ClaseMapper extends EntityMapper<ClaseDTO, Clase> {
 
     @Mapping(source = "monitor.id", target = "monitorId")
+    @Mapping(source = "monitor.nombre", target = "monitorNombre")
     ClaseDTO toDto(Clase clase);
 
     @Mapping(source = "monitorId", target = "monitor")

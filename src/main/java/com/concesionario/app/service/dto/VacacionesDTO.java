@@ -17,6 +17,8 @@ public class VacacionesDTO implements Serializable {
 
     private Long empleadoId;
 
+    private String empleadoNombre;
+
     public Long getId() {
         return id;
     }
@@ -47,6 +49,14 @@ public class VacacionesDTO implements Serializable {
 
     public void setEmpleadoId(Long empleadoId) {
         this.empleadoId = empleadoId;
+    }
+
+    public String getEmpleadoNombre() {
+        return empleadoNombre;
+    }
+
+    public void setEmpleadoNombre(String empleadoNombre) {
+        this.empleadoNombre = empleadoNombre;
     }
 
     @Override

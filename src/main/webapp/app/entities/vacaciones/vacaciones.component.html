@@ -1,6 +1,6 @@
 <div>
     <h2 id="page-heading">
-        <span jhiTranslate="gimnasioApp.vacaciones.home.title" class="pages-titles">Vacaciones</span>
+        <span jhiTranslate="gimnasioApp.vacaciones.home.title" class="title-pages">Vacaciones</span>
         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-vacaciones" (click)="editar(vacaciones)">
             <fa-icon [icon]="'plus'"></fa-icon>
             <span  jhiTranslate="gimnasioApp.vacaciones.home.createLabel">
@@ -16,17 +16,17 @@
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
             <th jhiSortBy="inicio"><span jhiTranslate="gimnasioApp.vacaciones.inicio">Inicio</span> <fa-icon [icon]="'info-circle'" class="hovertext" data-hover="La fecha de inicio de las vacaciones"></fa-icon></th>
             <th jhiSortBy="fin"><span jhiTranslate="gimnasioApp.vacaciones.fin">Fin</span> <fa-icon [icon]="'info-circle'" class="hovertext" data-hover="Fecha fin de las vacaciones"></fa-icon></th>
-            <th jhiSortBy="empleadoId"><span jhiTranslate="gimnasioApp.vacaciones.empleado">Empleado</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="empleadoNombre"><span jhiTranslate="gimnasioApp.vacaciones.empleado">Empleado</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th></th>
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let vacaciones of vacaciones ;trackBy: trackId">
-                <td>{{vacaciones.inicio | date:'mediumDate'}}</td>
-                <td>{{vacaciones.fin | date:'mediumDate'}}</td>
+            <tr *ngFor="let vacacion of vacaciones ;trackBy: trackId">
+                <td>{{vacacion.inicio | date:'mediumDate'}}</td>
+                <td>{{vacacion.fin | date:'mediumDate'}}</td>
                 <td>
-                    <div *ngIf="vacaciones.empleadoId">
-                        <a (click)="empleado(vacaciones.empleadoId)" >{{vacaciones.empleadoId}}</a>
+                    <div *ngIf="vacacion.empleadoId">
+                        <a (click)="empleado(vacacion.empleadoId)" >{{vacacion.empleadoNombre}}</a>
                     </div>
                 </td>
                 <td>
@@ -35,18 +35,18 @@
                                 <fa-icon [icon]="'ellipsis-v'"></fa-icon>
                             </button>
                             <div class="dropdown-menu" ngbDropdownMenu>
-                                <button (click)="open(vacaciones)"
+                                <button (click)="open(vacacion)"
                                         class="dropdown-item">
                                     <fa-icon [icon]="'eye'"></fa-icon>
                                     <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
                                 </button>
-                                <button (click)="editar(vacaciones)"
+                                <button (click)="editar(vacacion)"
                                         class="dropdown-item">
                                     <fa-icon [icon]="'pencil-alt'"></fa-icon>
                                     <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
                                 </button>
                                 <button type="submit"
-                                        [routerLink]="['/', 'vacaciones', { outlets: { popup: vacaciones.id + '/delete'} }]"
+                                        [routerLink]="['/', 'vacaciones', { outlets: { popup: vacacion.id + '/delete'} }]"
                                         replaceUrl="true"
                                         queryParamsHandling="merge"
                                         class="dropdown-item">

@@ -14,7 +14,6 @@
         <table class="table table-hover">
             <thead class="thead-dark">
                 <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
-                <th jhiSortBy="id"><span>#</span> <fa-icon [icon]="'sort'"></fa-icon></th>
                 <th jhiSortBy="nombre"><span jhiTranslate="gimnasioApp.clase.nombre">Nombre</span> <fa-icon [icon]="'sort'"></fa-icon></th>
                 <th jhiSortBy="descripcion"><span jhiTranslate="gimnasioApp.clase.descripcion">Descripcion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
                 <th jhiSortBy="lugar"><span jhiTranslate="gimnasioApp.clase.lugar">Lugar</span> <fa-icon [icon]="'sort'"></fa-icon></th>
@@ -27,7 +26,6 @@
             </thead>
             <tbody>
                 <tr *ngFor="let clase of clases ;trackBy: trackId">
-                    <td>{{clase.id}}</td>
                     <td>{{clase.nombre}}</td>
                     <td class="ellipsis">{{clase.descripcion}}</td>
                     <td>{{clase.lugar}}</td>
@@ -41,7 +39,7 @@
                     </td>
                     <td>
                         <div *ngIf="clase.monitorId">
-                            <a (click)="monitor(clase.monitorId)" >{{clase.monitorId}}</a>
+                            <a (click)="monitor(clase.monitorId)" >{{clase.monitorNombre}}</a>
                         </div>
                     </td>
                     <td>

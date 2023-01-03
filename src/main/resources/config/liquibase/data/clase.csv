@@ -1,8 +1,8 @@
 id;nombre;descripcion;lugar;inicio;fin;incidencias;monitor_id
 1;Body Pump;BodyPUMP es a clase original con barra y discos que fortalece y tonifica todo el cuerpo.;Sala 1;2022-12-20T08:30:00;2022-12-02T09:30:00;true;1
 2;Spinin' Free;Clases de entrenamiento cardiovascular intenso, pero de bajo impacto.;Sala 2;2022-12-20T08:30:00;2022-12-20T09:30:00;true;2
-3;Ritmos Latinos;Ritmos Latinos;Sala 3;2022-12-20T08:30:00;2022-12-20T09:30:00;true;3
-4;Yoga;Yoga;Sala 1;2022-12-20T09:30:00;2022-12-20T10:45:00;true;4
+3;Ritmos Latinos;Ritmos Latinos;Sala 3;2023-01-20T08:30:00;2023-01-20T09:30:00;true;3
+4;Yoga;Yoga;Sala 1;2023-01-20T09:30:00;2023-01-20T10:45:00;true;4
 5;Zumba;Zumba es un movimiento o disciplina fitness de origen colombiano, enfocado por una parte a mantener el cuerpo saludable y por otra a desarollar el cuerpo;Sala 2;2022-12-20T09:30:00;2022-12-20T10:30:01;false;5
 6;Body Pump;BodyPUMP es a clase original con barra y discos que fortalece y tonifica todo el cuerpo.;Sala 3;2022-12-20T09:30:00;2022-12-20T10:30:01;false;6
-7;Yoga;Yoga;Sala 3;2022-12-20T10:30:00;2022-12-20T12:10:20;false;7
+7;Yoga;Yoga;Sala 3;2023-01-20T10:30:00;2023-01-20T12:10:20;false;7

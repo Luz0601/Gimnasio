@@ -83,12 +83,18 @@ public class HorarioClaseServiceImpl implements HorarioClaseService {
         // }
 
         Optional<List<Clase>> clases = claseService.findAllBetweenDates(Timestamp.valueOf(minDate), Timestamp.valueOf(maxDate));
-        Optional<List<ClaseCliente>> claseClientes = claseClienteService.findAllClientesFromClases(clases);
 
-        List<HorarioClaseDTO> horarioClases = clases.map(horarioClaseMapper::toHorarioClaseDTO).get();
-        horarioClases = horarioClaseMapper.toHorarioClaseclientesDTO(horarioClases, claseClientes.get());
+        if (clases.isPresent()){
+            Optional<List<ClaseCliente>> claseClientes = claseClienteService.findAllClientesFromClases(clases);
 
-        return horarioClases;
+            List<HorarioClaseDTO> horarioClases = clases.map(horarioClaseMapper::toHorarioClaseDTO).get();
+            if (claseClientes.isPresent()){
+                horarioClases = horarioClaseMapper.toHorarioClaseclientesDTO(horarioClases, claseClientes.get());
+            }
+            return horarioClases;
+        }
+
+        return null;
     }
 
 }

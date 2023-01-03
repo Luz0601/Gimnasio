@@ -14,7 +14,6 @@
         <table class="table table-hover">
             <thead class="thead-dark">
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
-            <th jhiSortBy="id"><span>#</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="ultimoPago"><span jhiTranslate="gimnasioApp.clienteSuscripcion.ultimoPago">Ultimo Pago</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="metodoPago"><span jhiTranslate="gimnasioApp.clienteSuscripcion.metodoPago">Metodo Pago</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="clienteId"><span jhiTranslate="gimnasioApp.clienteSuscripcion.cliente">Cliente</span> <fa-icon [icon]="'info-circle'" class="hovertext" data-hover="Información del cliente"></fa-icon></th>
@@ -24,18 +23,17 @@
             </thead>
             <tbody>
             <tr *ngFor="let clienteSuscripcion of clienteSuscripcions ;trackBy: trackId">
-                <td><a [routerLink]="['/cliente-suscripcion', clienteSuscripcion.id, 'view' ]">{{clienteSuscripcion.id}}</a></td>
                 <td>{{clienteSuscripcion.ultimoPago | date:'mediumDate'}}</td>
                 <td>{{clienteSuscripcion.metodoPago}}</td>
                 <td>
                     <div *ngIf="clienteSuscripcion.clienteId">
-                        <span>{{clienteSuscripcion.clienteId}}</span>
+                        <span>{{clienteSuscripcion.clienteNombre}}</span>
                         <!-- <a [routerLink]="['../cliente', clienteSuscripcion.clienteId , 'view' ]" >{{clienteSuscripcion.clienteId}}</a> -->
                     </div>
                 </td>
                 <td>
                     <div *ngIf="clienteSuscripcion.suscripcionId">
-                        <span>{{clienteSuscripcion.suscripcionId}}</span>
+                        <span>{{clienteSuscripcion.suscripcionPeriodo}}</span>
                         <!-- <a [routerLink]="['../suscripcion', clienteSuscripcion.suscripcionId , 'view' ]" >{{clienteSuscripcion.suscripcionId}}</a> -->
                     </div>
                 </td>
@@ -45,12 +43,14 @@
                                 <fa-icon [icon]="'ellipsis-v'"></fa-icon>
                             </button>
                             <div class="dropdown-menu" ngbDropdownMenu>
-                                <button
+                                <button type="button"
+                                        [routerLink]="['/cliente-suscripcion', clienteSuscripcion.id, 'view']"
                                         class="dropdown-item">
                                     <fa-icon [icon]="'eye'"></fa-icon>
                                     <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
                                 </button>
-                                <button
+                                <button type="button"
+                                        [routerLink]="['/cliente-suscripcion', clienteSuscripcion.id, 'edit']"
                                         class="dropdown-item">
                                     <fa-icon [icon]="'pencil-alt'"></fa-icon>
                                     <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>

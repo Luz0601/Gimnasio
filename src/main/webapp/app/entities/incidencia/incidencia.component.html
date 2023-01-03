@@ -16,7 +16,7 @@
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
             <th jhiSortBy="nombre"><span jhiTranslate="gimnasioApp.incidencia.nombre">Nombre</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="descripcion"><span jhiTranslate="gimnasioApp.incidencia.descripcion">Descripcion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="claseId"><span jhiTranslate="gimnasioApp.incidencia.clase">Clase</span> <fa-icon [icon]="'info-circle'" class="hovertext" data-hover="Clase Id"></fa-icon></th>
+            <th jhiSortBy="claseId"><span jhiTranslate="gimnasioApp.incidencia.clase">Clase</span></th>
             <th></th>
             </tr>
             </thead>
@@ -26,8 +26,7 @@
                 <td>{{incidencia.descripcion}}</td>
                 <td>
                     <div *ngIf="incidencia.claseId">
-                        <span>{{incidencia.claseId}}</span>
-                        <!-- <a [routerLink]="['../clase', incidencia.claseId , 'view' ]" >{{incidencia.claseId}}</a> -->
+                        <a (click)="clase(incidencia.claseId)" >{{incidencia.claseNombre}}</a>
                     </div>
                 </td>
                 <td>

@@ -3,12 +3,12 @@
     "clase": {
       "home": {
         "title": "Clases",
-        "createLabel": "Crear nuevo Clase",
+        "createLabel": "Crear nueva Clase",
         "createOrEditLabel": "Crear o editar Clase"
       },
-      "created": "Un nuevo Clase ha sido creado con el identificador {{ param }}",
-      "updated": "Un Clase ha sido actualizado con el identificador {{ param }}",
-      "deleted": "Un Clase ha sido eliminado con el identificador {{ param }}",
+      "created": "Una nueva Clase ha sido creado con el identificador {{ param }}",
+      "updated": "Una Clase ha sido actualizada con el identificador {{ param }}",
+      "deleted": "Una Clase ha sido eliminada con el identificador {{ param }}",
       "delete": {
         "question": "¿Seguro que quiere eliminar Clase {{ id }}?"
       },
